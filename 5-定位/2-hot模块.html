@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hot 模块</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 233px;
+            height: 300px;
+            border: 1px solid grey;
+            box-shadow: 1px 1px 2px 1px gold;
+            margin-top: 20px;
+            margin-left: 20px;
+            position: relative;
+        }
+
+        .box h3 {
+            font-weight: 400;
+            font-size: 14px;
+            text-align: left;
+            width: 180px;
+            margin: 20px auto;
+        }
+
+        .info {
+            color: #666;
+            font-size: 14px;
+            width: 180px;
+            margin: 20px auto;
+        }
+
+        .info span {
+            color: rgb(255, 98, 0)
+        }
+
+        .box .hot {
+            position: absolute;
+            top: 4px; /* position里面，不要写 margin-top！ 只写 top */
+            right: -4px; /* position里面，不要写 margin-right！ 只写 right */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="img/hot.png" alt="" class="hot">
+        <img src="img/pic.png" alt="">
+        <h3>Think PHP 5.0 博客系统实战项目演练</h3>
+        <div class="info"><span>高级</span> · 1125人在线学习</div>
+    </div>
+</body>
+</html>
