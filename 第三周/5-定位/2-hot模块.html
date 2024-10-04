@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hot 模块</title>
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -34,6 +34,7 @@
             font-size: 14px;
             width: 180px;
             margin: 20px auto;
+            position: relative;
         }
 
         .info span {
@@ -42,8 +43,10 @@
 
         .box .hot {
             position: absolute;
-            top: 4px; /* position里面，不要写 margin-top！ 只写 top */
-            right: -4px; /* position里面，不要写 margin-right！ 只写 right */
+            top: 4px;
+            /* position里面，不要写 margin-top！ 只写 top */
+            right: -4px;
+            /* position里面，不要写 margin-right！ 只写 right */
         }
     </style>
 </head>
@@ -53,7 +56,12 @@
         <img src="img/hot.png" alt="" class="hot">
         <img src="img/pic.png" alt="">
         <h3>Think PHP 5.0 博客系统实战项目演练</h3>
-        <div class="info"><span>高级</span> · 1125人在线学习</div>
+        <div class="info" >
+            <span>高级</span>
+            <span style="position: absolute;font-size: 30px;top: -15px;">·</span>
+            <span style="padding-left: 20px">1125人在线学习</span>
+        </div>
     </div>
 </body>
+
 </html>

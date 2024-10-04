@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,11 +27,21 @@
             margin-right: 14px;
         }
 
-        .box ul li:nth-of-type(4) {
+        /* .box ul li:nth-of-type(4) {
+            margin-right: 0;
+        } */
+
+        /* ul li:last-child {
+            margin-right: 0;
+         } */
+
+        /* 回头看看  后代选择器*/
+        ul li:nth-child(4) {
             margin-right: 0;
         }
     </style>
 </head>
+
 <body>
     <div class="box">
         <ul>
@@ -41,4 +52,5 @@
         </ul>
     </div>
 </body>
+
 </html>
