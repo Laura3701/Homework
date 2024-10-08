@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-精灵图</title>
+    <style>
+        span {
+            display: inline-block;
+        }
+
+        /* 类名不能用阿拉伯数字吗 */
+        .one { 
+            width: 105px;
+            height: 109px;
+            /* 图片以左上角为起始点，往上往左 是负值, 这样的话， X Y 值总是负数吗？*/
+            background: url(img/abcd.jpg) no-repeat -4px -277px;
+        }
+
+        .two, .five { /* 并集选择器！ */
+            width: 108px;
+            height: 119px;
+            background: url(img/abcd.jpg) no-repeat;
+        }
+
+        .three {
+            width: 128px;
+            height: 119px;
+            background: url(img/abcd.jpg) no-repeat -469px -413px;
+        }
+
+        .four {
+            width: 116px;
+            height: 119px;
+            background: url(img/abcd.jpg) no-repeat -134px -413px;
+        }
+    </style>
+</head>
+<body>
+    <span class="one">L</span>
+    <span class="two">A</span>
+    <span class="three">U</span>
+    <span class="four">R</span>
+    <span class="five">A</span>
+</body>
+</html>

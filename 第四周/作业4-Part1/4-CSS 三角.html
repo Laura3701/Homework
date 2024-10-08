@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-CSS三角</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 {
+            width: 0;
+            height: 0;
+            border-top: 10px solid black;
+            border-right: 10px solid red;
+            border-bottom: 10px solid blue;
+            border-left: 10px solid green;
+        }
+
+        .box2 {
+            width: 0;
+            height: 0;
+            border: 10px solid transparent; /* 这里为什么必须要写其他三条边？ */
+            border-top: 10px solid green; /* 这里可以只写颜色：border-top-color:pink; */
+            /* 修改边框粗细 可以改变三角形大小 */
+        }
+
+        .jd {
+            width: 120px;
+            height: 249px;
+            background-color: pink;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .jd span {
+            position: absolute;
+            width: 0;
+            height: 0;
+            line-height: 0; /* 为了照顾兼容性 */
+            font-size: 0; /* 为了照顾兼容性 */
+            border: 5px solid transparent;
+            border-bottom-color: pink; /* 先设置成红色 不然看不到！ */
+            right: 15px; /* position 里面 位移的写法 直接用 right top! */
+            top: -10px; /* 当 border是 5px 时 上下加起来总共 10px */
+        }
+
+        .xm {
+            width: 249px;
+            height: 120px;
+            background-color: aquamarine;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .xm span {
+            position: absolute;
+            width: 0;
+            height: 0;
+            line-height: 0; /* 为了照顾兼容性 */
+            font-size: 0; /* 为了照顾兼容性 */
+            border: 5px solid transparent;
+            border-left-color: aquamarine; /* 先设置成红色 不然看不到！ */
+            right: -10px; /* 当 border是 5px 时 左右加起来总共 10px */
+            top: 15px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="jd">
+        <span></span>
+    </div>
+    <div class="xm">
+        <span></span>
+    </div>
+</body>
+</html>
