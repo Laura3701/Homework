@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-CSS 三角</title>
+    <style>
+        .box1 {
+            /* 这里设置宽高为 0，是因为盒子的边框是贴着盒子往外延展的，只有宽高为零，四条边框才能贴到一起  */
+            /* 但是为什么宽度是 0  高度就不用设置了？ */
+            /* 边框改成 0 和透明色有什么区别？ */
+            width: 0;
+            height: 0;
+            /* border-top: 100px solid transparent; */
+            /* 为什么去掉了一部分红色 */
+            /* border-left: 0 solid blue;  */
+            /* 为什么去掉了一部分其他的？ */
+            /* border-bottom: 0 solid green; */
+            /* border-right: 50px solid yellow; */
+
+            /* 1. 只保留右边框有颜色 */
+            border-color: transparent yellow transparent transparent;
+            /* 2. 样式都是solid */
+            border-style: solid;
+            /* 3. 上边框宽度大， 右边框宽度小，其余边框为 0 */
+            border-width: 100px 50px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>
+<!-- 这整个代码基本上是抄视频里的，完全没思路 -->

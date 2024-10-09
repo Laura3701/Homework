@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li {
+            position: relative; 
+            /* 这里的相对定位 搭配方案二 */
+            /* 如果设置为绝对定位，所有盒子会叠在一起，因为不保留位置 */
+            width: 50px;
+            height: 100px;
+            border: 1px solid black;
+            float: left;
+            list-style: none;
+            margin-left: -1px; /* 所有边框往左边位移1像素, 这里写 right 也可以耶~*/
+        }
+
+        /* 方案一 */
+        ul li:hover {
+            border-color: blue;
+             position: relative; 
+            /* 相对定位的图层也是高于普通文档流的！ */
+
+
+            /* position: absolute; 如果绝对定位，被选中的盒子会移动到文档流一开始的位置 */
+            /* 一开始不理解，为什么不能设置ul相对定位，li绝对定位，以为这样也可以固定位置 */
+            /* 但后来想明白，li就算在父盒子中绝对定位，没有设置top left值时，还是会堆叠，因为不占用位置！ */
+            /* 子绝父相，如果想要固定子盒子的位置，是需要设置top left值的！ */
+        }
+
+         /* 方案二 */
+         ul li:hover {
+            border-color: green;
+            z-index: 1; 
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+</html>
