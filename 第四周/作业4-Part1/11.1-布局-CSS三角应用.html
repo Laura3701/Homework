@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11.1-CSS三角应用</title>
+    <style>
+        .price {
+            width: 160px;
+            height: 24px;
+            border: 1px solid red;
+            margin: 0 auto;
+            line-height: 24px;
+        }
+
+        .discount {
+            /* 给左边盒子加上浮动，右边的盒子会自动到右边 */
+            float: left;
+            width: 90px;
+            height: 100%;
+            background-color: red;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+            position: relative;
+            /* 这个完全没想到，没有思路, 怎么会想到用 margin?*/
+            margin-right: 8px;
+        }
+
+        .origin {
+            font-size: 12px;
+            color: grey;
+            text-decoration: line-through;
+        }
+
+        .discount i {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-color: transparent #fff transparent transparent;
+            border-style: solid;
+            /* 上边框：24px 因为三角的高度和父盒子一样高 */
+            border-width: 24px 10px 0 0;
+
+            /* 先设置子绝父相 再设置位移 */
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="price">
+        <span class="discount">
+            ￥1650
+            <i></i>
+        </span>
+        <span class="origin">￥5650</span>
+    </div>
+</body>
+</html>

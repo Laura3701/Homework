@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12-CSS3属性选择器</title>
+    <style>
+        .box1 input[value] {
+            color: pink;
+        }
+
+        /* text 有没有引号都可以 */
+        .box2 input[type=text] {
+            color: red;
+        }
+
+        /* ^ 代表以什么开头 */
+        .box3 span[class^=icon]{
+            color: blue;
+        }
+
+        /* $ 代表以什么结尾 */
+        .box4 span[class$=data] {
+            color: green;
+        }
+
+        /* * 代表含有这个值，任意位置都可以 */
+        .box5 span[class*=number] {
+            color: aqua;
+        }
+        /* 类选择器 属性选择器 伪类选择器 权重都是10 */
+        /* 【】中括号是属性选择器 */
+        /* 这些权重怎么算？ */
+    </style>
+<body>
+    <div class="box1">
+        <input type="text" value="请输入用户名">
+        <input type="text">
+    </div>
+
+    <div class="box2">
+        <input type="text">
+        <input type="password">
+    </div>
+
+    <div class="box3">
+        <span class="icon1">1</span>
+        <span class="icon2">2</span>
+        <span class="icon3">3</span>
+        <span class="icon4">4</span>
+    </div>
+
+    <div class="box4">
+        <span class="icon1-data">1</span>
+        <span class="icon2-data">2</span>
+        <span class="icon3-data">3</span>
+        <span class="icon4">4</span>
+    </div>
+
+    <div class="box5">
+        <span class="icon-data-">1</span>
+        <span class="icon-number-data">2</span>
+        <span class="icon-number-data">3</span>
+        <span class="icon-data-">4</span>
+    </div>
+</body>
+</html>
