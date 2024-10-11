@@ -1,0 +1,11 @@
+p {
+    color: red !important;
+}
+
+.class-selector {
+    color: blue;
+}
+
+#ID-selector {
+    color: blueviolet;
+}

@@ -1,0 +1,17 @@
+.box {
+   border-top: 200px solid transparent;
+   border-right: 200px solid transparent;
+   border-bottom: 200px solid blue;
+   border-left: 200px solid transparent;
+
+   /* 上右下左更常用 */
+   
+   width: 0;
+   height: 0;
+   margin: auto;
+}
+
+.box:hover {
+    transform: scale(2.5) rotate(-30deg);
+    /* transition: 动画; */
+}

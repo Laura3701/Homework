@@ -1,0 +1,16 @@
+.father {
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    position: relative;
+}
+
+.son {
+    height: 20px;
+    width: 20px;
+    background-color:blueviolet;
+    /* position属性不清楚 */
+    position:absolute; 
+    margin-top: 40px;
+    margin-left: 40px;
+}

@@ -1,0 +1,10 @@
+div {
+    height: 200px;
+    width: 100px;
+    text-align: center;
+    border-top: dotted;
+    border-right: dashed;
+    border-bottom: solid;
+    border-left: none;
+    margin-left: 100px;
+}

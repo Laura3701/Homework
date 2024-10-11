@@ -1,0 +1,36 @@
+.ddgl {
+    font-size: 20px;
+    /* 这里不知道要不要写 position: relative;  */
+}
+
+.ddgl::before {
+    /* 这里不知道要不要写 position: absolute;   */
+    display: inline-block;/* 为什么必须写这行代码;*/
+    content: '';
+    background-color: orange;
+    height: 20px;
+    width: 10px;
+    margin-right: 10px;
+    vertical-align: -2px;/* 伪元素跟文本没有完全对齐时，用这行代码调整*/
+}
+
+.liDdgl {
+    list-style-type: none;
+    font-size: 20px;
+}
+
+.liDdgl::before {
+    display: inline-block;
+    content: '';
+    background-color: orange;
+    height: 20px;
+    width: 10px;
+    margin-right: 10px;
+    vertical-align: -2px;
+}
+
+.autoPlay {
+    width: 20vh;
+    margin: 100px auto;
+    display: block;
+}
