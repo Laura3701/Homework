@@ -1,0 +1,15 @@
+img {
+    width: 100px;
+    display: block;
+}
+
+p {
+    display: inline;
+    background-color: aquamarine;
+    display: none;
+}
+
+a {
+    display: inline-block;
+    background-color: rgb(212, 212, 228);
+}

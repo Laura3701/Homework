@@ -1,0 +1,11 @@
+/* css命名用短横线 */
+.vw-and-vh {
+    background-color: rgb(29, 129, 129);
+    color: white;
+    height: 10vh;
+    width: 20vw;
+    text-align: center;
+    display: block;
+    margin: 50px auto;
+    font-size: 16px;
+}
