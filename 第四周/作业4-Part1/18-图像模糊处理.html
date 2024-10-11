@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18-图像模糊处理</title>
+    <style>
+        img {
+            /* 小括号数值越大 图像越模糊，注意：数值要加单位！！ px！ */
+            filter:blur(10px);
+        }
+
+        img:hover {
+            filter:blur(0);
+        }
+    </style>
+</head>
+<body>
+    <img src="img/football.jpg" alt="">
+</body>
+</html>

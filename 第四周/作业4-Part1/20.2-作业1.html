@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1 {
+            width: 320px;
+            height: 408px;
+            margin: 15px auto;
+        }
+        .box1 .pic {
+            margin: 20px;
+            height: 200px;
+            margin-left: 40px;
+        }
+
+        .box1 .info {
+            width: 300px;
+            font-weight: 400;
+            font-size: 16px;
+            color: rgb(65, 64, 64);
+            margin: 15px auto;
+        }
+
+        /* 为什么这里不能给 price 设置 */
+        .discount,
+        .origin {
+            display: inline-block;
+        }
+
+        .discount {
+            color: red;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .origin {
+            color: gray;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: line-through;
+        }
+
+        .price {
+            margin-left: 28px;
+        }
+
+        .bar {
+            border: 1px solid red;
+            width: 100px;
+            height: 12px;
+            border-radius: 7px;
+            margin: auto 10px;
+        }
+
+        .bar-in {
+            width: 87%;
+            height: 100%;
+            background-color: red;
+            border-radius: 7px;
+        }
+
+        .sale {
+            display: flex;
+            /* 这行代码差点忘啦~！ */
+            justify-content: center;
+        }
+
+        .sale span {
+            color:red;
+        }
+
+        .box1 .buy {
+            width: 280px;
+            height: 38px;
+            background-color: rgb(199, 5, 5);
+            color: white;
+            text-align: center;
+            line-height: 38px;
+            margin: auto;
+            margin-top: 9px;
+            /* 这里为什么不能写 margin-bottom 底端对齐 */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+       
+         <img class="pic" src="img/phone.jpg" alt="">
+
+        
+        <h3 class="info">Apple苹果 iPhone 6s Plus(A1699)32G金色 移动联通电信4G手机</h3>
+
+        <div class="price">
+            <div class="discount">￥6088</div>
+            <div class="origin">￥6988</div>
+        </div>
+
+        <div class="sale">
+            <div class="sold">已售
+                <span>87%</span>
+            </div>
+            <div class="bar">
+                <div class="bar-in"></div>
+            </div>
+            <div class="rest">剩余
+                <span>29</span>件
+            </div>
+        </div>
+
+        <div class="buy">立即抢购</div>
+    </div>
+</body>
+</html>

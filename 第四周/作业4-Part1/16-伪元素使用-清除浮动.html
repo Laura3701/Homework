@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16-伪元素使用-清除浮动</title>
+    <style>
+        /* 清除浮动复习 */
+
+        /* 1. 额外标签法 */
+        .box1 {
+            border: 1px solid red;
+            width: 400px;
+        }
+
+        .box1 .left {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            float: left;
+        }
+
+        .box1 .right {
+            width: 50px;
+            height: 100px;
+            background-color: pink;
+            float: left;
+        }
+
+        .box1 .clear {
+            clear: both;
+        }
+
+        /* 2. 父级添加 overflow ---这个不懂，gen overflow 有什么关系？ */
+        .box2 {
+            border: 1px solid red;
+            width: 400px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .box2 .left {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            float: left;
+        }
+
+        .box2 .right {
+            width: 50px;
+            height: 100px;
+            background-color: pink;
+            float: left;
+        }
+
+        /* 3.1. 伪元素清除浮动 ：：after */
+        .box3 {
+            border: 1px solid red;
+            width: 400px;
+            margin-top: 10px;
+        }
+
+        .box3 .left {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            float: left;
+        }
+
+        .box3 .right {
+            width: 50px;
+            height: 100px;
+            background-color: pink;
+            float: left;
+        }
+
+        .box3::after {
+            /* content 要记得写！ */
+            content: '';
+            /* 在后面插入的盒子必须是块级元素， ：：after 是行内元素，要转化为块级*/
+            display: block;
+            clear: both;
+
+            /* 不要看见插入到最后的盒子, 为什么要写？本来就看不见 */
+            height: 0;
+            visibility: hidden;
+        }
+
+        /* 3.2  伪元素清除浮动 ：：before & ：：after*/
+        .box4 {
+            border: 1px solid red;
+            width: 400px;
+            margin-top: 10px;
+        }
+
+        .box4 .left {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            float: left;
+        }
+
+        .box4 .right {
+            width: 50px;
+            height: 100px;
+            background-color: pink;
+            float: left;
+        }
+
+        /* 注意类名不要写错！眼花... */
+        .box4::before,.box4::after {
+            content: '';
+            display: block;
+        }
+
+        .box4::after {
+            /* 每次都写 clear: both 吗？ 有没有 clear : right ? */
+            clear: both;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="left"></div>
+        <div class="right"></div>
+        <!-- 在最后一个盒子的后面添加新标签， 并设置属性为 clear:both -->
+        <!-- 新添加的标签必须是 块级元素 -->
+        <div class="clear"></div>
+    </div>
+
+    <div class="box2">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+
+    <div class="box3">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+
+    <div class="box4">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+
+</html>

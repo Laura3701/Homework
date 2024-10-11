@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14-伪元素使用-结合字体图标</title>
+    <style>
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?isjeiw');
+            src: url('fonts/icomoon.eot?isjeiw#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?isjeiw') format('truetype'),
+                url('fonts/icomoon.woff?isjeiw') format('woff'),
+                url('fonts/icomoon.svg?isjeiw#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        div {
+            height: 100px;
+            width: 100px;
+            border: 1px solid red;
+            position: relative;
+        }
+
+        div::after {
+            /* 伪元素中必须写 content */
+            /* content 可以复制小方框，也可以 反斜杠加数字 */
+            content: '\e986';
+            font-family: 'icomoon';
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
+
+<!-- 追加字体图标：进入icon moon，选择 icon app, import selection,json, 选择新的图标，下载 -->

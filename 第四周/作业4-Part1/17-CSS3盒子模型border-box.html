@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17-CSS3盒子模型border-box</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* 如果 box-sizing: boder-box, padding & margin 就不会撑大盒子了 */
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto; /* 别忘了写 单位 px */
+            border: 1px solid red;
+
+            /* 为什么在这个位置？ */
+            padding: 60px;
+        }
+
+        p {
+            background-color: aquamarine;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="box">
+        <p>Who am I</p>
+    </div>
+</body>
+</html> 
+
+<!-- 网页上的元素、图片都可以放大缩小，怎么确定像素？ -->

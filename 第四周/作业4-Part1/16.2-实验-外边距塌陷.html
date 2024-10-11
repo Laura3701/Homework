@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+
+            /* 方法一 */
+            /* border: 1px solid transparent; */
+            /* 边框可以设置为透明色 */
+
+            /* 方法二 */
+            /* padding: 1px; */
+
+            /* 方法三 */
+            overflow: hidden;
+        }
+
+        .inner {
+            height: 50px;
+            width: 50px;
+            background-color: skyblue;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20-CSS3新增特性-过渡</title>
+</head>
+<body>
+    <!-- 过渡的语法规范：
+     transition: 要过渡的属性 花费时间 运动曲线 何时开始 -->
+     <style>
+        div {
+            width: 200px;
+            height: 300px;
+            background-color: pink;
+            /* 谁变化 给谁加过渡 */
+            /* 1s 必须写单位 */
+            /* 多个属性 用逗号分隔 */
+            /* transition: width 1s, height 1s; */
+            /* 如果想要所有属性都变化 用 all */
+            transition: all 1s;
+        }
+
+        div:hover {
+            width: 400px;
+            height: 200px;
+        }
+     </style>
+</body>
+    <div></div>
+</html>
