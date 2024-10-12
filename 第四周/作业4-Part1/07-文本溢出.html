@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,28 +10,46 @@
             height: 100px;
             width: 100px;
             border: 1px solid black;
-            white-space: nowrap; /* 强制文本单行显示 */
-            overflow: hidden; /* 隐藏溢出的部分 */
-            text-overflow: ellipsis; /* 省略号 */
+            white-space: nowrap;
+            /* 强制文本单行显示 */
+            overflow: hidden;
+            /* 隐藏溢出的部分 */
+            text-overflow: ellipsis;
+            /* 省略号 */
         }
 
+
+
         .box2 {
-            height: 87px;
+            height: 40px;
             width: 100px;
             border: 1px solid black;
-            overflow: hidden; 
-            text-overflow: ellipsis; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
 
-            display: -webkit-box; 
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical; 
+            /* overflow: hidden;
+            text-overflow: ellipsis;
+
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical; */
         }
     </style>
 </head>
+
 <body>
     <div class="box1">啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</div>
-    <div class="box2">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+    <div>
+        <img src="2121" alt="">
+    </div>
+    <div class="box2">
+        <div>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+    </div>
 </body>
+
 </html>
 
 <!-- 为什么这个文件名最后显示了一个 1 -->

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
             padding: 0;
         }
 
+        /* 作业 行内元素， 块元素， 行内块元素 知识的缺失？ */
         .box a {
             display: inline-block;
             width: 36px;
@@ -25,7 +27,8 @@
         }
 
         .box {
-            text-align: center;
+            margin: 0 auto;
+            /* text-align: center; */
             /* 只要给父盒子添加  text-align: center;，父盒子内的行内元素、行内块元素都会水平居中*/
             /* 为什么不能写 margin: 0 auto; */
             /* 块级元素、有宽度 才能 margin: 0 auto;*/
@@ -56,9 +59,25 @@
             background-color: #f7f7f7;
             border: 1px solid #ccc;
         }
+
+        .the-father {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
+
 <body>
+    <!-- <div class="the-father">
+        <span>222</span>
+    </div> -->
+    <!-- <div>
+        
+    </div> -->
+    <!-- <div style="margin: 0 auto; height: 100px; width: 500px;">
+        <div>2121222222</div>
+    </div> -->
     <!-- 选择多行快捷键：shift + alt + 左键点击拖拽 -->
     <div class="box">
         <a href="#" class="prev">&lt;&lt;上一页</a>
@@ -75,4 +94,5 @@
         <button>确定</button>
     </div>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,24 +24,34 @@
         .mask {
             width: 100%;
             height: 100%;
+            /* visibility: hidden; */
             display: none;
             /* 为什么上面这里不能写 visibility: hidden; */
-            position: absolute; /* 这里需要设置 top=0 left=0 吗？ */
+            position: absolute;
+            /* 这里需要设置 top=0 left=0 吗？ */
             background: rgba(0, 0, 0, 0.3) url(img/arr.png) no-repeat center;
             /* 要记住 background 既可以设置背景颜色，也可以加背景图片， 可以写在一起 */
+            /*  */
         }
 
         /* 当鼠标经过 .tudou 时，.mask 显示出来 ---这个写法之前完全没见过！*/
-        .tudou:hover .mask{
+        /* 子选择器 */
+
+       
+        .tudou:hover .mask {
             display: block;
         }
     </style>
 
 </head>
+
 <body>
     <div class="tudou">
-        <div class="mask"></div>
+        <div class="mask">
+        </div>
         <img src="img/tudou.jpg" alt="">
+
     </div>
 </body>
+
 </html>
