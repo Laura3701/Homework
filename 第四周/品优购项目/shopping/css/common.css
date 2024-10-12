@@ -1,0 +1,218 @@
+/* 声明字体图标 注意路径的变化！*/
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?tomleg');
+    src:  url('../fonts/icomoon.eot?tomleg#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?tomleg') format('truetype'),
+      url('../fonts/icomoon.woff?tomleg') format('woff'),
+      url('../fonts/icomoon.svg?tomleg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+
+/* 版心 */
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/* 为什么这里用下划线？ */
+.style_red {
+    color: #c81623;
+}
+
+/* 快捷导航模块 */
+.shortcut {
+    height: 31px;
+    /* 行高会继承，所以 给 shortcut设置行高，li会继承 */
+    line-height: 31px;
+    background-color: #f1f1f1;
+}
+
+.shortcut ul li {
+    float: left;
+
+}
+
+.shortcut .fr ul li:nth-child(even) {
+    /* 宽度为 1，会显示一条线 */
+    width: 1px;
+    height: 12px;
+    background-color: #666;
+    /* top | left and right | bottom */
+    /* 可以不写 bottom 吗 */
+    margin: 9px 15px 0;
+}
+
+.arrow-icon::after {
+    /* 反斜杠 */
+    content: '\e91e';
+    /* 先 生成字体 再调用 */
+    font-family: 'icomoon';
+    /* 伪元素是行内元素 当文字来看 和前面的字在一行上*/
+    /* 伪元素和旁边元素之间的距离 用 margin */
+    margin-left: 6px;
+}
+
+/* header头部模块 */
+.header {
+    position: relative;
+    height: 105px;
+}
+
+.logo {
+    position: absolute;
+    top: 25px;
+    width: 171px;
+    height: 62px;
+}
+
+.logo a {
+    /* 把 a 设置为和 .logo盒子一样的宽高 */
+    /* 但是 a 行内元素 不能设置大小 所以要转化为块级元素 */
+    display: block;
+    width: 171px;
+    height: 62px;
+    background: url(../images/logo.png);
+    font-size: 0;
+}
+
+.search {
+    position: absolute;
+    left: 346px;
+    top: 25px;
+    width: 538px;
+    height: 36px;
+    border: 2px solid #b1191a;
+}
+
+/* 注意命名方式 不要再给input和search单独命名了 */
+/* input 和 button 都是行内块元素 中间有缝隙 ，加浮动就没有缝隙了*/
+.search input {
+    float: left;
+    width: 454px;
+    height: 32px;
+    /* placeholder & 输入内容 距离左侧边框 10px */
+    padding-left: 10px;
+}
+
+.search button {
+    float: left;
+    width: 80px;
+    height: 32px;
+    background-color: #b1191a;
+    font-size: 16px;
+    color: #fff;
+}
+
+.hotwords {
+    position: absolute;
+    top: 66px;
+    left: 346px;
+}
+
+.hotwords a {
+    margin: 0 10px;
+}
+
+.shopcar {
+    position: absolute;
+    right: 60px;
+    top: 25px;
+    width: 140px;
+    height: 35px;
+    border: 1px solid #dfdfdf;
+    background-color: #f7f7f7;
+    line-height: 35px;
+    text-align: center;
+}
+
+.shopcar::before {
+    content:'\e93a';
+    font-family: 'icomoon';
+    margin-right: 5px;
+    color: #b1191a;
+}
+
+.shopcar::after {
+    content:'\e920';
+    font-family: 'icomoon';
+    margin-left: 10px;
+}
+
+.count {
+    position: absolute;
+    left: 105px; /* 左对齐 文字才能往右边延申 */
+    top: -5px; /* 因为超出了，所以是负数 */
+    line-height: 14px; /* 行高=盒子高 文字垂直居中显示 */
+    height: 14px; /* 如果不设置宽高，当盒子中没有内容时，则不显示 */
+    color: #fff;
+    background-color: #b1191a;
+    /* 为什么不用 margin？ 为什么用了margin以后变窄了？ */
+    padding: 0 5px;
+    /* 圆角的值是盒子高度的一半 */
+    border-radius: 7px 7px 7px 0;
+}
+
+/* nav模块 */
+.nav {
+    height: 47px;
+    border-bottom: 2px solid #b1191a;
+}
+
+.nav .dropdown {
+    float: left;
+    width: 210px;
+    height: 45px;
+    background-color: #b1191a;
+}
+
+.nav .navitems {
+    float: left;
+}
+
+.dropdown .dt {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    line-height: 45px;
+    font-size: 16px;
+}
+
+.dropdown .dd {
+    width: 100%;
+    height: 465px;
+    background-color: #c81623;
+}
+
+.dropdown .dd ul li {
+    height: 31px;
+    line-height: 31px; /* 保证里面的文字垂直居中 */
+    margin-left: 2px; /* li和旁边元素的距离 */
+    padding-left: 10px; /* li 中间的文字与边框的距离 */
+}
+
+.dropdown .dd ul li:hover {
+    background-color: #fff;
+}
+
+.dropdown .dd ul li a {
+    /* 注意！文字属于 a 标签，因为文字在 a 里面 */
+    font-size: 14px;
+    color: #fff;
+}
+
+/* 鼠标放在 li 上面，a 变颜色 --- 这种总是不会写！每次都写到 li:hover 里面 */
+.dropdown .dd ul li:hover a {
+    color: #c81623;
+}
