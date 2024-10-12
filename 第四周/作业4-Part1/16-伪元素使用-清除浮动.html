@@ -38,6 +38,7 @@
             width: 400px;
             margin-top: 10px;
             overflow: hidden;
+            /* 触发了BFC */
         }
 
         .box2 .left {
@@ -84,7 +85,7 @@
 
             /* 不要看见插入到最后的盒子, 为什么要写？本来就看不见 */
             height: 0;
-            visibility: hidden;
+            /* visibility: hidden; */
         }
 
         /* 3.2  伪元素清除浮动 ：：before & ：：after*/

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,24 +12,29 @@
             /* 边框改成 0 和透明色有什么区别？ */
             width: 0;
             height: 0;
-            /* border-top: 100px solid transparent; */
+            border-top-color: red;
             /* 为什么去掉了一部分红色 */
-            /* border-left: 0 solid blue;  */
+            border-left-color: blue;
             /* 为什么去掉了一部分其他的？ */
-            /* border-bottom: 0 solid green; */
-            /* border-right: 50px solid yellow; */
+            border-bottom-color: green;
+            border-right-color: yellow;
+
 
             /* 1. 只保留右边框有颜色 */
-            border-color: transparent yellow transparent transparent;
+            /* border-color: transparent rgb(17, 0, 255) transparent transparent; */
             /* 2. 样式都是solid */
             border-style: solid;
             /* 3. 上边框宽度大， 右边框宽度小，其余边框为 0 */
-            border-width: 100px 50px 0 0;
+            border-width: 100px 100px 100px 100px;
+            /* border-top: 10px solid #9999; */
+
         }
     </style>
 </head>
+
 <body>
     <div class="box1"></div>
 </body>
+
 </html>
 <!-- 这整个代码基本上是抄视频里的，完全没思路 -->
