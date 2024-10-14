@@ -1,0 +1,18 @@
+common.css:
+
+dl dt dd 的用法和 ul li 有什么区别？
+
+第278,288,289行 padding or margin?
+
+第302行，如果是组合选择器 怎么写？
+
+index.css:
+
+注意：盒子给了高度以后，就不需要清除浮动了
+注意：轮播图，是把图片放在 ul 的 li 里面
+
+    /* 把 li 的高度撑开的方法~ */
+    height: 24px;
+    line-height: 24px;
+
+第68 行 flex 布局？
