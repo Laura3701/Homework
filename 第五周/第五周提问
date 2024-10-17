@@ -1,14 +1,41 @@
 1. common.css:
 
-提问：dl dt dd 的用法和 ul li 有什么区别？
+第20行，不写也可以？
+ .fl {
+    float: left;
+}
 
-提问：第278,288,289行 padding or margin?
+css class命名用下划线吗？
 
-提问：第302行，如果是组合选择器 怎么写？
+nav的dropdown 和 footer的服务指南里面，dl dt dd 的用法和 ul li 有什么区别？
+
+第307行，如果是组合选择器 怎么写？
 
 2. index.css:
 
-提问：第68 行 flex 布局？
+第66 行 lifeservice 怎么 flex 布局？
+
+text-align 是给父盒子的，float 是给子元素的？为什么float不给父盒子呢？
+
+第151行，为什么没有绝对定位，就显示不出来？
+
+199行，after伪元素为什么显示在前面？
+
+position 还是挺有问题的。。
+
+第258行 两种方法都可以吗？float那个不理解
+
+第268行 .floor {
+    /* 这里视频里用的 .floor .w，不理解 */
+    margin-top: 30px;
+}
+
+269的类名 思考了很久！
+
+第278行 子盒子高度和父盒子一样高，为什么不能写100%
+
+版心应该放在哪？
+
 
 笔记：盒子给了高度以后，就不需要清除浮动了
 笔记：轮播图，是把图片放在 ul 的 li 里面
@@ -19,7 +46,7 @@
 
 笔记：position 里的定位，设置的是离得多远。比如 top： 0， 意思是离top距离为0
 
-注意：PS 保存切片：文件-导出-储存为web...
+注意：PS 要先选择切片工具 截取之后，保存切片：文件-导出-储存为web...
 
 笔记:nth-child(-n+3) 代表选择前三个元素 [=-0+3, -1+3, -2+3]
 
@@ -29,10 +56,21 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 
-提问：text-align 是给父盒子的，float 是给子元素的？为什么float不给父盒子呢？
+笔记：text-align 到底对什么起作用？链接如下：
+https://blog.csdn.net/weixin_44307807/article/details/85872703
 
-提问：第148行，为什么没有绝对定位，就显示不出来？
+3. list.html:
 
-提问：198行，after伪元素为什么显示在前面？
+类名：nav w 和 nav 里的盒子中包含 w，有什么区别？
 
-感觉 position 还是挺有问题的。。
+第21行  /* 为什么 给 a 设置 display: block; 而不是给 li*/
+
+第48行，类名为什么这样写？
+.sk_con ul li:last-child a::after {
+ 
+}
+为什么不是
+.sk_con ul li a:last child::after {
+ 
+}
+笔记： /* 行高=盒子高，垂直居中   行高>盒子高，文字偏下 */

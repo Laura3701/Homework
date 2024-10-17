@@ -1,0 +1,51 @@
+/* 列表页专有的 css */
+.sk {
+    position: absolute;
+    border-left: 1px solid #b1191a;
+    left: 190px;
+    top: 40px;
+    /* padding-left，让文字距离左边框 14px*/
+    /* padding 的效果是 把文字往盒子中间挤 */
+    padding-left: 14px;
+}
+
+.sk_list {
+    float: left;
+}
+
+.sk_list ul li {
+    float: left;
+}
+
+.sk_list ul li a {
+    /* 为什么 给 a 设置 display: block; 而不是给 li*/
+    display: block;
+    /* 行高=盒子高，垂直居中   行高>盒子高，文字偏下 */
+    line-height: 49px;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+}
+
+.sk_con {
+    float: left;
+}
+
+.sk_con ul li {
+    float: left;
+}
+
+.sk_con ul li a {
+    /* 为什么 给 a 设置 display: block; 而不是给 li*/
+    display: block;
+    line-height: 47px;
+    padding: 0 20px;
+    font-size: 14px;
+}
+
+/* 为什么类名这样写？ */
+.sk_con ul li:last-child a::after {
+    content: '\e91e';
+    font-family: 'icomoon';
+}

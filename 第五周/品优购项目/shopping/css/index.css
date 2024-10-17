@@ -64,6 +64,7 @@
     border: 1px solid #e4e4e4;
     border-top: 0;
     overflow: hidden;
+    /* 这里如果是 flex 布局 怎么写？ */
 }
 
 .lifeservice ul {
@@ -171,6 +172,7 @@
 }
 
 .like_hd p:nth-child(2) {
+    /* 这里尝试了很久... */
     position: absolute;
     top: 0;
     right: 10px;
@@ -188,17 +190,18 @@
 }
 
 .like_bd ul li {
+    position: relative;
     display: inline-block;
     width: 186px;
     height: 235px;
     margin-top: 10px;
-    position: relative;
 }
 
 .like_bd ul li:nth-child(-n+5)::after {
     /* 这里after的效果怎么和before一样？ */
-    content: '';
+    /* 为什么必须 position absolute 才能显示出来竖线 */
     position: absolute;
+    content: '';
     top: 166px;
     width: 1px;
     left: 197px;
@@ -229,4 +232,95 @@
 
 .like_bd {
     border: 1px solid #ebebeb;
+}
+
+/* 楼层区域 */
+/* 1. 家用电器层 */
+.box_hd {
+    /* 注意：首先设置行高 */
+    height: 30px;
+    border-bottom: 2px solid #c81623;
+}
+
+.box_hd h3 {
+    float: left;
+    font-size: 18px;
+    color: #c81623;
+    font-weight: 400;
+}
+
+.tab_list {
+    float: right;
+    /* 里面的内容垂直居中 */
+    line-height: 30px;
+}
+
+.tab_list ul li {
+    /* 这里 float: left; 或者 display: inline-block; 两个方法都可以吗 */
+    /* float: left; */
+    display: inline-block;
+}
+
+.tab_list ul li a {
+    /* 调整文字和竖线之间的距离 */
+    margin: 0 15px;
+}
+
+.floor .w {
+    /* 这里类名思考了很久！*/
+    /* w类名 要跟楼层写在一起！ */
+    margin-top: 30px;
+}
+
+
+.box_bd {
+    height: 361px;
+}
+
+.tab_list_item>div {
+    float: left;
+    /* 为什么这里不能写100% */
+    height: 361px;
+}
+
+.col_210 {
+    width: 210px;
+    background-color: #f9f9f9;
+    /* 所有元素水平居中，为什么没有让 ul li 也水平居中？ */
+    text-align: center;
+}
+
+.col_210 ul li {
+    float: left;
+    width: 85px;
+    height: 34px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    line-height: 33px;
+    margin-right: 10px;
+}
+
+.col_210 ul {
+    /* 这里用margin也可以 */
+    padding-left: 12px;
+}
+
+.col_329 {
+    width: 329px;
+}
+
+.col_221 {
+    width: 221px;
+    border-right: 1px solid #ccc;
+}
+
+.col_219 {
+    width: 219px;
+}
+
+.bb {
+    /* 如果 a 包含有宽度的盒子 都要转化为块级元素 */
+    /* 注意：直接在这里设置 display 就可以 */
+    display: block;
+    border-bottom: 1px solid #ccc;
 }
