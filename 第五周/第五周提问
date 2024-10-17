@@ -59,6 +59,8 @@ position 还是挺有问题的。。
 笔记：text-align 到底对什么起作用？链接如下：
 https://blog.csdn.net/weixin_44307807/article/details/85872703
 
+ul 和 li 都是块级元素！！！
+
 3. list.html:
 
 类名：nav w 和 nav 里的盒子中包含 w，有什么区别？
