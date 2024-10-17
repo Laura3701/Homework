@@ -1,4 +1,8 @@
 /* 列表页专有的 css */
+.nav {
+    overflow: hidden;
+}
+
 .sk {
     position: absolute;
     border-left: 1px solid #b1191a;
@@ -49,3 +53,30 @@
     content: '\e91e';
     font-family: 'icomoon';
 }
+
+.sk_bd ul li {
+    /* 图片超出边框的部分隐藏，这样可以让边框全都显示出来 */
+    overflow: hidden;
+    width: 290px;
+    height: 460px;
+    /* 效果：一开始边框是透明色，鼠标悬停变成红色 */
+    border: 1px solid transparent;
+}
+
+.sk_bd ul li:hover {
+    border: 1px solid #b1191a;
+}
+
+.sk_bd ul li {
+    float: left;
+    margin-right: 13px;
+}
+
+.sk_bd ul li:nth-child(4n) {
+    margin-right: 0;
+}
+
+/* 为什么不写这个？ */
+/* .sk_bd ul {
+    clear: both;
+}     */

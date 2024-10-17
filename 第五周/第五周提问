@@ -61,6 +61,12 @@ https://blog.csdn.net/weixin_44307807/article/details/85872703
 
 ul 和 li 都是块级元素！！！
 
+label 是行内元素！设置宽高要先转化
+
+input 是行内块元素！可以直接给大小, 让文字和checkbox在同一行显示，使用 vertical-align:middle
+
+i是行内元素 在i里面插入图片，依然是行内元素！
+
 3. list.html:
 
 类名：nav w 和 nav 里的盒子中包含 w，有什么区别？
@@ -75,4 +81,43 @@ ul 和 li 都是块级元素！！！
 .sk_con ul li a:last child::after {
  
 }
+
+第127行 .w 写在前面了，为什么有时候写在后面？
+
+第133行，<!-- 为什么不是在css里设置 clear：both? css第79行-->
+
 笔记： /* 行高=盒子高，垂直居中   行高>盒子高，文字偏下 */
+
+笔记：鼠标经过 li，边框变色，为了避免加上去的边框增大盒子 造成位移，所以要一开始就加上边框，只是颜色设置为透明。
+
+笔记：nth-child(4n),4的倍数
+
+4. register.css:
+
+第12行，没想到用padding
+.logo 
+不能加 margin-top，会发生外边距合并。要用padding */
+padding-top: 18px;
+
+第23行 右浮动 or position定位，选哪个？
+
+提问：什么时候设计成背景图？什么时候直接插入图片？
+
+i em span
+这几个标签怎么取舍？
+
+这行代码的简写 为什么必须是 input：submit 才能显示出value
+<input type="submit" value="">
+
+vertical-align: middle; 和 行高=盒子高 混淆
+
+笔记：
+.safe em {
+    /* 这里要用padding 不要用margin，因为margin不是撑开盒子，只是调整盒子之间的距离 */
+    padding: 0 12px;
+    color: #fff;
+}
+
+笔记：表单需要放在 form 里，才能提交
+
+
