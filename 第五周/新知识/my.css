@@ -1,0 +1,25 @@
+.green {
+  background-color: green;
+  color: black;
+  font-size: 14px;
+}
+.green a {
+  color: black;
+}
+.green a:hover {
+  color: purple;
+}
+.nav .logo {
+  color: green;
+}
+.count {
+  width: 150px;
+  height: 400px;
+  border: 10px solid red;
+}
+img {
+  width: 82 / 40rem;
+}
+img {
+  width: calc(82 / 50 * 1rem);
+}

@@ -1,0 +1,43 @@
+@color: green;
+@color-t: black;
+@color-h: purple;
+@font14: 14px;
+
+// less 的嵌套
+.green {
+    background-color: @color;
+    color: @color-t;
+    font-size: @font14;
+
+    a {
+        color: @color-t;
+
+        // 伪类或伪元素 在冒号前面加&,如果不加& 会被当作后代
+        &:hover {
+            color: @color-h;
+        }
+    }
+}
+
+.nav {
+    .logo {
+        color: @color;
+    }
+}
+
+@border: 5px + 5;
+
+.count {
+    width: 200px - 50;
+    height: 200px * 2;
+    border: @border solid red;
+}
+
+// 这行代码不生效
+img {
+    width: 82 / 40rem;
+}
+
+img {
+    width: calc(82 / 50 * 1rem);
+}
