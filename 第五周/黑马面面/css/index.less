@@ -1,13 +1,64 @@
 body {
-    min-width: 8.5333rem;
-    max-width: 20rem;
+    min-width: 319.9988px;
+    max-width: 750px;
     margin: 0 auto;
-    height: 32rem;
+    height: 1200px;
 }
 
-// 当屏幕大于20rem时，html 字体大小就一直是20rem
-@media screen and (min-width: 20rem) {
+a {
+    text-decoration: none;
+    color: #707070;
+}
+
+// 当屏幕大于750px时，html 字体大小就一直是750px
+@media screen and (min-width: 750px) {
     html {
-        font-size: 1rem !important;
+        font-size: 37.5px !important;
     }
+}
+
+.header {
+    height: 2.1333rem;
+    border-bottom: .0267rem solid rgb(234, 234, 234);
+    text-align: center;
+    line-height: 2.1333rem;
+    font-size: .9333rem;
+    color: #1c1c1c;
+}
+
+.nav {
+    display: flex;
+    // 显示不开就换行
+    flex-wrap: wrap;
+    padding: 1.2rem 0 1.6rem 0;
+
+    .item {
+        // 为什么给父元素设置了flex，还要给子元素也设置？
+        display: flex;
+        // 纵向显示
+        flex-direction: column;
+        // 水平居中
+        align-items: center;
+        width: 33.33%;
+
+        img {
+            // 这里是3.7067rem? 还是108？
+            width: 3.7067rem;
+            height: 3.7067rem;
+        }
+
+        span {
+            font-size: .6667rem;
+        }
+
+        // 选择前面3个 item，记得写&
+        // 这里不用space-between,因为如果是space，需要给高度
+        &:nth-child(-n + 3) {
+            margin-bottom: 1.6533rem;
+        }
+    }
+}
+
+.go {
+    margin: 0 .2667rem 0 .48rem;
 }

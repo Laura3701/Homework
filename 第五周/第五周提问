@@ -131,3 +131,6 @@ vertical-align: middle; 和 行高=盒子高 混淆
     font-size: 37.5px !important;
 }
 
+第30行 139px or 108？
+
+第28行 为什么给父元素设置了flex，还要给子元素也设置？
