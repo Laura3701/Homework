@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 页面弹出输入框 ---用户输入 --- prompt
+    let r = prompt('输入圆的半径')
+    // 2. 计算圆的面积 ---内部处理
+    let re = 3.14 * r * r
+    // 3. 页面输出 --- 输出
+    document.write(re)
+    // 提问：为什么不这样写？
+    // document.write(3.14*r*r)
+
+    // NaN --- not a number, 代表计算错误
+    console.log('pink' - 2);
+    // NaN 不论跟什么进行操作，都会返回 NaN，粘性的
+
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let str = 'pink'
+    let str1 = "pink"
+    let str2 = `中文`
+    console.log(str2);
+    // 注意：被引号包裹的数字、变量 会变为字符串
+    console.log(11)
+    console.log('11');
+    console.log('str');
+
+    // 空字符串
+    let str3 = ''
+
+    // 特殊情况 --- 引号会去找离自己最近的凑成一对
+    // 解决办法：外双内单 / 外单内双
+    console.log('pink老师讲课非常有"激情"');
+
+    // 字符串拼接：+加号 数字相加，字符相连
+    console.log(1 + 1)
+    console.log('pink' + 'laoshi');
+    
+    // let age = 19
+    // document.write('我今年' + age)
+
+    // 字符串拼接变量，口诀：引引 加加
+    let age = 19
+    document.write('我今年' + 19 + '岁了')
+
+  </script>
+</body>
+</html>

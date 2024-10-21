@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h2 {
+      text-align: center;
+    }
+
+    /* 表格合并相邻边框 */
+    table {
+      border-collapse: collapse;
+      height: 80px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* 先给 table th td 都设置边框，再在 table 里合并边框 */
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+
+    th {
+      padding: 5px 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>订单确认</h2>
+  <script>
+    let price = +prompt('请输入价格')
+    let num = +prompt('请输入数量')
+    let address = prompt('请输入地址')
+
+    let total = price * num
+
+    // 页面打印渲染
+    document.write(`
+
+    <table>
+    <tr>
+      <th>商品名称</th>
+      <th>商品价格</th>
+      <th>商品数量</th>
+      <th>总价</th>
+      <th>收货地址</th>
+    </tr>
+
+    <tr>
+      <td>小米手机青春Plus</td>
+      <td>${price}</td>
+      <td>${num}</td>
+      <td>${price * num}</td>
+      <td>${address}</td>
+    </tr>
+  </table>
+
+    `)
+  </script>
+</body>
+
+</html>

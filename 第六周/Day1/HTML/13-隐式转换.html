@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 隐式转换
+    console.log(1 + 1)
+    // 加号两边只要有一个是字符串，会把另一个转化为字符串
+    console.log('pink' + 1) /* 等于变成了 console.log('pink' + '1') */
+    console.log(2 + 2)
+    console.log(2 + '2') /* 22 */
+    // 除了加号以外的运算符，比如 -  *  /等，都会把数据转化为数字类型
+    console.log(2 - '2') /* 0 */
+
+    console.log(+12)
+    // 加号的作用：转化为数字型
+    console.log(+'123')
+
+  </script>
+</body>
+
+</html>
