@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 交换两个变量的值
+    let num1 = 10
+    let num2 = 20
+    // 思路：使用一个临时变量，作为中间存储
+
+ /*    // 步骤：
+    1. 声明一个临时变量 temp
+    2. 把 numbe1 的值给 temp
+    3. 把 number2 的值给 number1
+    4. 把 tempt 的值给 number2
+    临时变量会自动销毁 */
+
+    let temp = num1
+    num1 = num2
+    num2 = temp
+    console.log(num1, num2);
+  </script>
+</body>
+</html>
