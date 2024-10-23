@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 这里 prompt 要不要转化成数字？
+    // 如果不转化成数字，会以数字的形式+0，还是显示原来的数，而不是在前面加0
+    let num = prompt('请输入数字')
+    // if (num < 10) {
+    //   document.write(`
+    //   0${num}
+    // `)
+    // } else {
+    //   document.write(num)
+    // }
+
+    // 赋值 num = ...
+   num =  num < 10 ? 0 + num : num
+   alert(num)
+  </script>
+</body>
+</html>

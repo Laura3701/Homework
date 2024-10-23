@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let num = +prompt('请输入数字')
+    // 判断这个数能被 4 整除，但不能被 100 整除
+    // parseFloat(num / 4) === 0 && parseFloat(num / 100) !== 0
+    // alert(true)
+    // 取余 %
+    // 写法是 直接把条件放在 alert 里，这个不知道
+    alert(num % 4 === 0 && num % 100 !== 0)
+  </script>
+</body>
+</html>

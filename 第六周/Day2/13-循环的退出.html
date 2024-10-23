@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // break 用于退出整个循环，找到就不必要再找了
+    // 打印 5 句话
+    // let i = 1
+    // while (i <= 5) {
+    //   // 只打印 2 句
+    //   if (i === 3) {
+    //     break --- 退出整个循环
+    //   }
+    //   console.log(`我要吃${i}个包子`)
+    //   i++
+    // }
+
+    // continue 用于排除或跳过某一项
+    let i = 1
+    while (i <= 5) {
+      if (i === 3) {
+        i++
+        continue /* 结束本次循环，继续下一轮循环*/
+      }
+      console.log(`我要吃${i}个包子`)
+      // 这里也要写 ~ i++
+      i++
+    }
+  </script>
+</body>
+
+</html>

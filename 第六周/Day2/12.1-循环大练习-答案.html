@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // // 2. 计算从 1 加到 100 的总和
+    // let i = 1 /* 起始值 */
+    // let sum = 0 /* 累加值 */
+    // // 每次把 i 累加到 sum 里面
+    // while (i <= 100) {
+    //   // sum = sum + i
+    //   sum += i
+    //   i++
+    // }
+    // console.log(sum)
+
+    // 3. 计算 1-100 之间所有偶数和
+    // if 语句筛选偶数，再把筛选的 i 加到 sum 里
+
+    let i = 1
+    let sum = 0
+
+    while (i <= 100) {
+      if (i % 2 === 0) {
+        sum = sum + i
+      }
+      // 每次循环都要自加
+      i++
+    }
+    console.log(sum)
+  </script>
+</body>
+
+</html>

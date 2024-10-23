@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let num1 = +prompt('请输入第一个数')
+    let num2 = +prompt('请输入第二个数')
+    let cal = prompt('请输入运算')
+    switch (cal) {
+      // 要加引号 ，cal 要 和 case 后的值 全等
+      case '+':
+        alert(num1 + num2)
+        break
+      case '-':
+        alert(num1 - num2)
+        break
+      case '*':
+        alert(num1 * num2)
+        break
+      case '/':
+        alert(num1 / num2)
+        break
+        // 不要忘了 default ~
+      default:
+        alert(`无法识别`)
+    }
+  </script>
+</body>
+
+</html>

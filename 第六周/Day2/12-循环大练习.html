@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 1. 页面输出 1-100
+    let i = 1
+    while (i <= 100) {
+      document.write(i + ' ')
+      i++
+    }
+    document.write('<br><br>')
+
+    // 2. 计算从 1 加到 100 的总和
+    let num = 1
+    let count = 1
+    while (count <= 99) {
+      num = num + (count + 1)
+      count++
+    }
+    document.write(num)
+    document.write('<br><br>')
+
+    // 3. 计算 1-100 之间所有偶数和
+    let num1 = 2
+    let count1 = 2
+    while (count1 <= 99) {
+      num1 = num1 + (count1 + 2)
+      count1 += 2
+    }
+    document.write(num1)
+
+  </script>
+</body>
+</html>
