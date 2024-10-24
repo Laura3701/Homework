@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 字面量声明数组
+    // let arr = [1, 2, 'pink', true]
+    // 2. new Array 构造函数声明 (了解)
+    // let arr = new Array(1, 2, 3, 4)
+    // console.log(arr)
+
+    // 数组求和
+    // 【2，6，1，7，4】里面所有元素的和以及平均值
+
+    // 1. 声明数组
+    let arr = [2, 6, 1, 7, 4]
+
+    // 2. 求和的变量 sum
+    let sum = 0
+
+    // 3. 遍历数组,注意这个写法 arr.length
+    for (i = 0; i < arr.length; i++) {
+      // 4. 累加
+      sum = sum + arr[i]
+    }
+    // 5. 打印求和结果
+    document.write(sum)
+    document.write('<br>')
+
+    // 6. 求平均值
+    document.write(sum / arr.length)
+  </script>
+</body>
+
+</html>

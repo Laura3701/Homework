@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 选出 >= 10 的元素，放入新数组
+    let arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7]
+    // 1. 声明新的 空数组
+    let newArr = []
+    for (let i = 0; i < arr.length; i++) {
+      // 2. 注意这里是 arr[i], 指代 arr里面的数组元素
+      if (arr[i] >= 10) {
+        // 3. 满足条件 追加给新的数组。新数组.push --- 追加给新数组
+        // push 是个方法 所以后面是括号
+        newArr.push(arr[i])
+      }
+    }
+    // 4. 输出新的数组
+    console.log(newArr)
+  </script>
+</body>
+
+</html>
