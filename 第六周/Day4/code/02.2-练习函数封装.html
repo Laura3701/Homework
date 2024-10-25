@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 求 2 个数的和
+    // function getSum() {
+    //   let num1 = +prompt('请输入第一个数')
+    //   let num2 = +prompt('请输入第二个数')
+    //   console.log(num1 + num2)
+    // }
+    // // 必须调用函数才能执行
+    // getSum()
+
+    // 2. 求 1-100 累加和
+    // function getSum100(star = 0, end = 0) {
+    //   let sum = 0
+    //   for (let i = start; i <= end; i++) {
+    //     sum = sum + i
+    //   }
+    //   console.log(sum)
+    // }
+    // getSum100(1, 100)
+
+    //3. 参数默认值
+    function getSum(x = 0, y = 0) {
+      document.write(x + y)
+    }
+    getSum(1, 2)
+    // 有参数传递时，优先执行 x = 1
+  </script>
+</body>
+
+</html>

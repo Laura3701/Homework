@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // // 1. 函数表达式 --- 把函数赋值给 fn
+    // let fn = function (x, y) {
+    //   console.log(x + y)
+    // }
+    // //调用函数
+    // fn(1, 2)
+
+    // // 函数表达式 和 具名函数的不同 function fn() {}
+    // // 具名函数的调用可以写到任何位置
+    // fun()
+    // function fun() {
+    //   console.log(1)
+    // }
+    // // 函数表达式的调用只能写在函数声明后面，因为 let 声明了变量之后，才能使用
+
+    // 2. 立即执行函数 --- 没调用就执行了,必须加分号，分号也可以加在函数前面，隔开函数
+    // (function() {
+    //   console.log(11)
+    // }) ()
+    // 先写两个小括号，再在第一个括号里写函数
+    // 第二个小括号的本质是调用函数
+    (function () {
+      let num = 10
+    })();
+    (function () {
+      let num = 10
+    })()
+  </script>
+</body>
+
+</html>

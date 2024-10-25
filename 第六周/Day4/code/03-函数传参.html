@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function getSum100(start, end) {
+      //start, end 形参-形式上的参数
+      // 形参可以理解为变量，但是不需要声明，因为只在函数内部有效
+      let sum = 0
+      for (let i = start; i <= end; i++) {
+        sum = sum + i
+      }
+      console.log(sum)
+    }
+    getSum100(1, 50) //1，50 实参 - 实际的参数
+    getSum100(100, 200)
+    // 把实参传递给形参
+  </script>
+</body>
+
+</html>

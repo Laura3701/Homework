@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // // 要求：计算每个学生的总分
+    // // 这个写法不熟悉
+    // function getArrSum(arr = []) {
+    //   // console.log(arr)
+    //   let sum = 0
+    //   for (let i = 0; i < arr.length; i++){
+    //     // 跟 sum += i 有什么区别？
+    //     sum += arr[i]
+    //   }
+    //   console.log(sum)
+    // }
+    // getArrSum()
+    // // getArrSum([1,2,3,4,5])
+    // // getArrSum([11,22,33])
+
+    // 求 n~m累加和
+    function getSum(n = 0, m = 0) {
+      let sum = 0
+      // i 起始值不是 0，跟数组没关系，所以 i <= m
+      for (let i = n; i <= m; i++) {
+        sum += i
+      }
+      console.log(sum)
+    }
+    // getSum(1,2)
+
+    // num 字符串前面需要加号
+    let num1 = +prompt('输入起始值')
+    let num2 = +prompt('输入结束值')
+    // 调用函数
+    getSum(num1, num2) //实参可以是变量
+    // num1 赋值给 n, num2 赋值给 m, 不需要同名，也可以赋值
+  </script>
+</body>
+
+</html>
