@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // && 一假则假 执行完 false 就不执行了
+    // console.log(false && 3 + 5)
+
+    let age = 18
+    // console.log(false && age++)
+    // console.log(age) //18
+
+    // 逻辑或 一真则真
+    console.log(11 || age++)
+    console.log(age) // 18
+
+    console.log(11 && 22) // 都是真，逻辑与 返回最后一个真值
+    console.log(11 || 22) // 都是真，逻辑或 返回第一个真值
+
+    // 逻辑或 遇到一个真的，就中断操作
+    // 逻辑与 遇到一个假的，就中断操作
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 把下面数据中的对象打印出来
+    // 定义了一个储存了若干学生信息的数组
+    // 1. 数据准备
+    let students = [
+      { name: '小明', age: 18, gender: '男', hometown: '河北省' },
+      { name: '小红', age: 19, gender: '女', hometown: '河南省' },
+      { name: '小刚', age: 17, gender: '男', hometown: '山西省' },
+      { name: '小丽', age: 18, gender: '女', hometown: '山东省' },
+      { name: '晓强', age: 16, gender: '女', hometown: '蓝翔技校' }
+    ]
+    // 2. 遍历数组 [], 每个数组里放的是对象 {}
+    for (let i = 0; i < students.length; i++) {
+      // console.log(i) //打印下标索引号
+      // console.log(students[i]) // 打印每一个对象
+      console.log(students[i].name)
+    }
+  </script>
+</body>
+
+</html>

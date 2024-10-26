@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 需求：该函数接收一个布尔类型参数，表示颜色的格式是16进制还是rgb格式
+    // 如果...否则...
+
+    // 1. 自定义一个随机颜色函数
+    // 自定义 一个形参 flag
+
+    function getRandomColor(flag = true) {
+      if (flag) {
+        //3. 如果是 true, 返回 #ffffff
+        let str = '#'
+        let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+        // for 循环 随机抽 6次，累加到 str 里面
+        for (i = 1; i <= 6; i++) {
+          // 每次要随机从数组里抽取一个
+          // 每次循环 随机生成一个数组的索引号 --- random
+          let random = Math.floor(Math.random() * arr.length)
+          // 数组的索引号对应到数组的一个值 arr[random],然后追加到 str里
+          str = str + arr[random]
+        }
+        return str
+
+      } else {
+        // 4. 如果是 false, 则返回 rgb（255，255，255）
+        let r = Math.floor(Math.random() * 256)
+        let g = Math.floor(Math.random() * 256)
+        let b = Math.floor(Math.random() * 256)
+        return `rgb(${r},${g},${b})`
+      }
+    }
+    // 2. 调用函数getRandomColor(布尔值),调用不要写到函数里面，因为不执行
+    // 按住alt，上下箭头，进行某一行的位移
+    console.log(getRandomColor(false))
+    console.log(getRandomColor(true))
+    console.log(getRandomColor())
+    // 给 flag 加上 默认值 true, 当没有参数传进来，就当 true 看，返回16进制
+  </script>
+</body>
+
+</html>
