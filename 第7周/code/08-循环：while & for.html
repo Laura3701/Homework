@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 此代码最后一次 alert 值是多少？为什么？
+    // let i = 3
+
+    // while (i) {
+    //   alert(i--)
+    // }
+    // 1, 因为当 i = 0 时，循环终止
+
+    // 过程：
+    //alert(i--); // 显示 3，i 减至 2
+    // alert(i--) // 显示 2，i 减至 1
+    // alert(i--) // 显示 1，i 减至 0
+    // 完成，while(i) 检查循环条件并停止循环
+
+    // 2. 以下两个循环的 alert 值是否相同？
+
+    // 这道题做错了
+    // 注意：第一个值也是 i = 1。后缀形式 i++ 递增 i 然后返回 旧 值
+
+    // （1）前缀形式 ++i:
+    // let i = 0
+    // while (++i < 5) alert(i)
+
+    // （2）后缀形式  i++：
+    // let i = 0
+    // while (i++ < 5) alert(i);
+
+    // 3. 两次循环 alert 值是否相同？
+    // for (let i = 0; i < 5; i++) alert( i );
+    // for (let i = 0; i < 5; ++i) alert( i );
+    // 在这没使用返回的递增值，因此 i++ 和 ++i之间没有区别
+
+    // 4. 使用 for 循环输出从 2 到 10 的偶数。
+
+    // i 要先等于 2
+    // for (i = 2; i <= 10; i++) {
+    //   if (i % 2 == 0) {
+    //     console.log(i)
+    //   } else {
+    //     continue
+    //   }
+    // }
+
+    // 5. 重写代码，在保证不改变其行为的情况下，将 for 循环更改为 while（输出应保持不变）
+    // for (let i = 0; i < 3; i++) {
+    //   alert(`number ${i}!`)
+    // }
+
+    // let i = 0
+    // while (i < 3) {
+    //   alert(`number ${i}!`)
+    //   i++
+    // }
+  </script>
+</body>
+
+</html>
