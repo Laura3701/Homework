@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 按下面的要求写代码，一条对应一行代码：
+
+    // 创建一个空的对象 user。
+    // 为这个对象增加一个属性，键是 name，值是 John。
+    // 再增加一个属性，键是 surname，值是 Smith。
+    // 把键为 name 的属性的值改成 Pete。
+    // 删除这个对象中键为 name 的属性。
+
+    // 错错错！字符串忘记加引号啦！
+    // let user = {
+    //   name: 'John',
+    //   surname: 'smith',
+    // }
+
+    // user.name = 'Pete'
+    // delete user.name
+
+    // 2. 写一个 isEmpty(obj) 函数，当对象没有属性的时候返回 true，否则返回 false。
+
+    // 我的写错了：
+    // let obj = {}
+    // for (let key in obj) {}
+    // function isEmpty (obj) {
+    //  if (!key) {
+    //   return true
+    //  } else {
+    //    return false
+    //  }
+    // }
+
+    // 答案：完全想不到
+    // function isEmpty(obj) {
+    //   for (let key in obj) {
+    //     // 如果进到循环里面，说明有属性。
+    //     return false
+    //   }
+    //   return true
+    // }
+
+    // 3. 我们有一个保存着团队成员工资的对象：
+    let salaries = {
+      John: 100,
+      Ann: 160,
+      Pete: 130
+    }
+
+    // 写一段代码求出我们的工资总和，将计算结果保存到变量 sum。从所给的信息来看，结果应该是 390。
+
+    // 如果 salaries 是一个空对象，那结果就为 0。
+
+    // 我写的：
+    // let sum = function (salaries) {
+    //   for (let key in salaries) {
+
+    //   }
+    // }
+
+    // 答案：
+    // let sum = 0
+    // for (let key in salaries) {
+    //   sum += salaries[key]
+    // }
+
+    // alert(sum) // 390
+    //  提问： key 只要是变量，就要加方括号吗？
+
+    // 3. 创建一个 multiplyNumeric(obj) 函数，把 obj 所有的数值属性值都乘以 2。
+    // 在调用之前
+    let menu = {
+      width: 200,
+      height: 300,
+      title: "My menu"
+    }
+
+    // multiplyNumeric(menu)
+
+    // 调用函数之后
+    // menu = {
+    //   width: 400,
+    //   height: 600,
+    //   title: "My menu"
+    // }
+
+    // 注意 multiplyNumeric 函数不需要返回任何值，它应该就地修改对象。
+
+    // P.S. 用 typeof 检查值类型。
+
+    // 我写的：
+    // function multiplyNumeric(menu) {
+    //   for (let key in menu) {
+    //     if (typeof key === 'number') {
+    //       menu[key] = menu[key] * 2
+    //     } else {
+    //       menu[key] = menu[key]
+    //     }
+    //   }
+    // }
+    // multiplyNumeric(menu)
+
+    // 答案：
+    function multiplyNumeric(obj) {
+      for (let key in obj) {
+        if (typeof obj[key] == 'number') {
+          obj[key] *= 2
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

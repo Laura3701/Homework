@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 用箭头函数重写下面的函数表达式：
+    // function ask(question, yes, no) {
+    //   if (confirm(question)) yes()
+    //   else no()
+    // }
+
+    // ask(
+    //   "Do you agree?",
+    //   function () { alert("You agreed.") },
+    //   function () { alert("You canceled the execution.") }
+    // );
+
+    // 原来上面的部分是不变的！还是回调那个地方没搞清
+    function ask(question, yes, no) {
+      if (confirm(question)) yes()
+      else no()
+    }
+
+    // 注意这里箭头函数的写法：
+    // 1. 去掉前面的 function
+    // 2. 在参数的括号后写箭头，注意只有一个等号
+    // 3. 去掉 function原本带有的花括号
+    ask(
+      "Do you agree?",
+      () => alert("You agreed."),
+      () => alert("You canceled the execution.")
+    );
+
+  </script>
+</body>
+
+</html>
