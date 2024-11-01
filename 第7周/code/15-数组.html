@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 下面的代码将会显示什么？
+
+    // let fruits = ["Apples", "Pear", "Orange"]
+
+    // // 在“副本”里 push 了一个新的值
+    // let shoppingCart = fruits
+    // shoppingCart.push("Banana")
+
+    // // fruits 里面是什么？
+    // alert(fruits.length) // ?
+
+    // // 4
+
+    // 2. 结果是什么？为什么？
+    // let arr = ["a", "b"]
+
+    // arr.push(function () {
+    //   alert(this)
+    // })
+
+    // arr[2]() // a, b, function() {...}
+
+
+    // 3.写出函数 sumInput()，要求如下：
+
+    // 使用 prompt 向用户索要值，并存在数组中。
+    // 当用户输入了非数字、空字符串或者点击“取消”按钮的时候，问询结束。
+    // 计算并返回数组所有项之和。
+    // P.S. 0 是有效的数字，不要因为是 0 就停止问询。
+
+    // let inputNumber = +prompt('Input number')
+    // let sum = [inputNumber]
+
+    // if (typeof inputNumber !== number || inputNumber === '') {
+    //   return
+    // } else {
+    //   for (let i = 0; i < sum.length; i++) {
+    //     sum += i
+    //   }
+    // }
+
+
+    // 答案：
+    // 请注意这个解决方案的细微但是很重要的细节。我们没有在 prompt 后立即把 value 转换成数字，因为在执行 value = +value 之后，就没办法区分出空字符串（中断标志）和数字 0（合法输入）了，所以要放到后面再处理。
+    
+    function sumInput() {
+
+      let numbers = []
+
+      while (true) {
+
+        let value = prompt("A number please?", 0)
+
+        // 应该结束了吗？
+        if (value === "" || value === null || !isFinite(value)) break
+
+        numbers.push(+value)
+      }
+
+      let sum = 0
+      for (let number of numbers) {
+        sum += number
+      }
+      return sum
+    }
+
+    alert(sumInput());
+  </script>
+</body>
+
+</html>
