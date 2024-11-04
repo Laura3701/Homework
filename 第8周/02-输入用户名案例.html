@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // 1. 采集用户输入的信息
+
+    // 这个 prompt 的功能是一个输入语句,起到让用户输入的作用
+
+    // prompt 后面括号里的信息，就是给用户的提示信息，这里是让用户输入姓名
+
+    // 用户输入了姓名之后，这个信息就被采集到了，接下来需要找地方储存起来
+
+    prompt('请输入姓名')
+
+    // 2. 储存用户输入的信息
+
+    // 用来储存用户输入信息的，就是变量
+
+    // 首先要声明一个变量，先写一个 let，再写一个自己想的变量的名字，在这里是 uname，因为储存在变量里的信息是用户的姓名，所以起了一个 uname这样一个相关的名字
+
+    let uname = prompt('')
+
+    // 3. 在页面上显示用户输入的内容
+
+    // 这里的逻辑是这样：
+
+    // （1）在页面上显示，需要用到 document.write（） 这个输出语句, 因为document.write（）的功能，就是让括号里的内容，显示在页面上
+
+    // （2）那么在这里，（）里面写什么呢？
+    // 我们并不知道用户在 prompt 弹窗的输入框内，输入的具体是什么，所以也无从得知 document.write（）具体需要 write什么。
+    // 用户的名字是 Mark 还是 Tom 我们没有办法知道，那怎么告诉页面显示什么呢？也就是说，document.write 后面的括号里放什么呢？
+
+    // （3）别忘了，用户在 prompt 弹窗里，输入的信息，储存在了变量 uname里面，所以虽然我们不知道用户具体的名字，但 whatever，这个名字都会被储存在变量 uname里面
+
+    // （4）综上所述，我们在 document.write 后面的括号里，放上变量的名字就可以了，也就是 uname，这样等同于放了具体的数值，因为这个变量名就是用来指代具体的数值的，这样以后就算 uname里面存了其他的数值，这个变量名也不用变
+
+    document.write(uname)
+
+  </script>
+</body>
+
+</html>
