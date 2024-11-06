@@ -7,15 +7,12 @@
 </head>
 <body>
   <script>
-    let name = prompt('请输入名字')
-    let age = +prompt('请输入年龄')
-    if (isNaN(age)) {
-      alert('年龄需要是数字')
+    let astro = prompt('你是什么星座？')
+    if (astro) {
+      alert('不管你是什么星座，你都是最美的！')
     } else {
-      document.write(`大家好，我叫${name}，今年${age}岁了`)
+      document.write('请输入你的星座哦~')
     }
-
-    // isNaN(age) 检查 age 是否为 NaN（不是数字），如果是，则会弹出提示框 alert，要求输入数字。
   </script>
 </body>
 </html>
