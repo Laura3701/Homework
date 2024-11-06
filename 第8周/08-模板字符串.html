@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let name = prompt('请输入名字')
+    let age = +prompt('请输入年龄')
+    if (isNaN(age)) {
+      alert('年龄需要是数字')
+    } else {
+      document.write(`大家好，我叫${name}，今年${age}岁了`)
+    }
+
+    // isNaN(age) 检查 age 是否为 NaN（不是数字），如果是，则会弹出提示框 alert，要求输入数字。
+  </script>
+</body>
+
+</html>
