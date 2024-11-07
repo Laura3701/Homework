@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let str = '123'
+
+    console.log(typeof Number(str)) // number
+
+    console.log(typeof undefined - 1) // NaN
+
+    //下面这里是具体的值，所以要加引号
+    console.log(parseInt('12.22px')) // 12
+
+    console.log(parseFloat('12.224444444px')) // 12.224444444
+    
+    console.log(parseFloat('abc12.224444444px')) // NaN
+    // 如果数字在中间，则无法取值
+  </script>
+</body>
+
+</html>
