@@ -40,8 +40,10 @@
     let address = prompt('请输入收货地址')
 
     // 2. 计算总价
-    let total = parseFloat(price * num)
+    // let total = price * num
+    let total = (price * num).toFixed(2)
     // 提问：为什么这里如果是1.11，后面有很多 0？
+    // 解决方案： 使用 tofixed() 方法来格式化结果，效果是将 total 保留2位小数
 
     // 3. 打印渲染表格
     document.write(`
