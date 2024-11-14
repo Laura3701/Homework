@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 用户登录验证
+    // 题目描述：
+
+    // 接收用户输入的用户名和密码，若用户名为 “admin” ,且密码为 “123456” ,则提示用户登录成功!  否则，让用户一直输入。
+
+    let uname = prompt('请输入用户名')
+    let password = prompt('请输入密码')
+    while (true) {
+      if (uname === 'admin' && password === '123456') {
+        break
+      }
+    }
+
+    // 答案：
+    // while (true) {
+    //   let msg = prompt('名字')
+    //   let pwd = prompt('密码')
+    //   if (msg === 'admin' && pwd === '123456') {
+    //     break
+    //   }
+    // }
+    // alert('登录成功')
+
+    // 结论：
+    // 要把 prompt 弹窗的部分写在循环里，才能一直弹窗
+  </script>
+</body>
+
+</html>

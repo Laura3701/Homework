@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let money = 100
+    while (true) {
+      let re = +prompt(`
+    请进行操作：
+    1.存钱
+    2.取钱
+    3.查看余额
+    4.退出
+    `)
+      if (re === 4) {
+        break
+      }
+
+      switch (re) {
+        case 1:
+          let save = +prompt('请输入存款金额')
+          money = money + save
+          break
+        case 2:
+          let withdraw = +prompt('请输入取款金额')
+          money = money - withdraw
+          break
+        case 3:
+          alert(`您的余额是${money}`)
+          break
+      }
+    }
+
+    // 这里要注意 + 转化为数字
+    // 弹窗写到循环里面，因为需要一直弹窗，除非选择 4 退出
+    // switch 不要忘了 break
+  </script>
+</body>
+
+</html>
