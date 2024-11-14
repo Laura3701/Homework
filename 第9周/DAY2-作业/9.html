@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let num1 = +prompt('请输入第一个数字')
+    let num2 = +prompt('请输入第二个数字')
+    while (true) {
+      let cal = prompt('请输入 + - * / 其中任何一个')
+      if (cal === 'q') {
+        break
+      } else if (cal === '+') {
+        let re = num1 + num2
+        alert(re)
+      } else if (cal === '-') {
+        let re = num1 - num2
+        alert(re)
+      } else if (cal === '*') {
+        let re = num1 * num2
+        alert(re)
+      } else {
+        let re = num1 / num2
+        alert(re)
+      }
+    }
+  </script>
+</body>
+
+</html>
