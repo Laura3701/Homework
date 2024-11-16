@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // // 外层循环决定行数
+    // for (let i = 1; i <= 5; i++) {
+    //   // 内层循环决定每一行有多少颗 ♥
+    //   for (let j = 1; j <= 5; j++) {
+    //     document.write('♥') // 这里不能 br,否则每个 ♥ 都换行
+    //   }
+    //   // 这里没想到
+    //   document.write('<br>')
+    // }
+
+    // 用户输入行数和列数：
+    let row = +prompt('请输入行数')
+    let col = +prompt('请输入列数')
+    // 外层循环决定行数
+    for (let i = 1; i <= row; i++) {
+      // 内层循环决定每一行有多少颗 ♥
+      for (let j = 1; j <= col; j++) {
+        document.write('♥') // 这里不能 br,否则每个 ♥ 都换行
+      }
+      // 这里没想到
+      document.write('<br>')
+    }
+
+
+  </script>
+</body>
+
+</html>
