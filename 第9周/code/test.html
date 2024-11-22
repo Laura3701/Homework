@@ -5,15 +5,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .box {
+      display: flex;
+      height: 300px;
+      width: 600px;
+      border: 1px solid black;
+      justify-content: center;
+      align-items: stretch;
+      /* align-items: center; */
+    }
+
+    .box span {
+      /* height: 20px; */
+      width: 100px;
+      background-color: pink;
+      border: 1px solid black;
+    }
+  </style>
 </head>
 
 <body>
-  <script>
-    let arr = ['pink', 'hotpink']
-
-    arr.push("deeppink")
-    console.log(arr)
-  </script>
+<div class="box">
+    <span>1</span>
+    <span>2</span>
+    <span>3</span>
+    <!-- <span>4</span> -->
+    <!-- <span>5</span>
+    <span>6</span>
+    <span>7</span>
+    <span>8</span> -->
+</div>
 </body>
 
 </html>
