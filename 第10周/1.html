@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 需求1：让用户输入五个有效年龄（0-100之间），放入数组中
+    // 必须输入五个有效年龄，如果是无效年龄，则不能放入数组中
+    let arr = []
+
+    let num
+    // if (num > 100 || num < 0) {
+    //   alert('请输入有效年龄')
+    // }
+    // for (let i = 0; i < 5; i++) {
+    //   num = +prompt('请输入年龄')
+    //   arr.push(num)
+    // }
+    // console.log(arr)
+
+    // 需求2：打印出所有成年人的年龄 (数组筛选)
+    // for (let i = 0; i < 5; i++) {
+    //   num = +prompt('请输入年龄')
+    //   if (num >= 18) {
+    //     arr.push(num)
+    //   }
+    // }
+    // console.log(arr)
+
+    // 需求3：打印出所有人总年龄 （累加）
+    // 这里出错：要先设置 sum = 0 ！！！
+    // let sum = 0
+    // for (let i = 0; i < 5; i++) {
+    //   num = +prompt('请输入年龄')
+    //   arr.push(num)
+    //   sum = sum + arr[i]
+    // }
+    // console.log(sum)
+
+    // 需求4：打印出所有人的平均年龄 （累加）
+    // let sum = 0
+    // for (let i = 0; i < 5; i++) {
+    //   num = +prompt('请输入年龄')
+    //   arr.push(num)
+    //   sum = sum + arr[i]
+    // }
+    // let ave = sum / 5
+    // console.log(ave)
+
+    // 需求5：打印出最大年龄和最小年龄 （最大值）
+    // 这道题不会 ！！！
+    let max = arr[0]
+    let min = arr[0]
+    for (let i = 1; i < 5; i++) {
+      num = +prompt('请输入年龄')
+      arr.push(num)
+
+      if (max < arr[i]) {
+        max = arr[i]
+      }
+      if (min > arr[i]) {
+        min = arr[i]
+      }
+    }
+    console.log(max, min)
+
+
+  </script>
+</body>
+
+</html>
