@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 找出数组中 元素为10的下标，有则打印该下标，没有则打印-1
+
+    let arr = [88, 10, 30, 100, 10]
+
+    let newArr = []
+
+    // 下面这行，没有想到要设置变量
+    let re = -1
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === 10) {
+        re = i
+        newArr.push(re)
+      }
+    }
+
+    console.log(newArr)
+
+  </script>
+</body>
+
+</html>
