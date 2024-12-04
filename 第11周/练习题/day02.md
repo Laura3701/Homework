@@ -60,7 +60,7 @@ freddie.colorChange('orange')
 
 
 
-###### 9. 输出是什么？
+###### 9. 输出是什么？B
 
 ```
 let greeting
