@@ -11,12 +11,12 @@
   <script>
     // 封装余额函数
 
-    let money = +prompt('请输入银行卡余额')
+    let original = +prompt('本金')
     let cost1 = +prompt('请输入当月食宿消费金额')
     let cost2 = +prompt('请输入生活消费金额')
 
-    function getSaving(x = 0, y = 0, z = 0) {
-      return x - (y + z)
+    function getSaving (original = 0, cost1 = 0, const2 = 0) {
+      return original - (cost1 + const2)
     }
 
     let re = getSaving(money, cost1, cost2)

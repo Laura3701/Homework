@@ -9,7 +9,34 @@
 
 <body>
   <script>
-    function handleData(arr = [], x) {
+    // function handleData (arr = [], flag) {
+    //   let sum = 0
+    //   for (let i = 0; i < arr.length; i++) {
+    //     sum = sum + arr[i]
+    //   }
+
+    //   // 注意这里全等
+    //   // 提问：不传递参数的情况怎么写？
+    //   if (flag === true) {
+    //     return sum
+    //   }
+
+    //   if (flag === false) {
+    //     return sum / arr.length
+    //   }
+
+    // }
+
+    // 怎么把用户输入的内容变成数组？
+    // let newArr = []
+    // newArr = newArr.push(newArr[i])
+    // let re = handleData(newArr, false)
+
+    // let re = handleData([1, 2], true)
+    // console.log(re)
+
+
+    function handleData (arr = [], flag = true) {
       let sum = 0
       for (let i = 0; i < arr.length; i++) {
         sum = sum + arr[i]
@@ -17,13 +44,14 @@
 
       // 注意这里全等
       // 提问：不传递参数的情况怎么写？
-      if (x === true) {
+      if (flag = true) {
         return sum
       }
 
-      if (x === false) {
+      if (flag = false) {
         return sum / arr.length
       }
+      console.log(flag)
 
     }
 
@@ -36,6 +64,6 @@
     console.log(re)
   </script>
 </body>
-s
+
 
 </html>
