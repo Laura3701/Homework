@@ -1,5 +1,7 @@
 ###### 1. 输出是什么？A
 
+<!-- 标记 -->
+var let const 区别
 ```
 function sayHi() {
   console.log(name)
