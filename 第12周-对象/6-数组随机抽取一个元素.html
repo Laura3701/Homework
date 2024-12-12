@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 要求：随机显示一个名字
+
+    // 1. 声明一个数组
+    let arr = ['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操']
+
+    // 2. 随机生成一个数字作为索引号, 赋值给变量
+
+    let random = Math.floor(Math.random() * arr.length)
+
+    // 3. 显示被删除的元素 arr[对应元素的下标]
+    console.log(arr[random])
+
+    // 4. 删除已抽取过的元素
+
+    arr.splice(random, 1)
+    console.log(arr)
+  </script>
+</body>
+
+</html>
