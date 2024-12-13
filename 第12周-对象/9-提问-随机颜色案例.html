@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 声明一个随机颜色的函数
+    // 声明函数要写 function，不要写 let
+
+    function getRandomColor(flag) {
+
+      if (flag) {
+        // 如果是 true, 执行 if(flag){}里面的代码，返回 #ffffff
+
+        // 1. 先声明一个变量 str，赋值为 ‘#’，方便后续进行字符串拼接
+        let str = '#'
+
+        // 2. 再声明一个数组，里面存放所有16进制的数字及字母
+        let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+
+        // 3. 遍历数组，先随机抽取数组中的一个元素的下标号；再通过下标号对应到这个数组元素，并循环拼接到 str后面，也就是 + 进行字符串拼接
+
+        // for 循环，总共 只循环 6次！！！因为只有 6 个数，循环的目的是依次加上一个数
+        for (let i = 1; i <= 6; i++) {
+          // 这里还是有疑问：数组 随机抽取数字时 * 后面写 arr.length, 因为 * 后面的数字代表 能取到多少位。为了给所有元素被取到的可能性，所以这里写 arr.length
+          let random = Math.floor(Math.random() * arr.length)
+          str = str + arr[random]
+        }
+
+        return str
+
+      } else {
+        // 如果是flase, 不执行if(flag){}里面的代码，因为只有当flag的值是 true 时，才能执行。如果 flag是 false，会执行 else{}里面的代码，返回 rge(255, 255, 255)
+        let r = Math.floor(Math.random() * 256)
+        let g = Math.floor(Math.random() * 256)
+        let b = Math.floor(Math.random() * 256)
+
+        // 这里要写 return，把 log 这种具体的处理数据的方式写在函数外
+        return `rgb(${r}, ${g}, ${b})`
+      }
+    }
+    let random = getRandomColor(true)
+    console.log(random)
+
+  </script>
+</body>
+
+</html>

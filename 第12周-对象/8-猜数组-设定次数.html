@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 只能猜 3 次，超过 3 次，则弹出 “次数已用完”
+
+    // 1. 先声明一个随机数函数
+    function getRandom(N, M) {
+      return Math.floor(Math.random() * (M - N + 1)) + N
+    }
+
+    // 2. 把生成的数字赋值给变量，方便后续与用户输入的结果作比较
+    let random = getRandom(1, 10)
+
+    // 3. 设置一个开关变量 flag，作用是：控制条件语句是否执行。在这里是控制要不要弹出‘次数已用完’这个弹窗。（如果flag为false，则不弹窗）
+
+    // 在for循环开始之前，先将 flag 赋值为 true，如果 3 次都没猜对，则按顺序执行后面的代码，显示‘次数已用完’
+
+    // 如果三次之内猜对了，怎样避免执行‘次数已用完’呢？在else{}内，将 flag 重新赋值为 flase，则使 flag 不满足‘次数已用完’的条件，因为 flag 不是 true了，无法执行{‘次数已用完’}这个语句
+    let flag = true
+
+    // 4. 比较（次数限定为 3次）
+    for (let i = 1; i <= 3; i++) {
+      // 弹窗写在循环里面
+      let num = +prompt('请输入一个1-10之间的数字')
+
+      if (num > random) {
+        alert('猜大了')
+      } else if (num < random) {
+        alert('猜小了')
+      } else {
+        flag = false
+        alert('猜对了')
+        break
+      }
+    }
+
+    // if(true)才执行{}内的语句，if(false)不执行{}内的语句
+    if (flag) {
+      alert('次数已用完')
+    }
+  </script>
+</body>
+
+</html>
