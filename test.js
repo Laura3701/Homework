@@ -1,0 +1,28 @@
+    // 1. 生成一个 0 - 10 之间的随机数
+    let random = Math.floor(Math.random() * 10)
+
+    // 2. 弹窗提示用户输入数字（for 循环，因为如果错了还要回到弹窗）
+    // 3. 每次用户输入猜的数字，都跟随机数做对比
+    // 4. 大了则提示猜大了，or 小了，并且再次弹窗，最多弹窗3次
+
+    // 开关变量写在循环外面
+    // let flag = true
+
+    // for (let i = 1; i <= 3; i++) {
+
+    //   let num = +prompt('请输入一个0-10之间的数字')
+
+    //   if (num > random) {
+    //     alert('猜大了')
+    //   } else if (num < random) {
+    //     alert('猜小了')
+    //   } else {
+    //     flag = false // 这里不要 let flag，再次声明不是赋值
+    //     alert('猜对啦！！')
+    //     break // 提问：这里可以不要 break 吗？
+    //   }
+    // }
+
+    // if (flag === true) {
+    //   alert('次数已用完')
+    // }

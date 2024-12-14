@@ -7,16 +7,21 @@
   <title>Document</title>
 </head>
 
+
 <body>
   <script>
+    /* 
+    TIPS 作用域相关知识点
+    */
     // 1. 生成一个 0 - 10 之间的随机数
-    let random = Math.floor(Math.random() * 11)
+    let random = Math.floor(Math.random() * 10)
 
     // 2. 弹窗提示用户输入数字（for 循环，因为如果错了还要回到弹窗）
     // 3. 每次用户输入猜的数字，都跟随机数做对比
     // 4. 大了则提示猜大了，or 小了，并且再次弹窗，最多弹窗3次
 
     // 开关变量写在循环外面
+    
     let flag = true
 
     for (let i = 1; i <= 3; i++) {

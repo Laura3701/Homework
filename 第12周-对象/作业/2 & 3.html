@@ -28,17 +28,23 @@
       eat: function (y) {
         console.log('吃饭')
         console.log(y)
+        // return '吃饭'
       }
     }
-
+    // delete per['talk']
     // 注意：属性名没有引号，不要用方括号
     console.log(per.gender)
+    console.log(per["gender"])
+
     console.log(per.age)
     console.log(per.hobby)
+
+
 
     // 注意：方法的输出，写成调用函数的形式
     per.talk(1)
     per.eat(2)
+    // console.log( per.eat(2) )
   </script>
 </body>
 
