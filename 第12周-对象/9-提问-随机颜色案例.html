@@ -12,7 +12,8 @@
     // 1. 声明一个随机颜色的函数
     // 声明函数要写 function，不要写 let
 
-    function getRandomColor(flag) {
+    // flag 加默认值，当没有参数传进来时，默认为 16 进制
+    function getRandomColor(flag = true) {
 
       if (flag) {
         // 如果是 true, 执行 if(flag){}里面的代码，返回 #ffffff
