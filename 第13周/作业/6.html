@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./拓展作业/英雄列表案例/css/hero.css">
+</head>
+
+<body>
+  <!-- 利用对象数组渲染英雄列表案例 -->
+  <ul class="list">
+
+    <script>
+      const datas = [
+        { name: '司马懿', imgSrc: './拓展作业/英雄列表案例/uploads/heros/01.jpg' },
+        { name: '女娲', imgSrc: './拓展作业/英雄列表案例/uploads/heros/02.jpg' },
+        { name: '百里守约', imgSrc: './拓展作业/英雄列表案例/uploads/heros/03.jpg' },
+        { name: '亚瑟', imgSrc: './拓展作业/英雄列表案例/uploads/heros/04.jpg' },
+        { name: '虞姬', imgSrc: './拓展作业/英雄列表案例/uploads/heros/05.jpg' },
+        { name: '张良', imgSrc: './拓展作业/英雄列表案例/uploads/heros/06.jpg' },
+        { name: '安其拉', imgSrc: './拓展作业/英雄列表案例/uploads/heros/07.jpg' },
+        { name: '李白', imgSrc: './拓展作业/英雄列表案例/uploads/heros/08.jpg' },
+        { name: '阿珂', imgSrc: './拓展作业/英雄列表案例/uploads/heros/09.jpg' },
+        { name: '墨子', imgSrc: './拓展作业/英雄列表案例/uploads/heros/10.jpg' },
+        { name: '鲁班', imgSrc: './拓展作业/英雄列表案例/uploads/heros/11.jpg' },
+        { name: '嬴政', imgSrc: './拓展作业/英雄列表案例/uploads/heros/12.jpg' },
+        { name: '孙膑', imgSrc: './拓展作业/英雄列表案例/uploads/heros/13.jpg' },
+        { name: '周瑜', imgSrc: './拓展作业/英雄列表案例/uploads/heros/14.jpg' },
+        { name: 'XXX', imgSrc: './拓展作业/英雄列表案例/uploads/heros/15.jpg' },
+        { name: 'XXX', imgSrc: './拓展作业/英雄列表案例/uploads/heros/16.jpg' },
+        { name: 'XXX', imgSrc: './拓展作业/英雄列表案例/uploads/heros/17.jpg' },
+        { name: 'XXX', imgSrc: './拓展作业/英雄列表案例/uploads/heros/18.jpg' },
+        { name: 'XXX', imgSrc: './拓展作业/英雄列表案例/uploads/heros/19.jpg' },
+        { name: 'XXX', imgSrc: './拓展作业/英雄列表案例/uploads/heros/20.jpg' }
+      ]
+
+      for (let i = 0; i < datas.length; i++) {
+        document.write(`
+          <li><img src=${datas[i].imgSrc} title="${datas[i].name}">
+       </li>
+        `)
+      }
+
+      // 注意：datas[i].imgSrc, 代表 datas 这个数组里，下标为 i 的对象 的 imgSrc属性
+    </script>
+  </ul>
+
+</body>
+
+</html>

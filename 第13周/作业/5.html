@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 注意：函数名要用 function， 不要 let
+    function getRandomColor(flag = true) {
+
+      if (flag === true) {
+        let sum = '#'
+        let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+
+        for (let i = 1; i <= 6; i++) {
+          let random = Math.floor(Math.random() * arr.length)
+          sum = sum + arr[random]
+        }
+        document.write(sum)
+      }
+
+      if (flag === false) {
+        let r = Math.floor(Math.random() * 256)
+        let g = Math.floor(Math.random() * 256)
+        let b = Math.floor(Math.random() * 256)
+        document.write(`rgb(${r}, ${g}, ${b})`)
+      }
+
+    }
+
+    // 注意：实参不要写 flag
+    getRandomColor(false)
+  </script>
+</body>
+
+</html>
