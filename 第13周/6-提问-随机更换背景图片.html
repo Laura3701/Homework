@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* top center center/cover 这个不会写 */
+    /* top center: 垂直靠上 水平居中 */
+    /* cover 拉满 */
+    body {
+      background: url(images/desktop_1.jpg) no-repeat top center/cover;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script>
+    function getRandom(N, M) {
+      return Math.floor(Math.random() * (M - N + 1)) + N
+    }
+
+    const random = getRandom(1, 10)
+    // 这里为什么一定要写 document? 否则图片替换不生效！
+    document.body.style.backgroundImage = `url(images/desktop_${random}.jpg)`
+  </script>
+</body>
+
+</html>
