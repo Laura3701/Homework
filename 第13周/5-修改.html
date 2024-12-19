@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <img src="images/1.webp" alt="">
+  <script>
+    function getRandom(N, M) {
+      return Math.floor(Math.random() * (M - N + 1)) + N
+    }
+
+    // 1. 获取元素
+    let img = document.querySelector('img')
+
+    // 2. 生成一个 1-6 的随机数，因为总共6张图
+    let random = getRandom(1, 6)
+
+    // 3. 生成的随机数是图片序号
+    // 注意：用反引号 因为需要替换变量
+    img.src = `images/${random}.webp`
+  </script>
+</body>
+
+</html>

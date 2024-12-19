@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>年会抽奖</title>
+  <style>
+    .wrapper {
+      width: 840px;
+      height: 420px;
+      background: url(./images/bg01.jpg) no-repeat center / cover;
+      padding: 100px 250px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <strong>传智教育年会抽奖</strong>
+    <h1>一等奖：<span id="one">???</span></h1>
+    <h3>二等奖：<span id="two">???</span></h3>
+    <h5>三等奖：<span id="three">???</span></h5>
+  </div>
+  <script>
+    // 一等奖
+
+    // 1. 声明一个数组，里面是会被抽到的人名
+    const personArr = ['周杰伦', '刘德华', '周星驰', 'Pink老师', '张学友']
+
+    // 2. 随机生成一个数字作为数组下标，对应到具体的人名
+    // random 是下标，personArr【random】 是人名
+    const random1 = Math.floor(Math.random() * personArr.length)
+
+    // 3. 获取页面里需要修改的标签,并赋值
+    // 注意！！ 这里出错啦！！！！！是 ##############！！！！！！！！
+    const one = document.querySelector('#one')
+
+    // 4. 对获取标签赋值之后的变量（对象），进行修改, ‘’里面写想改成的内容
+    // 注意：personArr[random] 不要加 ‘’，否则会直接显示在页面上！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    one.innerHTML = personArr[random1]
+
+    // 5. 抽过的名字删掉
+    personArr.splice(random1, 1)
+
+    // 二等奖
+
+    const random2 = Math.floor(Math.random() * personArr.length)
+
+    const two = document.querySelector('#two')
+
+    two.innerHTML = personArr[random2]
+
+    personArr.splice(random2, 1)
+
+    // 三等奖
+
+    const random3 = Math.floor(Math.random() * personArr.length)
+
+    const three = document.querySelector('#three')
+
+    three.innerHTML = personArr[random3]
+
+    personArr.splice(random3, 1)
+
+
+  </script>
+</body>
+
+</html>
