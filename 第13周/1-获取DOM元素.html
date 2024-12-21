@@ -14,13 +14,20 @@
     <li>联系方式</li>
   </ul>
 
+  <div class="jack lucy">
+
+  </div>
+
   <script>
     // 不要忘了写 document.
     // 注意：要用 const 声明，因为 HTML 标签不变，对象对应的地址也就不变
-    const nav = document.querySelector('.nav')
-    console.log(nav)
+    const doc = document.querySelector('.jack')
+    console.log(doc)
 
-    const lis = document.querySelectorAll('ul li')
+    const lis = document.querySelectorAll('li')
+    // undefined
+    
+    lis[0].style.color = "red"
     console.log(lis)
   </script>
 </body>

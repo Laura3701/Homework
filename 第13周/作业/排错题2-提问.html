@@ -21,6 +21,10 @@
         return x + y
       }
     }
+    // obj["name"]
+
+    // 在[]; 需要通过字符串去访问对象的属性
+    // obj.name => 递进关系
 
     // 2. x, y 没有传参
     // 3. 方法的调用要加（）小括号！
@@ -32,6 +36,8 @@
     obj.sing()
     obj.sum(1, 2)
     console.log(obj.sum(1, 2))
+    let value = obj.sum(3,4)
+    console.log(value)
 
     // 提问：Host is not supported 是什么意思？
   </script>
