@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 复选框怎么做出来？ -->
+  <!-- 在 html 中 写 input 标签，设置 type 为 checkbox -->
+  <!-- 如果属性是 checked = checked, 简写直接写一个 checked，则表示勾选，如果不写 check，则不勾选 -->
+  <input type="checkbox">
+
+  <script>
+    // 1. 获取 input 标签, 注意 input 可以简写成 ipt
+    const ipt = document.querySelector('input')
+    console.log(ipt.checked) // 默认是 false
+
+    // 2. 把 checked 的值改为 true, 则显示打勾。默认是 false
+    ipt.checked = true
+    ipt.checked = 'true' // 这样写也会勾上，因为除了空字符串''，别的字符串的布尔值都是 true，这里有隐式转换。checked 只接受布尔值，如果不是布尔值，则隐式转换
+
+  </script>
+</body>
+
+</html>

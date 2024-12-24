@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 用户输入的值是通过 value 取过来的 -->
+  <input type="text" value="电脑">
+
+  <script>
+    // const input = document.querySelector('input.value')
+    // console.log(input) 这里没写对，因为控制台显示 null
+
+    // 获取元素和获取值要分 2 步
+
+    // 1. 先获取元素
+    const uname = document.querySelector('input')
+    // 2. 再获取值
+    console.log(uname.value) // 电脑
+
+    // 3. 修改值
+    uname.value = '我要买电脑'
+    // console.log(uname.type) // text
+    uname.type = 'password'
+
+  </script>
+</body>
+
+</html>

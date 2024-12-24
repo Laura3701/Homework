@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- data 是自定义属性默认开头的词，固定搭配  -->
+  <!-- id 是自己起的属性的名字，这里因为是想代表第几个 div，所以起名叫 id -->
+  <div data-id="1" data-spm="不知道">1</div>
+  <div data-id="2">2</div>
+  <div data-id="3">3</div>
+  <div data-id="4">4</div>
+  <div data-id="5">5</div>
+
+  <script>
+    // 选取第一个 div，因为 querySelector 是获取第一个div
+    const one = document.querySelector('div')
+    console.log(one)  // <div data-id="1">1</div>
+
+    console.log(one.dataset) // 控制台打印输出名为 DOMStringMap的对象，里面有两个属性及其对应的值，分别是 id：1，spm:不知道
+
+    // 所以 one.dataset 的意思是，one 的 自定义属性的集合
+    // one 在这里就是 html中的 第一个 div
+
+    console.log(one.dataset.id) // 1
+    console.log(one.dataset.spm) // 不知道
+
+  </script>
+</body>
+
+</html>
