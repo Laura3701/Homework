@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 方法一：
+    // 括号里写一个 匿名函数 和 间隔时间(以毫秒为单位)
+
+    // 本来有个疑问：这里是匿名函数中的立即执行函数吗？如果是，那么1000为什么没有放在小括号里，因为立即执行函数的参数要放在小括号里
+    // 但后来理解了：这里的 1000 并不是 匿名函数的参数，而是 setInterval 这个内置函数的参数，所以放在 setInterval 的括号里就好了，不需要去搭配匿名函数
+
+    // 这个写法的意思是，每 1000 毫秒 执行一遍 匿名函数里面的内容
+
+    // 也就是说 setInterval，有两个参数，一个是匿名函数，一个是 间隔时间
+    // 在这里，setInterval 这个内置函数的功能，就是实现：每 1000 毫秒，log一遍。
+
+    // 所以可以理解为：每 XXX 秒，就执行一遍 匿名函数 {} 里的内容
+    // setInterval(
+    //   function () {
+    //     console.log('每秒一次')
+    //   }, 1000)
+
+    // 2. 方法二：
+    // 先写一个有名字的函数，然后写 setInterval（函数名，间隔时间）
+    // 注意这里只写函数名，不要小括号，不是调用的写法
+
+    function fn() {
+      console.log('每秒一次')
+    }
+
+    setInterval(fn, 1000)
+
+    // 提问：为什么会有空窗期/空白区？没理解
+
+    
+  </script>
+</body>
+
+</html>

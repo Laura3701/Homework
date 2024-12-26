@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 关闭定时器，需要给每个定时器都起个名字。也就是把 setInterval(函数，间隔时间) 这一串，赋值给变量。
+
+    // 注意赋值给变量的关键词用 let，因为如果定时器关闭，再开启的时候，会被重新赋值。
+
+    // 1. 开启定时器
+
+    let n = setInterval(function () {
+      console.log('每秒一次')
+    }, 1000)
+
+    console.log(n)
+    
+    // 2. 关闭定时器
+
+    clearInterval(n)
+
+    // 关于 n 是什么：
+    // setInterval()这个函数有返回值，返回的是一个数字ID，也就是 第几个定时器
+    // 所以把 setInterval() 赋值给 n，实际上是把这个函数的返回值赋值给 n
+    // 那么 n到底是什么呢？conso.log(n) 会出现一个数字，可能是 1，2，3...代表第1个定时器，第二个定时器，可以理解为是定时器的 ID号
+    // 所以关闭定时器会需要用到这个数字，也就是告诉电脑，要clear掉第几个定时器
+  </script>
+</body>
+
+</html>
