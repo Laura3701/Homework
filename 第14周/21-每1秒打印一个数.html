@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let i = 1
+    // function fn() {
+    // 注意，i = 1 不能写在这里。否则每次都会输出同样的数字（循环的原理，function里面的部分是循环体，每1秒中循环1次，每次 i 会被重置）
+    //   i++
+    //   document.write(i)
+    // }
+
+    // setInterval(fn, 1000)
+
+    // 第二种写法：
+    setInterval(function () {
+      i++
+      document.write(i)
+    }, 1000)
+  </script>
+</body>
+
+</html>
