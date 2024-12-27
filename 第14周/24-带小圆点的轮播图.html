@@ -99,8 +99,7 @@
     <div class="slider-footer">
       <p>对人类来说会不会太超前了？</p>
       <ul class="slider-indicator">
-        <!-- 这里的 active 不能删，否则报错。因为 js 中 要先删除 active,再加上新的。所以要先找到才能删-->
-        <li class="active"></li>
+        <li></li>
         <li></li>
         <li></li>
         <li></li>
@@ -128,42 +127,40 @@
       { url: './images/slider08.jpg', title: '谁不想和小猫咪贴贴呢！', color: 'rgb(99, 72, 114)' },
     ]
 
-    // 2. 获取元素
-    // 改谁就获取谁,这里 img 和 p 是需要修改的
+    // 1. 生成一个随机数，作为随机对象的下标号, 0~7
+    const random = Math.floor(Math.random() * sliderData.length)
+
+    // 2. 通过 querySeletor 获取到 html 文件中需要被替换的图片标签，并赋值给变量。由于 图片标签获取到 js 中会被作为对象，所以是可以赋值的
     const img = document.querySelector('.slider-wrapper img')
+
+    // 3. 把新属性赋值给 html 标签中原本的属性
+
+    // 获取到的标签 . 属性 = 某数组对象 . 属性
+
+    // 注意：再次强调！html 中的标签，要先通过 querySelector 获取到 js 中，赋值给变量后，再去使用这个变量，而不要直接写一个标签！！！
+    img.src = sliderData[random].url
+
+    // 4. 修改 p 里面的内容
+    // 4.1 获取 p
     const p = document.querySelector('.slider-footer p')
+    // 4.2 修改 p
+    p.innerHTML = sliderData[random].title
 
-    // 3. 设置 一个变量，名叫 i, 指代 js 的 sliderData 数组中，第几个对象，也就是用来替换的新的元素
-    // 由于 sliderData 是数组，所以里面的每个对象的下标号，遵循数组下标号的原则，起始值为 0
-    // 这里的思路是，要在 js 中选出来用来替换的元素，然后赋值给html中原来的元素
+    // 5. 修改 slider-footer 的
+    // 5.1 获取 footer
+    const footer = document.querySelector('.slider-footer')
+    // 5.2 修改 footer
+    footer.style.backgroundColor = sliderData[random].color
 
-    let i = 0
-    setInterval(function () {
-      i++
-
-      // 无缝衔接的位置：
-      if (i >= sliderData.length) {
-        i = 0
-      }
-
-      img.src = sliderData[i].url
-      p.innerHTML = sliderData[i].title
-
-      document.querySelector('.slider-indicator .active').classList.remove('active')
-      document.querySelector(`.slider-indicator li:nth-child(${i + 1})`).classList.add('active')
-
-    }, 1000)
-
-    // 4. 小圆点高亮，这个部分也要写在 function 里面,因为也是跟图片和文字一起轮换的
-    // 原理是：选出 html中的小圆点 li，用 classList 加上 active
-
-    // 只让当前 li 添加 active，怎么知道是当前呢？要让 第几个 li，和 数组对象中的下标号一致，也就是，下标号对应的那个对象如果是第二个，li也要是第二个
-    // 所以要数一数是第几个 li。是第 i + 1 个，因为 i 从 0 开始，li的个数从 1 开始数
-    // 写法是 li:nth-child(${i + 1})，而不要写成 li:nth-child(${i} + 1)，不知道为什么？？？？
-
-    // 5. 在每次给当前 li 添加 active 之前，都要先删除之前的 active
-
-    // 6. 无缝衔接的原理是：当循环到第8张图片，就重置 i = 0. 数组对象的长度也正好是 8，所以是 i <= 数组长度
+    // 6. 修改小圆点
+    // 6.1 获取小圆点，只要一个小圆点
+    // random + 1，表示的是 第几个 li，因为 random 是0~7，第几个li，是 1~8
+    const li = document.querySelector(`.slider-indicator li:nth-child(${random + 1})`)
+    // 6.2 修改小圆点样式
+    // 注意：classList 和 className的区别是，name会覆盖之前的样式，list不会
+    // 之前不知道的：<li class = 'active'> 代表这个 li小圆点 高亮
+    // 模板字符串不要换行 ！！!
+    li.classList.add('active')
   </script>
 </body>
 
