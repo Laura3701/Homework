@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>轮播图点击切换</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .slider {
+      width: 560px;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .slider-wrapper {
+      width: 100%;
+      height: 320px;
+    }
+
+    .slider-wrapper img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .slider-footer {
+      height: 80px;
+      background-color: rgb(100, 67, 68);
+      padding: 12px 12px 0 12px;
+      position: relative;
+    }
+
+    .slider-footer .toggle {
+      position: absolute;
+      right: 0;
+      top: 12px;
+      display: flex;
+    }
+
+    .slider-footer .toggle button {
+      margin-right: 12px;
+      width: 28px;
+      height: 28px;
+      appearance: none;
+      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .slider-footer .toggle button:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .slider-footer p {
+      margin: 0;
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .slider-indicator {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .slider-indicator li {
+      width: 8px;
+      height: 8px;
+      margin: 4px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0.4;
+      cursor: pointer;
+    }
+
+    .slider-indicator li.active {
+      width: 12px;
+      height: 12px;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slider">
+    <div class="slider-wrapper">
+      <img src="./images/slider01.jpg" alt="" />
+    </div>
+    <div class="slider-footer">
+      <p>对人类来说会不会太超前了？</p>
+      <ul class="slider-indicator">
+        <!-- 这里的 active 不能删，否则报错。因为 js 中 要先删除 active,再加上新的。所以要先找到才能删-->
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <div class="toggle">
+        <button class="prev">&lt;</button>
+        <button class="next">&gt;</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // 1. 初始数据
+    const sliderData = [
+      { url: './images/slider01.jpg', title: '对人类来说会不会太超前了？', color: 'rgb(100, 67, 68)' },
+      { url: './images/slider02.jpg', title: '开启剑与雪的黑暗传说！', color: 'rgb(43, 35, 26)' },
+      { url: './images/slider03.jpg', title: '真正的jo厨出现了！', color: 'rgb(36, 31, 33)' },
+      { url: './images/slider04.jpg', title: '李玉刚：让世界通过B站看到东方大国文化', color: 'rgb(139, 98, 66)' },
+      { url: './images/slider05.jpg', title: '快来分享你的寒假日常吧~', color: 'rgb(67, 90, 92)' },
+      { url: './images/slider06.jpg', title: '哔哩哔哩小年YEAH', color: 'rgb(166, 131, 143)' },
+      { url: './images/slider07.jpg', title: '一站式解决你的电脑配置问题！！！', color: 'rgb(53, 29, 25)' },
+      { url: './images/slider08.jpg', title: '谁不想和小猫咪贴贴呢！', color: 'rgb(99, 72, 114)' },
+    ]
+
+    // 2. 获取元素
+    // 改谁就获取谁,这里 img 和 p 是需要修改的
+    const img = document.querySelector('.slider-wrapper img')
+    const p = document.querySelector('.slider-footer p')
+
+    // 3. 设置 一个变量，名叫 i, 指代 js 的 sliderData 数组中，第几个对象，也就是用来替换的新的元素
+    // 由于 sliderData 是数组，所以里面的每个对象的下标号，遵循数组下标号的原则，起始值为 0
+    // 这里的思路是，要在 js 中选出来用来替换的元素，然后赋值给html中原来的元素
+
+    let i = 0
+    setInterval(function () {
+      i++
+
+      // 无缝衔接的位置：
+      if (i >= sliderData.length) {
+        i = 0
+      }
+
+      img.src = sliderData[i].url
+      p.innerHTML = sliderData[i].title
+
+      document.querySelector('.slider-indicator .active').classList.remove('active')
+      document.querySelector(`.slider-indicator li:nth-child(${i + 1})`).classList.add('active')
+
+    }, 1000)
+
+    // 4. 小圆点高亮，这个部分也要写在 function 里面,因为也是跟图片和文字一起轮换的
+    // 原理是：选出 html中的小圆点 li，用 classList 加上 active
+
+    // 只让当前 li 添加 active，怎么知道是当前呢？要让 第几个 li，和 数组对象中的下标号一致，也就是，下标号对应的那个对象如果是第二个，li也要是第二个
+    // 所以要数一数是第几个 li。是第 i + 1 个，因为 i 从 0 开始，li的个数从 1 开始数
+    // 写法是 li:nth-child(${i + 1})，而不要写成 li:nth-child(${i} + 1)，不知道为什么？？？？
+
+    // 5. 在每次给当前 li 添加 active 之前，都要先删除之前的 active
+
+    // 6. 无缝衔接的原理是：当循环到第8张图片，就重置 i = 0. 数组对象的长度也正好是 8，所以是 i <= 数组长度
+  </script>
+</body>
+
+</html>
