@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .adv {
+      position: relative;
+      width: 500px;
+      height: 100px;
+      background-color: pink;
+      text-align: center;
+      /* 纵向居中：行高 = 盒子高 */
+      line-height: 100px;
+      font-size: 24px;
+      margin: 30px auto;
+    }
+
+    .close-button {
+      position: absolute;
+      /* 这里又写成 margin-right 了！！！ */
+      right: 0;
+      /* 这里以为 是负值 */
+      top: 0;
+      line-height: 20px;
+      background-color: blue;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="adv">
+    我是广告
+    <div class="close-button">X</div>
+  </div>
+
+  <script>
+    const closeButton = document.querySelector('.adv .close-button')
+    const adv = document.querySelector('.adv')
+
+    closeButton.addEventListener('click', function () {
+      adv.style.display = 'none'
+      // 吃惊 o~o 这里closeButton也一起消失啦~
+    })
+  </script>
+</body>
+
+</html>
