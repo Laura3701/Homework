@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .box {
+      width: 600px;
+      margin: 50px auto;
+      display: flex;
+      font-size: 25px;
+      line-height: 40px;
+    }
+
+    .qs {
+
+      width: 450px;
+      height: 40px;
+      color: red;
+
+    }
+
+    .btns {
+      text-align: center;
+    }
+
+    .btns button {
+      width: 120px;
+      height: 35px;
+      margin: 0 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>随机点名</h2>
+  <div class="box">
+    <span>名字是：</span>
+    <div class="qs">这里显示姓名</div>
+  </div>
+  <div class="btns">
+    <button class="start">开始</button>
+    <button class="end">结束</button>
+  </div>
+
+  <script>
+    // 数据数组
+    const arr = ['马超', '黄忠', '赵云', '关羽', '张飞']
+
+    // 1. 先获取需要更改和需要点击的元素
+
+    const qs = document.querySelector('.qs')
+    const start = document.querySelector('.start')
+    const end = document.querySelector('.end')
+
+    // 声明间隔函数，也就是点名。需要在外层声明，这样关闭点名间隔函数的时候，才能写函数名
+    let timerId = 0
+
+    // 数组中名字所对应的下标号也要在外层声明，这样才能在抽取之后从数组中删除元素。删除元素的部分跟原本声明 random 的部分不在同一作用域，所以最初的声明要写在外面，然后在局部作用域赋值。
+    let random = 0
+
+    // 2. 点击之后，更改 qs 里面的文字内容为数组中随机的一个元素
+    // 并且把随机生成元素这个部分，放到一个间隔函数里
+
+    // 注意：这里被点的是 start！所以是 add 是给 start 的
+    start.addEventListener('click', function () {
+
+      timerId = setInterval(function () {
+        random = parseInt(Math.random() * arr.length)
+        qs.innerHTML = arr[random]
+      }, 35)
+
+      // 如果抽到只剩最后一个，则禁用。
+      // 注意：剩最后一个！一个！剩几个长度就是几！
+      // 所以是  arr.length === 1
+      if (arr.length === 1) {
+        start.disabled = end.disabled = true
+      }
+    })
+
+    // 3. 设置结束按钮
+    end.addEventListener('click', function () {
+      clearInterval(timerId)
+
+      arr.splice(random, 1)
+    })
+  </script>
+</body>
+
+</html>

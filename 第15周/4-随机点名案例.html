@@ -58,7 +58,68 @@
         // 数据数组
         const arr = ['马超', '黄忠', '赵云', '关羽', '张飞']
 
+        // 1. 获取需要被点击的元素
+        // 提问：以为一定要写两个类名呢~
+        // 注意：这里要记得加点哦~~~~
 
+        const start = document.querySelector('.btns .start')
+        const qs = document.querySelector('.box .qs')
+
+        // 2. 这里老师放在第二步写了，但我想写在后面：
+        // 点击按钮，触发的事件是随机生成数组中的一个名字
+        // start.addEventListener('click', function () {
+
+        //     // 随机抽取数组中的一个：
+        //     // 生成一个随机数random，作为数组元素的下标号
+        //     // 提问：为什么这里是 const? 而 timerId是 let?
+        //     const random = parseInt(Math.random() * arr.length)
+
+        //     // 替换html里的元素
+        //     // 记得前面要先获取到qs这个html中的元素，才能在这里使用
+        //     qs.innerHTML = arr[random]
+        // })
+
+        // 3. 在步骤 2中 是click一下，生成一个随机数。我们想实现的效果是，不停地快速生成随机数，然后这个效果是由click触发的。所以需要用到间隔函数。也就是每隔35毫秒，随机抽取一个数组里的对象，并且显示在页面上
+        // setInterval(function(){
+        //     const random = parseInt(Math.random() * arr.length)
+        //     qs.innerHTML = arr[random]
+        // }, 35)
+
+        // 4. 我们希望这个间隔函数，是通过开始按钮触发的
+        let timerId = 0
+        // 这里timerId不是对象，所以不要写 null
+        // 注意 timerId的声明要写在外面，因为后面还需要用
+
+        let random = 0
+        start.addEventListener('click', function () {
+            // 这里的 timerId 就不要let了！不要二次声明！直接赋值就可以！
+            timerId = setInterval(function () {
+                // 提问：为啥 里面 const？？？？？？？？？？？？？？？？ 外面 let？？？
+                random = parseInt(Math.random() * arr.length)
+                qs.innerHTML = arr[random]
+            }, 35)
+
+            // 如果抽取到只剩下一个数组元素，就禁用两个按钮
+            // start.disabled = true
+            // end.disabled = true
+            if (arr.length === 1) {
+                start.disabled = end.disabled = true
+            }
+        })
+
+        // 5. 点击关闭按钮，关闭定时器
+        // 要先获取关闭按钮
+        const end = document.querySelector('.end')
+        // 再添加事件监听
+        end.addEventListener('click', function () {
+            clearInterval(timerId)
+
+            // 当前元素被抽到之后，就要删掉了，否则后面重复出现
+            // 这一步要写在停止定时器的代码后面，因为停止了之后，已经抽取到了，才删除
+            // 这里会提醒 random undefined，因为前面声明的random 是局部变量。所以要先在外面写一个 let random = 0,再在里面进行赋值。这就是局部变量，如果变成全局变量的方法！就是先在外面 let XXX = 0,再局部进行赋值
+            arr.splice(random, 1)
+            console.log(arr)
+        })
     </script>
 </body>
 
