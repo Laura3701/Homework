@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>轮播图点击切换</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .slider {
+      width: 560px;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .slider-wrapper {
+      width: 100%;
+      height: 320px;
+    }
+
+    .slider-wrapper img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .slider-footer {
+      height: 80px;
+      background-color: rgb(100, 67, 68);
+      padding: 12px 12px 0 12px;
+      position: relative;
+    }
+
+    .slider-footer .toggle {
+      position: absolute;
+      right: 0;
+      top: 12px;
+      display: flex;
+    }
+
+    .slider-footer .toggle button {
+      margin-right: 12px;
+      width: 28px;
+      height: 28px;
+      appearance: none;
+      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .slider-footer .toggle button:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .slider-footer p {
+      margin: 0;
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .slider-indicator {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .slider-indicator li {
+      width: 8px;
+      height: 8px;
+      margin: 4px;
+      border-radius: 50%;
+      background: #fff;
+      opacity: 0.4;
+      cursor: pointer;
+    }
+
+    .slider-indicator li.active {
+      width: 12px;
+      height: 12px;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slider">
+    <div class="slider-wrapper">
+      <img src="./images/slider01.jpg" alt="" />
+    </div>
+    <div class="slider-footer">
+      <p>对人类来说会不会太超前了？</p>
+      <ul class="slider-indicator">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <div class="toggle">
+        <button class="prev">&lt;</button>
+        <button class="next">&gt;</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // 1. 初始数据
+    const sliderData = [
+      { url: './images/slider01.jpg', title: '对人类来说会不会太超前了？', color: 'rgb(100, 67, 68)' },
+      { url: './images/slider02.jpg', title: '开启剑与雪的黑暗传说！', color: 'rgb(43, 35, 26)' },
+      { url: './images/slider03.jpg', title: '真正的jo厨出现了！', color: 'rgb(36, 31, 33)' },
+      { url: './images/slider04.jpg', title: '李玉刚：让世界通过B站看到东方大国文化', color: 'rgb(139, 98, 66)' },
+      { url: './images/slider05.jpg', title: '快来分享你的寒假日常吧~', color: 'rgb(67, 90, 92)' },
+      { url: './images/slider06.jpg', title: '哔哩哔哩小年YEAH', color: 'rgb(166, 131, 143)' },
+      { url: './images/slider07.jpg', title: '一站式解决你的电脑配置问题！！！', color: 'rgb(53, 29, 25)' },
+      { url: './images/slider08.jpg', title: '谁不想和小猫咪贴贴呢！', color: 'rgb(99, 72, 114)' },
+    ]
+
+    // 1. 获取元素
+
+    // 右侧按钮：
+    const next = document.querySelector('.toggle .next')
+
+    // 左侧按钮：
+    const prev = document.querySelector('.prev')
+
+    // 需要替换的元素：
+    const img = document.querySelector('.slider-wrapper img')
+    const p = document.querySelector('.slider-footer p')
+    const footer = document.querySelector('.slider-footer')
+
+
+    // 2. 点击右侧按钮，实现切换
+
+    // 2.1 设置一个用来计数的变量，作为 sliderData 的下标号，从而方便从 sliderData 这个数组对象中，获取每一个对象的属性，然后把这些属性替换到 html 中
+    let i = 0
+
+    next.addEventListener('click', function () {
+      i++
+      // 注意判断循环衔接点的条件要写这里哦~~~！！！
+      if (i >= sliderData.length) {
+        i = 0
+      }
+
+      // 调用渲染函数
+      render()
+
+      // 很想写这里，但是不对 QAQ
+      // if (i >= sliderData.length - 1) {
+      //   i = 0
+      // }
+    })
+
+    // 3. 左侧按钮
+
+    // 用来计数的 i 已经设置过了，全局变量，不需要再次设置了
+
+    prev.addEventListener('click', function () {
+      i--
+      // 之前设置了 i = 0，也就是默认左侧按钮的起始位置是数组中第一个元素，如果继续按左侧按钮，i--,i 变成 -1,不是正确是下标，所以一旦 i < 0，就回到最后一个元素
+      if (i < 0) {
+        i = sliderData.length - 1
+      }
+
+      // 调用渲染函数
+      render()
+    })
+
+    // 声明一个渲染函数，作为复用：
+    function render() {
+      img.src = sliderData[i].url
+      p.innerHTML = sliderData[i].title
+      footer.style.backgroundColor = sliderData[i].color
+
+      // 小圆点切换，先移除原来有 active这个属性的 li 的 active属性, 再给当前的 li 加上 active
+
+      // 提问：这里 被移除 active属性的是 .slider-indicator .active，而不是 .li，因为要移除的是具有 active属性的任何一个，如果写了li，只能移除第一个，因为在 html中，只有第一个li是有 active属性的。虽然理论上来说是这样，但是如果写了 .li，意思表示说，移除所有li里面的 active属性吗？
+      document.querySelector('.slider-indicator .active').classList.remove('active')
+
+      // 下面这里是给当前的 li 加上 active，没有问题~
+      document.querySelector(`.slider-indicator li:nth-child(${i + 1})`).classList.add('active')
+    }
+  </script>
+</body>
+
+</html>
