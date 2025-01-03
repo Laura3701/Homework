@@ -177,7 +177,8 @@
       render()
     })
 
-    // 声明一个渲染函数，作为复用：
+    // 4. 声明一个渲染函数，作为复用
+
     function render() {
       img.src = sliderData[i].url
       p.innerHTML = sliderData[i].title
@@ -185,12 +186,40 @@
 
       // 小圆点切换，先移除原来有 active这个属性的 li 的 active属性, 再给当前的 li 加上 active
 
-      // 提问：这里 被移除 active属性的是 .slider-indicator .active，而不是 .li，因为要移除的是具有 active属性的任何一个，如果写了li，只能移除第一个，因为在 html中，只有第一个li是有 active属性的。虽然理论上来说是这样，但是如果写了 .li，意思表示说，移除所有li里面的 active属性吗？
+      // 提问：这里 被移除 active属性的是 .slider-indicator .active，而不是 .li，因为要移除的是具有 active属性的任何一个，如果写了li，只能移除第一个，因为在 html中，只有第一个li是有 active属性的。虽然理论上来说是这样，但是如果写了 .li，意思表示说，移除所有li里面的 active属性吗？？？
       document.querySelector('.slider-indicator .active').classList.remove('active')
 
       // 下面这里是给当前的 li 加上 active，没有问题~
       document.querySelector(`.slider-indicator li:nth-child(${i + 1})`).classList.add('active')
     }
+
+    // 5. 设置自动播放
+
+    // 注意：定时器用 let 声明！~~！！！
+    // 定时器的名字是：timerId
+    let timerId = setInterval(function () {
+      // js自动调用点击事件的写法是：事件源.click()
+      //  注意：click要加括号！
+      next.click()
+    }, 1000)
+
+    // 6. 鼠标经过，停止定时器
+    const slider = document.querySelector('.slider')
+    slider.addEventListener('mouseenter', function () {
+      clearInterval(timerId)
+    })
+
+    // 7. 鼠标离开，开启定时器
+    slider.addEventListener('mouseleave', function () {
+
+      // 先 clear 再开启~
+      clearInterval(timerId)
+
+      timerId = setInterval(function () {
+        next.click()
+      }, 1000)
+
+    })
   </script>
 </body>
 

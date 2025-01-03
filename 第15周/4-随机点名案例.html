@@ -94,7 +94,7 @@
         start.addEventListener('click', function () {
             // 这里的 timerId 就不要let了！不要二次声明！直接赋值就可以！
             timerId = setInterval(function () {
-                // 提问：为啥 里面 const？？？？？？？？？？？？？？？？ 外面 let？？？
+                // 提问：为啥 里面 const？？？？？？？？？？？？？？？？ 外面 let？？？（后面被解答了~）
                 random = parseInt(Math.random() * arr.length)
                 qs.innerHTML = arr[random]
             }, 35)
