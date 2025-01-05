@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>评论回车发布</title>
+  <style>
+    .wrapper {
+      min-width: 400px;
+      max-width: 800px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: url(./images/avatar.jpg) no-repeat center / cover;
+      margin-right: 20px;
+    }
+
+    .wrapper textarea {
+      outline: none;
+      border-color: transparent;
+      resize: none;
+      background: #f5f5f5;
+      border-radius: 4px;
+      flex: 1;
+      padding: 10px;
+      /* 注意：transition 是写在 textarea这里的，而不要写在：focus里！ */
+      /* transition：all 不知道什么意思 */
+      transition: all 0.5s;
+      height: 30px;
+    }
+
+    /* 伪类选择器！：focus获得焦点的时候 */
+    .wrapper textarea:focus {
+      border-color: #e4e4e4;
+      background: #fff;
+      height: 50px;
+    }
+
+    .wrapper button {
+      background: #00aeec;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      margin-left: 10px;
+      width: 70px;
+      cursor: pointer;
+    }
+
+    .wrapper .total {
+      margin-right: 80px;
+      color: #999;
+      margin-top: 5px;
+      opacity: 0;
+      transition: all 0.5s;
+    }
+
+    .list {
+      min-width: 400px;
+      max-width: 800px;
+      display: flex;
+    }
+
+    .list .item {
+      width: 100%;
+      display: flex;
+    }
+
+    .list .item .info {
+      flex: 1;
+      border-bottom: 1px dashed #e4e4e4;
+      padding-bottom: 10px;
+    }
+
+    .list .item p {
+      margin: 0;
+    }
+
+    .list .item .name {
+      color: #FB7299;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .list .item .text {
+      color: #333;
+      padding: 10px 0;
+    }
+
+    .list .item .time {
+      color: #999;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <i class="avatar"></i>
+    <!-- 注意：这里设置最大字数的方法！ -->
+    <textarea id="tx" placeholder="发一条友善的评论" rows="2" maxlength="200"></textarea>
+    <button>发布</button>
+  </div>
+  <div class="wrapper">
+    <span class="total">0/200字</span>
+  </div>
+  <div class="list">
+    <div class="item" style="display: none;">
+      <i class="avatar"></i>
+      <div class="info">
+        <p class="name">清风徐来</p>
+        <p class="text">大家都辛苦啦，感谢各位大大的努力，能圆满完成真是太好了[笑哭][支持]</p>
+        <p class="time">2022-10-10 20:29:21</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 1. 文本域 tx 获得焦点时，total 显示出来
+    const tx = document.querySelector('#tx')
+    const total = document.querySelector('.total')
+    // 记得 item 也要获取哦~（对应第四步）
+    const item = document.querySelector('.item')
+    const text = document.querySelector('.text')
+
+    tx.addEventListener('focus', function () {
+      total.style.opacity = 1
+    })
+
+    // 2. 文本域 tx 失去焦点时，total 隐藏
+    tx.addEventListener('blur', function () {
+      total.style.opacity = 0
+    })
+
+    // 3. 检测用户输入，也就是如果用户有在输入框里输入内容，则执行function里面的内容
+    tx.addEventListener('input', function () {
+      // console.log(tx.value.length) 这里会显示输入的字符串的长度。注意：字符串也有长度，可以通过 文本域类名.value.length 得到
+      total.innerHTML = `${tx.value.length}/200字`
+    })
+
+    // 在 tx 文本域内, 出现键盘回弹时，实现funtion里面的功能。具体是哪个键回弹呢？是Enter,写法是 e.key = 'Enter'
+    tx.addEventListener('keyup', function (e) {
+      if (e.key === 'Enter') {
+        // 回车之后，显示下面的文字
+        item.style.display = 'block'
+        // 并且，替换文字中的内容
+        // 注意！！替换和被替换的对象是谁？是文本域中用户输入的字，替换了原本text里面的字
+        text.innerHTML = tx.value
+        // 替换之后，清空文本域
+        tx.value = ''
+      }
+    })
+  </script>
+</body>
+
+</html>
