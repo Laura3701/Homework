@@ -147,16 +147,29 @@
 
     // 在 tx 文本域内, 出现键盘回弹时，实现funtion里面的功能。具体是哪个键回弹呢？是Enter,写法是 e.key = 'Enter'
     tx.addEventListener('keyup', function (e) {
+
       if (e.key === 'Enter') {
-        // 回车之后，显示下面的文字
-        item.style.display = 'block'
-        // 并且，替换文字中的内容
-        // 注意！！替换和被替换的对象是谁？是文本域中用户输入的字，替换了原本text里面的字
-        text.innerHTML = tx.value
+        // 接下来需要判断：只有输入的内容不为空时，才在按下 Enter 后进行替换。如果只是输入了空格，则 Enter 后直接清空文本域。
+
+        // 注意：这里写错啦! 判断是否为空，要写在 e.key的里面！！！
+        if (tx.value.trim() !== '') {
+          // 回车之后，显示下面的文字
+          item.style.display = 'block'
+          // 并且，替换文字中的内容
+          // 注意！！替换和被替换的对象是谁？是文本域中用户输入的字，替换了原本text里面的字
+          text.innerHTML = tx.value
+        }
+
         // 替换之后，清空文本域
         tx.value = ''
+
+        // 这个 tx.value = '' 要写在 trim的外面！！！
+        // 如果跟替换的部分写在一起的话，也就是写在trim的里面，当输入不为空的时候，执行 trim,然后清空 textarea，这个没有问题。
+        // 但是当输入为空时，无法触发清空的操作，因为整个 trim 都不执行。所以就算按了回车，也无法清空。
       }
     })
+
+
   </script>
 </body>
 
