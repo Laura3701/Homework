@@ -95,6 +95,41 @@
     </div>
   </div>
 
+  <script>
+    // 如果选择多个，一定要 ALL！ ALL！ ALL！
+    const tabItem = document.querySelectorAll('.tab-item')
+    const main = document.querySelectorAll('.products .main')
+
+    // 注意！tab栏切换要用 for循环！
+
+    for (let i = 0; i < tabItem.length; i++) {
+
+      tabItem[i].addEventListener('mouseenter', function () {
+
+        document.querySelector('.tab li.active').classList.remove('active')
+
+        this.classList.add('active')
+
+        // 接下来设置下面的大盒子：
+
+        document.querySelector('.products .main.active').classList.remove('active')
+
+        // 之前是这样写的，不对！！！
+        // this.classList.add('active')
+
+        document.querySelector(`.products .main:nth-child(${i + 1})`).classList.add('active')
+
+      })
+
+    }
+
+
+
+
+
+
+
+  </script>
 
 
 </body>

@@ -25,6 +25,7 @@
     div li {
       width: 240px;
       height: 400px;
+      /* 提问：为什么必须是 left？ */
       float: left;
       transition: all 500ms;
     }
@@ -68,15 +69,17 @@
 </body>
 <script>
   // 获取元素
-  const box = document.querySelectorAll('li');// lis = [li, li, li, li, li]
+  const box = document.querySelectorAll('li')// lis = [li, li, li, li, li]
   // 分析：
   // 1、鼠标进入显示图片，
   // 鼠标进入li，让当前li变成800，其他的li变成100
   for (let i = 0; i < box.length; i++) {
 
     box[i].addEventListener('mouseenter', function () {
+      // 提问：为什么需要遍历第二遍？ box不是指的所有 li 吗？直接 box[i].style.width 不可以吗？
+
       for (let j = 0; j < box.length; j++) {// 事件触发执行，为了让所有li变成240宽的
-        box[j].style.width = '100px';
+        box[j].style.width = '100px'
       }
       this.style.width = '800px'
     })
@@ -84,7 +87,7 @@
     box[i].addEventListener('mouseleave', function () {
       // 让所有的li变成240
       for (let j = 0; j < box.length; j++) {// 事件触发执行，为了让所有li变成240宽的
-        box[j].style.width = '240px';
+        box[j].style.width = '240px'
       }
     })
 
