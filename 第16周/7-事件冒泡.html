@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .father {
+      width: 50px;
+      height: 50px;
+      background-color: pink;
+    }
+
+    .son {
+      width: 30px;
+      height: 30px;
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="father">
+    <div class="son"></div>
+  </div>
+
+  <script>
+    const father = document.querySelector('.father')
+    const son = document.querySelector('.son')
+
+    // addEventListener()括号里的第三个参数默认是 false，也就是默认为从小到大的冒泡阶段
+
+    // 如果设置第三个参数为 true，则变为从大到小执行的捕获阶段
+    document.addEventListener('click', function () {
+      alert("I'm the grandpa")
+    })
+
+    father.addEventListener('click', function () {
+      alert("I'm the father")
+    })
+
+    son.addEventListener('click', function (e) {
+      alert("I'm the son")
+      // 阻止事件流动，也要写在 addEventListener里面哦！！！
+      e.stopPropagation()
+    })
+  </script>
+
+</body>
+
+</html>
