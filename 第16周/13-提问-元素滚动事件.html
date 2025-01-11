@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      height: 3000px;
+    }
+
+    .main {
+      /* 为什么设置了 body 的高度，margin-top 就不生效？ */
+      margin: 100px;
+      overflow: scroll;
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+    }
+
+    .adv {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+    我里面有很多文字
+  </div>
+
+  <div class="adv">
+    我是广告
+  </div>
+  <script>
+    // 页面滚动时触发，比如固定导航栏
+    // 事件名： scroll
+    // 监听整个页面滚动 window
+
+    window.addEventListener('scroll', function () {
+      // console.log('滚动')
+      // 想知道页面滚动了多少像素
+
+      // 获取 html 元素的写法： document.documentElement
+      // 注意对象是 document！！！
+
+      // 提问：为什么页面滚动对象不是 window？那什么时候用 window？
+      console.log(document.documentElement.scrollTop)
+    })
+
+    // const div = document.querySelector('div')
+    // div.addEventListener('scroll', function () {
+    //   // scrollTop 被卷去的头部 - 是一个属性
+    //   console.log(div.scrollTop)
+    // })
+
+    // 例：页面滚动显示广告，否则隐藏。也就是如果不 >=100，就隐藏广告
+    // 注意 else 可以直接写的~没有其他条件！
+    const adv = document.querySelector('.adv')
+
+    window.addEventListener('scroll', function () {
+      const n = document.documentElement.scrollTop
+      // document.documentElement.scrollTop 得到的 n 是数字型，不带单位的数字
+      if (n >= 100) {
+        adv.style.display = 'block'
+      } else {
+        adv.style.display = 'none'
+      }
+    })
+
+  </script>
+</body>
+
+</html>

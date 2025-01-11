@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- form 效果：点击 “免费注册”，转到百度网站 -->
+  <form action="https://www.baidu.com/">
+    <input type="submit" value="免费注册">
+  </form>
+
+  <!-- <a> 标签里要写字才能看到 -->
+  <a href="https://www.baidu.com/">点击一下</a>
+  <script>
+    const form = document.querySelector('form')
+    // 注意： form 的行为是 submit
+    form.addEventListener('submit', function (e) {
+      e.preventDefault() // 这里一定要写括号！！！
+    })
+
+    const a = document.querySelector('a')
+    a.addEventListener('click', function (e) {
+      e.preventDefault()
+    })
+  </script>
+</body>
+
+</html>
