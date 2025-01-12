@@ -74,11 +74,12 @@
         // 4. 如果时间为0，则清除定时器，并且更改文字
         if (i < 0) {
           clearInterval(timer)
-
           btn.innerHTML = '获取验证码'
           btn.disabled = false
         }
       }, 1000)
+
+
 
       // 为什么不能写在这里？
       // btn.disabled = false

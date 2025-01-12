@@ -77,6 +77,7 @@
 
     box[i].addEventListener('mouseenter', function () {
       // 提问：为什么需要遍历第二遍？ box不是指的所有 li 吗？直接 box[i].style.width 不可以吗？
+      // box[i]是指的鼠标放上去的那个
 
       for (let j = 0; j < box.length; j++) {// 事件触发执行，为了让所有li变成240宽的
         box[j].style.width = '100px'
