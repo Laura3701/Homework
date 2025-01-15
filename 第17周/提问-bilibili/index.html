@@ -281,18 +281,22 @@
   </footer>
   <style>
     .line {
+      /* 注意 transition的写法 */
       transition: all .3s;
     }
   </style>
   <script>
     const list = document.querySelector('.tabs-list')
-    const line = document.querySelector('.line')
+    const line = document.querySelector('.tabs-list .line')
+
+    // 事件委托给 父盒子 list(点击的是父盒子里的 <a>)
     list.addEventListener('click', function (e) {
-      if (e.target.tarName = 'A') {
-        // console.log(11)
-        // console.log((e.target.offsetLeft - 16) / 3.75 + 'vw')
-        // console.log((e.target.offsetLeft) / 3.75 + 'vw')
-        line.style.left = (e.target.offsetLeft + 16) / 3.75 + 'vw'
+      // console.dir(e.target) // e.target 意思是 event 的 target，也就是正在被 click 的那个元素
+
+      // 设置条件：当正在被点的那个元素的 tagName属性是 A 的时候，执行操作
+      // 提问：如果是 写在 list 里面，在这种情况下，被点的不总是 a 吗？为什么要设置这个条件呢？或者说，什么情况下需要设置这样的条件呢？
+      if (e.target.tagName === 'A') {
+        line.style.transform = `translate(${e.target.offsetLeft}px)`
       }
     })
   </script>

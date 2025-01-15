@@ -1216,37 +1216,127 @@
   </div>
 
   <script>
-    const elevator = document.querySelector('.xtx-elevator')
 
-    // 1. 页面滚动至 xtx_entry，显示/隐藏电梯栏（elevator）
-    const entry = document.querySelector('.xtx_entry')
+    // 模块一：页面滑动，显示/隐藏电梯栏
+    // 放在自动执行函数里，防止变量污染
+    // 注意自动执行函数，要 分号；结尾
 
-    window.addEventListener('scroll', function () {
-      const n = document.documentElement.scrollTop
+    (function () {
 
-      // if (n >= 300) {
-      //   elevator.style.opacity = 1
-      // } else {
-      //   elevator.style.opacity = 0
-      // }
+      const elevator = document.querySelector('.xtx-elevator')
 
-      //简写：
-      // entry.offsetTop 意思是 entry 离窗口上沿的距离
-      elevator.style.opacity = n >= entry.offsetTop ? 1 : 0
-    })
+      // 1. 页面滚动至 xtx_entry，显示/隐藏电梯栏（elevator）
+      const entry = document.querySelector('.xtx_entry')
 
-    // 2. 点击返回页面顶部
-    // 注意：如果不是 class 而是 id，要用 ###########！！！！！！！！！
-    const backTop = document.querySelector('#backTop')
+      window.addEventListener('scroll', function () {
+        const n = document.documentElement.scrollTop
 
-    backTop.addEventListener('click', function () {
-      // 第一种写法：给属性 scrollTop 赋值
-      // document.documentElement.scrollTop = 0
+        // if (n >= 300) {
+        //   elevator.style.opacity = 1
+        // } else {
+        //   elevator.style.opacity = 0
+        // }
 
-      //第二种页面滚动的写法，给方法 scrollTo() 赋值
-      // window.scrollTo(x, y)
-      window.scrollTo(0, 0)
-    })
+        //简写：
+        // entry.offsetTop 意思是 entry 离窗口上沿的距离
+        elevator.style.opacity = n >= entry.offsetTop ? 1 : 0
+      })
+
+      // 2. 点击返回页面顶部
+      // 注意：如果不是 class 而是 id，要用 ###########！！！！！！！！！
+      const backTop = document.querySelector('#backTop')
+
+      backTop.addEventListener('click', function () {
+        // 第一种写法：给属性 scrollTop 赋值
+        // document.documentElement.scrollTop = 0
+
+        //第二种页面滚动的写法，给方法 scrollTo() 赋值
+        // window.scrollTo(x, y)
+        window.scrollTo(0, 0)
+      })
+
+    })();
+
+    // 模块二：点击每个模块，页面自动跳转到对应位置
+    // 使用事件委托，可以避免给每个 li 循环绑定事件
+    (function () {
+      // 1. 点击电梯栏中的每一个 a，改变样式(a 的事件，委托给 ul)
+
+      // list 变量是不带 active 属性的 ul
+      // old变量 是带有 active 属性的
+      // 其实这里有点混乱：带 active属性的到底是 ul 还是 a？？？
+
+      // 总之先声明电梯栏变量：
+      const list = document.querySelector('.xtx-elevator-list')
+
+      // 提问：很不懂，为啥 old 不能在这里声明？？？？？？大问号？？？为什么不能写在事件监听的外面？？？
+
+      // 给电梯栏 <ul> 注册点击事件，效果是点击电梯栏中的每一个 a，改变被点击的 a 的样式
+      list.addEventListener('click', function (e) {
+
+        // 注意：tagName 的写法 t小写！
+        if (e.target.tagName === 'A') {
+
+          // 排他思想，移除原来的 active, 给当前目标加上
+
+          // 但是原来就没有 active，所以第一步的 remove active写不了，否则报错
+
+          // 所以解决方法是：声明一个带有 active属性的变量 old，代表原本具有 active属性的元素，如果 old 为真，也就是如果 .active存在，那么就移除。如果 old 为假，也就是 .active不存在，则不执行 remove的操作。
+
+          const old = document.querySelector('.xtx-elevator-list .active')
+
+          if (old) {
+            old.classList.remove('active')
+            // console.log('去掉了')
+          }
+
+          // 这也是 add 要写在 if(old){}外面的原因，如果写在里面，当不存在 active 元素时，则不执行{}内的代码，那就永远都加不上了
+          e.target.classList.add('active')
+          // console.log('加上了')
+
+          // 2. 点击小盒子 li，页面跳转到对应大盒子位置
+
+          // 注意：这个部分要写在 点击事件的里面，因为也是点击 list 之后产生的效果
+
+          // 核心思想：把大盒子的 offsetTop，给 document.documentElement.scrollTop，也就是大盒子距离顶部多少，就让页面上滑多少。
+
+          // 口诀：距离多远，滚多远~~~~~~~(ノ｀Д)ノ
+
+          // 口诀英文版：how far is the offsetTop for the box，how long the Element would be scrolled ~~~~~
+
+          // offsetTop 有多长，Element 就有多久~
+
+          // 正式开始：
+
+          // 思想准备：如何获取小盒子自定义属性？
+          // console.log(e.target.dataset.name)
+          // 为什么需要获取小盒子的 name？因为需要对应到大盒子上，二者起名方式有关联！
+
+          // 2.1 根据小盒子的自定义属性值，去选择对应的大盒子
+          // console.log(document.querySelector(`.xtx_goods_${e.target.dataset.name}.xtx_panel`))
+
+          // 提问：为啥类名后面不写 xtx_panel ？？？
+          // 妈耶...破案了，又是交集选择器！
+
+          // 注意了！！！在 html 标签中，两个类名写在一起，由空格隔开，并不是父子关系！而是交集选择器！代表两个 class 都要满足才行！这在 css 中的写法是两个小点点要写在一起！！！
+
+          // 所以问题来了，为什么不写 xtx_panel也可以呢？这样的话，不是少了一个类名吗？
+
+          // 大盒子的 offsetTop，也就是大盒子距离上边沿多远：
+          // console.log(document.querySelector(`.xtx_goods_${e.target.dataset.name}.xtx_panel`).offsetTop)
+
+          // 把大盒子的 offsetTop(赋值给变量 top) 给 scrollTop, 大盒子距离多远，页面就滚多远~~~~~~~
+          const top = document.querySelector(`.xtx_goods_${e.target.dataset.name}.xtx_panel`).offsetTop
+
+          document.documentElement.scrollTop = top
+
+        }
+      })
+
+
+
+
+    })();
   </script>
 </body>
 
