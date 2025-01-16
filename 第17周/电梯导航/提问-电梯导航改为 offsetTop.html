@@ -1259,6 +1259,7 @@
 
     // 模块二：点击每个模块，页面自动跳转到对应位置
     // 使用事件委托，可以避免给每个 li 循环绑定事件
+    // （模块二和接下来的模块三，都放在一个执行函数里面）
     (function () {
       // 1. 点击电梯栏中的每一个 a，改变样式(a 的事件，委托给 ul)
 
@@ -1275,7 +1276,8 @@
       list.addEventListener('click', function (e) {
 
         // 注意：tagName 的写法 t小写！
-        if (e.target.tagName === 'A') {
+        // 提问：为什么加了 e.target.dataset.name 就不报错了呢？
+        if (e.target.tagName === 'A' && e.target.dataset.name) {
 
           // 排他思想，移除原来的 active, 给当前目标加上
 
@@ -1333,7 +1335,51 @@
         }
       })
 
+      // 模块三：滚动页面，大盒子滚到哪，对应到小盒子相应的位置
 
+      // 3.1 先移除小盒子原本的 active 属性，效果是页面一滚动，先移除原来的 active
+
+      window.addEventListener('scroll', function () {
+
+        const old = document.querySelector('.xtx-elevator-list .active')
+
+        if (old) {
+          old.classList.remove('active')
+        }
+
+        // 3.2 判断页面当前滑动的位置，选择小盒子
+
+        // 获取 4 个大盒子
+
+        // 提问：为什么不写两个类名？
+        const news = document.querySelector('.xtx_goods_new')
+        const popular = document.querySelector('.xtx_goods_popular')
+        const brand = document.querySelector('.xtx_goods_brand')
+        const topic = document.querySelector('.xtx_goods_topic')
+
+        // 比较页面上滑(n)跟offsetTop
+        const n = document.documentElement.scrollTop
+
+        if (n >= news.offsetTop && n < popular.offsetTop) {
+
+          // 选择第一个小盒子
+          // 注意第一个小盒子类名的写法 '[data-name=new]'
+          document.querySelector('[data-name=new]').classList.add('active')
+
+        } else if (n >= popular.offsetTop && n < brand.offsetTop) {
+          // 选择第二个小盒子
+          document.querySelector('[data-name=popular]').classList.add('active')
+
+        } else if (n >= brand.offsetTop && n < topic.offsetTop) {
+          // 选择第三个小盒子
+          document.querySelector('[data-name=brand]').classList.add('active')
+
+        } else if (n >= topic.offsetTop) {
+          // 选择第四个小盒子
+          document.querySelector('[data-name=topic]').classList.add('active')
+        }
+
+      })
 
 
     })();

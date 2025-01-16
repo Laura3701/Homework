@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+/* 设置页面滚动条的 滚动行为 */
+html {
+  scroll-behavior: smooth;
+}
+
 /** 分类及焦点图 **/
 .xtx_entry {
   height: 500px;
