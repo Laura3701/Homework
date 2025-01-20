@@ -1269,6 +1269,7 @@
 
       // 总之先声明电梯栏变量：
       const list = document.querySelector('.xtx-elevator-list')
+      const old = document.querySelector('.xtx-elevator-list .active')
 
       // 提问：很不懂，为啥 old 不能在这里声明？？？？？？大问号？？？为什么不能写在事件监听的外面？？？
 
@@ -1285,7 +1286,7 @@
 
           // 所以解决方法是：声明一个带有 active属性的变量 old，代表原本具有 active属性的元素，如果 old 为真，也就是如果 .active存在，那么就移除。如果 old 为假，也就是 .active不存在，则不执行 remove的操作。
 
-          const old = document.querySelector('.xtx-elevator-list .active')
+          // const old = document.querySelector('.xtx-elevator-list .active')
 
           if (old) {
             old.classList.remove('active')
