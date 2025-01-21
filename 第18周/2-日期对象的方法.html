@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 要先获得日期对象，才能使用日期对象的方法
+
+    // 1. 实例化日期对象（获得日期对象）
+    const date = new Date()
+
+    // 2. 使用里面的方法
+    // 注意：.getFullYear()不要忘记加小括号！！！
+    console.log(date.getFullYear()) // 年
+    console.log(date.getMonth() + 1) // 月
+    console.log(date.getDate()) // 日（几号）
+    console.log(date.getDay()) // 星期几，星期天是 0
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 300px;
+      height: 50px;
+      border: 1px solid grey;
+      text-align: center;
+      line-height: 50px;
+      font-size: larger;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+
+  <script>
+    // 注意：HTML标签前面不要加 . ！！！
+    const div = document.querySelector('div')
+
+    function getMyTime() {
+      const date = new Date()
+
+      let h = date.getHours()
+      let m = date.getHours()
+      let s = date.getSeconds()
+
+      h = h < 10 ? '0' + h : h
+      m = m < 10 ? '0' + m : m
+      s = s < 10 ? '0' + s : s
+
+      return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日 ${h}:${m}:${s}`
+    }
+
+    // 间隔函数之前，先写一遍 innerHTML，这样不会有空白期
+    // 如果不写的话，div 里面会有一秒钟空白，然后才执行间隔函数
+    div.innerHTML = getMyTime()
+
+    // 间隔函数，每隔一秒，获取一次时间，实现每 1 秒更新 1 次时间
+
+    setInterval(function () {
+      div.innerHTML = getMyTime()
+    }, 1000)
+
+  </script>
+</body>
+
+</html>

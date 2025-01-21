@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      margin-left: 20px;
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+      border-radius: 10px;
+    }
+
+    .inner {
+      width: 250px;
+      height: 250px;
+      line-height: 50px;
+      text-align: center;
+      background-color: antiquewhite;
+      border-radius: 10px;
+    }
+
+    .today {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="countdown">
+
+    <div class="inner">
+
+      <p class="today">今天是2025年1月20日</p>
+
+      <p class="title">下班倒计时</p>
+
+      <p>
+        <span class="hour">00</span>
+        <i>:</i>
+        <span class="minute">25</span>
+        <i>:</i>
+        <span class="second">03</span>
+      </p>
+
+      <p class="classover">23:30:00下班</p>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    // 1. 随机生成背景颜色
+
+    // 自定义 一个形参 flag
+
+    function getRandomColor(flag = true) {
+      if (flag) {
+        //如果是 true, 返回 #ffffff
+        let str = '#'
+        let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+        // for 循环 随机抽 6次，累加到 str 里面
+        for (i = 1; i <= 6; i++) {
+          // 每次要随机从数组里抽取一个
+          // 每次循环 随机生成一个数组的索引号 --- random
+          let random = Math.floor(Math.random() * arr.length)
+          // 数组的索引号对应到数组的一个值 arr[random],然后追加到 str里
+          str = str + arr[random]
+        }
+        return str
+
+      } else {
+        // 如果是 false, 则返回 rgb（255，255，255）
+        let r = Math.floor(Math.random() * 256)
+        let g = Math.floor(Math.random() * 256)
+        let b = Math.floor(Math.random() * 256)
+        return `rgb(${r},${g},${b})`
+      }
+    }
+
+    const countdown = document.querySelector('.countdown')
+    // 注意 g 不要大写 background
+    countdown.style.backgroundColor = getRandomColor()
+
+
+
+    // 2. 计算倒计时
+    // 把倒计时进行函数封装，命名为 getCountTime，为后面定时器做准备
+
+    function getCountTime() {
+      // 1. 得到当前的时间戳，需要加号！
+      const now = +new Date()
+
+      // 2. 得到截止时间的时间戳
+      const last = +new Date('2025-1-20 23:30:00')
+
+      // 3. 用截至时间 减去 当前时间，得到两个时间点之间差多久，也就是用来倒计时的值
+      // 并除以 1000，转化为秒
+      // 将剩余时间赋值给 count，也就是总秒数
+
+      // 提问：不懂，时间差和倒计时，有什么关系？
+      const count = (last - now) / 1000
+
+      // 4. 用总秒数换算时分秒
+      // let d = parseInt(count / 60 / 60 / 24) // 计算天数
+      let h = parseInt(count / 60 / 60 % 24) // 计算小时
+      let m = parseInt(count / 60 % 60) // 计算分数
+      let s = parseInt(count % 60) // 计算当前秒数
+
+      h = h < 10 ? '0' + h : h
+      m = m < 10 ? '0' + m : m
+      s = s < 10 ? '0' + s : s
+
+      // 5. 把时分秒写到对应的盒子里
+      // 先获取元素，再把元素的 innerHTML 替换为变量，实现内容的替换
+      const hour = document.querySelector('.hour')
+      const minute = document.querySelector('.minute')
+      const second = document.querySelector('.second')
+
+      hour.innerHTML = h
+      minute.innerHTML = m
+      second.innerHTML = s
+
+      // 7. 修改最上面一行的 today
+
+      const today = document.querySelector('.today')
+      const date = new Date()
+
+      // 月份 +1 写在花括号里面！
+      // 几号是 Date, Day是星期！
+      today.innerHTML = `今天是${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`
+
+    }
+
+    // 6. 定时器
+    // 定时器里的函数不加小括号！！！
+
+    // 页面一加载，先调用一次，显示时间
+    getCountTime()
+
+    setInterval(getCountTime, 1000)
+  </script>
+</body>
+
+</html>

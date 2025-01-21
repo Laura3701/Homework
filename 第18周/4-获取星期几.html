@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 根据日期 Day()，返回星期几
+    const arr = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+
+    // new Date().getDay() 的意思是：
+    // 日期对象 的 getDay() 方法，可以得到一个数字型的值，指的是一周中的第几天，正好对应数组的下标号
+
+    // arr[下标号] 对应到数组里具体的某个数据
+
+    console.log(arr[new Date().getDay()])
+
+  </script>
+</body>
+
+</html>

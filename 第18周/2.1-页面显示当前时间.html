@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <span class="year">2008</span>-<span class="month">08</span>-<span class="ri">08</span>
+    <br>
+    <span class="hour">10</span>:<span class="minute">08</span>:<span class="second">08</span>
+  </div>
+
+  <script>
+    // 1. 获取日期对象
+    const date = new Date()
+
+    // 2. 获取需要修改的元素
+    const year = document.querySelector('.year')
+    const month = document.querySelector('.month')
+    const ri = document.querySelector('.ri')
+
+    // 这里用 let 声明，因为后面要重新赋值
+    let hour = document.querySelector('.hour')
+    let minute = document.querySelector('.minute')
+    let second = document.querySelector('.second')
+
+    // 3. 让元素的 html = 日期对象的方法（）
+    // 注意：不要忘了小括号！
+    year.innerHTML = date.getFullYear()
+    month.innerHTML = date.getMonth() + 1
+    ri.innerHTML = date.getDate()
+
+    hour.innerHTML = date.getHours()
+    minute.innerHTML = date.getMinutes()
+    second.innerHTML = date.getSeconds()
+
+    // 数字补零的方法：
+    hour = hour < 10 ? '0' + hour : hour
+    minute = minute < 10 ? '0' + minute : minute
+    second = second < 10 ? '0' + second : second
+
+  </script>
+</body>
+
+</html>

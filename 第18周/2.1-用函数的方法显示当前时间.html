@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 300px;
+      height: 50px;
+      border: 1px solid grey;
+      text-align: center;
+      line-height: 50px;
+      font-size: larger;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+
+  <script>
+    // 1. 文字是写在 div 里面的，所以先获取 div
+    const div = document.querySelector('div')
+
+    // 2. 声明一个函数，用来返回要显示在 div 里面的内容
+    function getMyDate() {
+      // 2.1 通过 new 关键字，获取日期对象
+      const date = new Date()
+
+      // 年月日可以直接用日期对象的方法生成的数字，时分秒则需要补零
+      // 2.2 所以先获取时分秒
+      let h = date.getHours()
+      let m = date.getMinutes()
+      let s = date.getSeconds()
+
+      // 2.3 再根据是否小于零，来重新赋值
+      h = h < 10 ? '0' + h : h
+      m = m < 10 ? '0' + m : m
+      s = s < 10 ? '0' + s : s
+
+      // 2.4 return `` 生成返回值，后面调用函数时，把整个函数调用赋值给 innerHTML，就会把返回值显示在页面上
+
+      // 注意：date.getMonth() 要 + 1 ！！！
+      return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${h}:${m}:${s}`
+    }
+
+    // 3. 把具有返回值的函数调用，赋值给 innerHTML
+
+    // 可以直接在一个盒子里写 innerHTML，就可以把文字写进去
+    // 然后让该 innerHTML = 调用函数（这个函数要有返回值）
+    // 这个操作等于把函数的返回值赋值给了 innerHTML 
+    div.innerHTML = getMyDate()
+
+  </script>
+</body>
+
+</html>

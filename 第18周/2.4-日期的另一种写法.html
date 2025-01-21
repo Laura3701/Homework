@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 300px;
+      height: 50px;
+      border: 1px solid grey;
+      text-align: center;
+      line-height: 50px;
+      font-size: larger;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+
+  <script>
+    const div = document.querySelector('div')
+
+    const date = new Date()
+
+    div.innerHTML = date.toLocaleString()
+
+    setInterval(function () {
+      // 提问：不懂为什么这里也要获取时间对象，之前已经获取过了，这里不可以直接赋值吗？
+      const date = new Date()
+      div.innerHTML = date.toLocaleString()
+    }, 1000)
+
+    // date.toLocaleString() 的显示效果：
+    // 1/20/2025, 11:40:22 AM
+
+  </script>
+</body>
+
+</html>
