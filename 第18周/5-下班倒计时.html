@@ -145,13 +145,17 @@
 
     }
 
+
     // 6. 定时器
     // 定时器里的函数不加小括号！！！
 
     // 页面一加载，先调用一次，显示时间
     getCountTime()
 
-    setInterval(getCountTime, 1000)
+    let n = setInterval(getCountTime, 1000)
+
+    // 提问：怎么停止定时器？
+
   </script>
 </body>
 
