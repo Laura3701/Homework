@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .adv {
+      position: relative;
+      width: 500px;
+      height: 100px;
+      background-color: pink;
+      text-align: center;
+      /* 纵向居中：行高 = 盒子高 */
+      line-height: 100px;
+      font-size: 24px;
+      margin: 30px auto;
+    }
+
+    .close-button {
+      position: absolute;
+      /* 这里又写成 margin-right 了！！！ */
+      right: 0;
+      /* 这里以为 是负值 */
+      top: 0;
+      line-height: 20px;
+      background-color: blue;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="adv">
+    我是广告
+    <div class="close-button">X</div>
+  </div>
+
+  <div class="adv">
+    我是广告
+    <div class="close-button">X</div>
+  </div>
+
+  <div class="adv">
+    我是广告
+    <div class="close-button">X</div>
+  </div>
+
+  <script>
+    // const closeButton = document.querySelector('.adv .close-button')
+
+    // closeButton.addEventListener('click', function () {
+    //   this.parentNode.style.display = 'none'
+    //   // 吃惊 o~o 这里closeButton也一起消失啦~
+    // })
+
+    // 1. 获取 3 个 关闭按钮，以为总共有 3 个按钮，所以要  selectorAll !!!
+    // 得到一个伪数组
+
+    const closeBtn = document.querySelectorAll('.close-button')
+
+    // for 循环遍历选择数组中的每一个关闭按钮，循环到该按钮之后，给该按钮注册点击事件：点击按钮，关闭广告
+    for (let i = 0; i < closeBtn.length; i++) {
+      closeBtn[i].addEventListener('click', function () {
+        this.parentNode.style.display = 'none'
+      })
+    }
+
+    // 这个写法只能倒序关，不能顺序关呀？？？
+
+
+  </script>
+</body>
+
+</html>
