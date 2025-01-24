@@ -59,94 +59,122 @@
         -->
     </tbody>
   </table>
+
   <script>
-    // 获取元素
+    // 模块一：提交表单，生成数组
+
+    // 1. 声明一个空数组
+    const arr = []
+    // 从 HTML 中获取数组对象中需要用到的变量
     const uname = document.querySelector('.uname')
     const age = document.querySelector('.age')
     const gender = document.querySelector('.gender')
     const salary = document.querySelector('.salary')
     const city = document.querySelector('.city')
+    // 标签没有点哦~
     const tbody = document.querySelector('tbody')
-    // 获取所有带有name属性的 元素
+    // 声明一个 items数组，用来储存用户输入的每一个数据 items[i]，用来判断 items[i]是否为空，用属性选择器选择对应的元素
     const items = document.querySelectorAll('[name]')
-    // 声明一个空的数组， 增加和删除都是对这个数组进行操作
-    const arr = []
 
-    // 1. 录入模块
-    // 1.1 表单提交事件
+    // 2. 给表单注册提交事件
+
+    // 2.1先在 js 中获取表单
     const info = document.querySelector('.info')
+    // 2.2再给表单注册提交事件
     info.addEventListener('submit', function (e) {
-      // 阻止默认行为  不跳转
+      // 阻止表单自动提交。提问：如果自动提交会怎么样？
       e.preventDefault()
-      // console.log(11)
 
-      // 这里进行表单验证  如果不通过，直接中断，不需要添加数据
-      // 先遍历循环
+      // 3. 在这里进行表单验证，如果信息没有填全，则不添加数据，也就是不进行下面的操作
+      
+      // 要遍历每一个填的数据，判断每一个是否为空
+      // 注意：判断是否为空，要用 items[i].value ！！！.value 才代表用户输入进去的值！！！（这个 value 太难了，总是忘记，还没找到添加规律）
       for (let i = 0; i < items.length; i++) {
         if (items[i].value === '') {
           return alert('输入内容不能为空')
         }
       }
-      // 创建新的对象
+
+      // 2.3 每次提交表单，都获取一个数组对象
       const obj = {
-        stuId: arr.length + 1,
+        // 学号是数组长度 + 1，因为一开始的数组长度是 0，但学号是 1
+        stuId: arr.length + 1, // 注意写逗号
         uname: uname.value,
-        age: age.value,
+        age: age.value, // 用户输入的值，要加上.value
         gender: gender.value,
         salary: salary.value,
         city: city.value
       }
-      // console.log(obj)
-      // 追加给数组里面
+
+      // 2.4 每次提交表单，都把 obj 追加到数组里面
       arr.push(obj)
-      // console.log(arr)
-      // 清空表单  重置 
+      // console.log(arr) // 每次提交表单，数组里就多一个对象
+
+      // 2.5 每次提交表单之后，都清空输入框（重置）
+      // 重置是 input 的另一个 type
+      // <input type="reset"> 重置
+      // <input type="submit"> 提交
       this.reset()
+
       // 调用渲染函数
       render()
     })
 
+    // 模块二：声明一个渲染函数，用来遍历数组，arr[i]是数组中的每一个对象
 
-    // 2. 渲染函数 因为增加和删除都需要渲染
+    // 遍历的作用是：每次遍历生成一行，也就是生成一个 tr，也就是每次循环都要 const 一个 tr，也就是把 const tr 写在 for 里面
+    // 在这里并不是 arr[i]的 innerHTML 而是 <tr> 的 HTMl，要写标签哦~（所以要先获取<tr>）
+
     function render() {
-      // 先清空tbody 以前的行 ，把最新数组里面的数据渲染完毕 
+      // 先清空 tbody，只渲染最新的。注意：清空的是 tbody，不是 tr
       tbody.innerHTML = ''
-      // 遍历arr数组
+
       for (let i = 0; i < arr.length; i++) {
-        // 生成 tr 
+
+        // tbody.innerHTML = '' 为什么不能写在这？ 
+
+        // 创建一个 tr！！！是创建！！！不然会替代之前的
         const tr = document.createElement('tr')
+
+        // <tr> 的 innerHTMl里面，不需要写 <tr>，直接从 td 开始
+        // 每一个填进去的数据，都是 arr[i]里面其中的一项，比如第一个对象的 stuId，所以都要加上 arr[i].
         tr.innerHTML = `
-          <td>${arr[i].stuId}</td>
-          <td>${arr[i].uname}</td>
-          <td>${arr[i].age}</td>
-          <td>${arr[i].gender}</td>
-          <td>${arr[i].salary}</td>
-          <td>${arr[i].city}</td>
-          <td>
-            <a href="javascript:" data-id=${i}>删除</a>
-          </td>
+              <td>${arr[i].stuId}</td> 
+              <td>${arr[i].uname}</td>
+              <td>${arr[i].age}</td>
+              <td>${arr[i].gender}</td>
+              <td>${arr[i].salary}</td>
+              <td>${arr[i].city}</td>
+            <td>
+              <a href="javascript:" data-id=${i}>删除</a>
+            </td>
         `
-        // 追加元素  父元素.appendChild(子元素)
+
+        // 把 tr 追加给父元素，也就是给 tbody（之前获取了）
         tbody.appendChild(tr)
+
+        // 函数需要在提交事件里面调用
       }
     }
 
+    // 模块三：删除操作
 
-    // 3. 删除操作
-    // 3.1 事件委托 tbody
+    // 事件委托，给 tbody 注册点击事件，因为只有 tbody 是一个，tr td 都是多个
     tbody.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') {
-        // 得到当前元素的自定义属性 data-id
-        // console.log(e.target.dataset.id)
-        // 删除arr 数组里面对应的数据
+
+        // 前面生成了<a>的自定义属性
+        // 从 arr 中删除对应数据（从哪开始，删几个）
+        // 从哪开始删除的写法是：e.target.dataset.id
         arr.splice(e.target.dataset.id, 1)
-        console.log(arr)
-        // 从新渲染一次
+        // console.log(arr) // 控制台显示空数组，这时候页面上还没有被删除
+
+        // 重新渲染，才能刷新页面的数据
         render()
       }
     })
-  </script>
 
+  </script>
 </body>
 
 </html>

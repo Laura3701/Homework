@@ -20,7 +20,11 @@
 
 - 父节点：parentNode 属性，返回最近一级的父节点，找不到返回 null
 
-  `子元素.parentNode`
+  ~~~javascript
+  // 查找父节点
+  子元素.parentNode 
+  ~~~
+
 
 - 子节点
 
@@ -28,7 +32,22 @@
 
   **`children`属性（重点）**
       - 仅仅获得*元素*节点
-      - 返回的是*伪数组*，所以就算 ul 里面只有一个 li，也要写 `ul.children[0]`
+      - 返回的是*伪数组*，所以就算 ul 里面只有一个 li，也要写 `ul.children[0]`（查找子节点）
+`
+  ~~~javascript
+  // 查找子节点，这里查找的是 ul中的第一个 li
+  ul.children[0]
+
+  // 删除子节点
+  ul.removeChild(ul.children[0])
+
+  // 子节点插入到父元素的最后，这里把 li 插入到 ul 的最后
+  ul.appendChild(li)
+
+  // 插入到父元素中某个子元素的前面
+  // 父元素.insertBefore(要插入的元素， 在那个元素前面)
+  ul.insertBefore(li, ul.children[0])
+  ~~~
 
 - 兄弟节点
 
