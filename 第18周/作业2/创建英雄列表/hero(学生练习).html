@@ -39,7 +39,39 @@
 			{ name: 'XXX', imgSrc: '18.jpg' },
 			{ name: 'XXX', imgSrc: '19.jpg' },
 			{ name: 'XXX', imgSrc: '20.jpg' }
-		];
+		]
+
+		// 1. 获取点击按钮和 ul
+
+		// 2. 每次点击按钮，都执行一次 for循环，循环的是 datas
+
+		// 每次循环都：
+		// 创建一个 li，追加给 ul
+		// 创建 <img> 追加给 li
+		// 修改 img 的数据为对应的 datas[i].属性
+
+		// getElementById 这个写法已经忘记了。。。
+		const link = document.getElementById('create')
+		const list = document.querySelector('link')
+
+		link.addEventListener('click', function () {
+
+			for (let i = 0; i < datas.length; i++) {
+
+				let li = document.createElement('li')
+				list.appendChild(li)
+
+				let img = document.createElement('img')
+				li.appendChild(img)
+
+				// <li><img src="uploads/heros/01.jpg" title="司马懿"></li>
+				img.src = 'uploads/heros/' + datas[i].imgSrc
+				img.title = datas[i].name
+			}
+		})
+
+		// 提问：不知道什么时候用 let, 什么时候用 const，是创建的都要用 let 吗？
+
 	</script>
 </body>
 

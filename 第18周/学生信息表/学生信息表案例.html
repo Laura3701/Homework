@@ -86,7 +86,7 @@
       e.preventDefault()
 
       // 3. 在这里进行表单验证，如果信息没有填全，则不添加数据，也就是不进行下面的操作
-      
+
       // 要遍历每一个填的数据，判断每一个是否为空
       // 注意：判断是否为空，要用 items[i].value ！！！.value 才代表用户输入进去的值！！！（这个 value 太难了，总是忘记，还没找到添加规律）
       for (let i = 0; i < items.length; i++) {
@@ -163,12 +163,14 @@
     tbody.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') {
 
-        // 前面生成了<a>的自定义属性
+        // 前面生成了<a>的自定义属性（149行）
+        // 提问：不明白这里为什么没有作用域的问题？
+
         // 从 arr 中删除对应数据（从哪开始，删几个）
         // 从哪开始删除的写法是：e.target.dataset.id
         arr.splice(e.target.dataset.id, 1)
-        // console.log(arr) // 控制台显示空数组，这时候页面上还没有被删除
 
+        // console.log(arr) // 控制台显示空数组，这时候页面上还没有被删除
         // 重新渲染，才能刷新页面的数据
         render()
       }
