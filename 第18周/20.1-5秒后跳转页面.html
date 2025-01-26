@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    span {
+      color: red
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 需求：用户点击可以跳转，如果不点击，则5秒之后自动跳转，要求里面有秒数倒计时 -->
+
+  <!-- 因为倒计时里面的秒数会变，所以用 setInterval，每隔一秒自动执行一次 -->
+
+  <a href="https://groups-app.ezumee.com/group/ezumee-global">支付成功<span>5</span>秒钟跳转到首页</a>
+
+  <script>
+    // 1. 获取元素
+    const a = document.querySelector('a')
+
+    // 2. 设置定时器
+    let num = 5
+
+    let timerId = setInterval(function () {
+      num--
+      a.innerHTML = `支付成功<span>${num}</span>秒钟跳转到首页`
+
+      if (num === 0) {
+        clearInterval(timerId)
+        location.href = "https://groups-app.ezumee.com/group/ezumee-global"
+      }
+
+    }, 1000)
+
+    // 注意问题：
+
+    // 1. 什么时候停止的判断条件要写在间隔函数里面
+    // if (num === 0) {
+    //   clearInterval(timerId)
+    // }
+
+    // 2. 跳转地址的写法是：location.href 而不是 a.href，因为跳转的原理是，window 的 location 发生了变化，导致整个窗口变了一个地址，而不是 <a>链接的地址变了
+
+    // 3. XXX.innerHTML = 后面的内容要连着标签一起复制（比如span），否则css不起作用
+
+
+
+  </script>
+</body>
+
+</html>
