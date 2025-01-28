@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    // 1. 声明一个数组
+    const arr = ['red', 'blue', 'pink']
+
+    // 2. 给数组添加 map()方法，也就是 arr.map()
+    // map()里面的 function{} 花括号里面写需要对数组进行的修改，并 return
+    // function()小括号里面的参数写 ele, index
+    const newArr = arr.map(function (ele, index) {
+      // ele是数组元素 'red', 'blue', 'pink'
+      // index 是数组元素的索引号
+      return ele + '颜色'
+      // console.log(newArr) // 如果写在这里，控制台不显示任何信息
+    })
+
+    // 3. 在 const newArr 的外面得到新数组
+    console.log(newArr) // 自动遍历并添加 '颜色' ['red颜色', 'blue颜色', 'pink颜色']
+
+    // 2. join 方法
+
+  </script>
+</body>
+
+</html>

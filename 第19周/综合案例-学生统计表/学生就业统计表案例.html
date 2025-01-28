@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>学生就业统计表</title>
+  <link rel="stylesheet" href="./iconfont/iconfont.css">
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+  <h1>学生就业统计表</h1>
+  <form class="info" autocomplete="off">
+    <input type="text" class="uname" name="uname" placeholder="姓名" />
+    <input type="text" class="age" name="age" placeholder="年龄" />
+    <input type="text" class="salary" name="salary" placeholder="薪资" />
+    <select name="gender" class="gender">
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select>
+    <select name="city" class="city">
+      <option value="北京">北京</option>
+      <option value="上海">上海</option>
+      <option value="广州">广州</option>
+      <option value="深圳">深圳</option>
+      <option value="曹县">曹县</option>
+    </select>
+    <button class="add">
+      <i class="iconfont icon-tianjia"></i>添加
+    </button>
+  </form>
+
+  <div class="title">共有数据<span>0</span>条</div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>薪资</th>
+        <th>就业城市</th>
+        <th>录入时间</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <td>1</td>
+        <td>迪丽热巴</td>
+        <td>23</td>
+        <td>女</td>
+        <td>12000</td>
+        <td>北京</td>
+        <td>2099/9/9 08:08:08</td>
+        <td>
+          <a href="javascript:">
+            <i class="iconfont icon-shanchu"></i>
+            删除
+          </a>
+        </td>
+      </tr> -->
+    </tbody>
+  </table>
+  <script>
+    // 参考数据
+    const initData = [
+      {
+        stuId: 1,
+        uname: '迪丽热巴',
+        age: 22,
+        salary: '12000',
+        gender: '女',
+        city: '北京',
+        time: '2099/9/9 08:08:08'
+      }
+    ]
+
+    // 模块一：获取数据
+
+    // (1) 先把数据存到本地存储
+    // localStorage.setItem('data', initData) // 不能直接存复杂数据类型，要转化为字符串
+    // localStorage.setItem('data', JSON.stringify(initData))
+
+    // (2) 再获取存储到本地的数据
+    // 如果本地存储有数据，则 getItem，但是取过来的值是字符串，要转化为对象，并赋值给数组 arr
+    // localStorage.getItem('data') // getItem 之后取值为字符串，要 parse 转化为对象并赋值给 arr
+    // const arr = JSON.parse(localStorage.getItem('data'))
+
+    // 但是！页面第一次打开的时候，肯定是没有数据的，所以获取不到，因此要设置逻辑中断来应对这种情况：
+
+    // 如果本地存储有数据，则 getItem，如果没有数据，则用空数组代替
+    // 注意：注意逻辑中断的部分要写在括号外面！！！
+
+    const arr = JSON.parse(localStorage.getItem('data')) || []
+    console.log(arr)
+
+    // 模块二：渲染 map + join
+
+    // 每次渲染都生成一个新的行 trArr
+    const tbody = document.querySelector('tbody') // 这个要写在 function 外面！！！
+
+    function render() {
+      // 1. map 遍历 arr数组，返回对应 tr的数组
+      // 每循环一次，就生成一个 tr，如果是 tr.innerHTML，就不写 tr 标签，但 return 要写 tr 标签
+      // function里面的参数，因为是 arr 的 map方法，所以可以使用 arr的属性，而 arr 实际上就是 initData 的本地存储
+
+      const trArr = arr.map(function (ele, index) {
+        return `
+          <tr>
+            <td>${ele.stuId}</td>
+            <td>${ele.uname}</td>
+            <td>${ele.age}</td>
+            <td>${ele.gender}</td>
+            <td>${ele.salary}</td>
+            <td>${ele.city}</td>
+            <td>${ele.time}</td>
+            <td>
+              <a href="javascript:">
+                <i class="iconfont icon-shanchu"></i>
+                删除
+              </a>
+            </td> 
+          <tr>
+        `
+      })
+
+      console.log(trArr)
+
+      // 2. 把生成的行数组转化为字符串 join()，并赋值给 tbody 的 innerHTML 从而把 tr 追加给 tboady
+      tbody.innerHTML = trArr.join('')
+      // 改变几条数据那个数字
+      document.querySelector('.title span').innerHTML = arr.length
+    }
+    // 这里本来没有调用！！！页面刷新数据就没有了！！！
+    render()
+
+    // 模块三：给 form 注册提交事件，阻止默认提交，并且进行非空判断
+
+    const info = document.querySelector('.info')
+    const uname = document.querySelector('.uname')
+    const age = document.querySelector('.age')
+    const salary = document.querySelector('.salary')
+    const gender = document.querySelector('.gender')
+    const city = document.querySelector('.city')
+
+
+    info.addEventListener('submit', function (e) {
+      e.preventDefault()
+      if (!uname.value || !age.value || !salary.value) {
+        return alert('输入内容不能为空') // 这里要 return，因为需要的效果是，如果弹出了警告框，则下面的内容都不执行了
+      }
+
+      // 模块四：给 arr 数组追加对象，里面储存用户输入的数据
+      arr.push({
+        stuId: arr.length + 1,
+        uname: uname.value,
+        age: age.value,
+        salary: salary.value,
+        gender: gender.value,
+        city: city.value,
+        time: new Date().toLocaleString
+      })
+
+      // 渲染
+      render()
+
+      // 重置表单
+      this.reset()
+
+      // 把数组存入本地存储，覆盖原本的 “data”的值
+      localStorage.setItem('data', JSON.stringify(arr))
+
+    })
+
+
+
+  </script>
+</body>
+
+</html>
