@@ -66,17 +66,17 @@
   </table>
   <script>
     // 参考数据
-    const initData = [
-      {
-        stuId: 1,
-        uname: '迪丽热巴',
-        age: 22,
-        salary: '12000',
-        gender: '女',
-        city: '北京',
-        time: '2099/9/9 08:08:08'
-      }
-    ]
+    // const initData = [
+    //   {
+    //     stuId: 1,
+    //     uname: '迪丽热巴',
+    //     age: 22,
+    //     salary: '12000',
+    //     gender: '女',
+    //     city: '北京',
+    //     time: '2099/9/9 08:08:08'
+    //   }
+    // ]
 
     // 模块一：获取数据
 
@@ -118,7 +118,7 @@
             <td>${ele.city}</td>
             <td>${ele.time}</td>
             <td>
-              <a href="javascript:">
+              <a href="javascript:" data-id = ${index}>
                 <i class="iconfont icon-shanchu"></i>
                 删除
               </a>
@@ -153,15 +153,17 @@
         return alert('输入内容不能为空') // 这里要 return，因为需要的效果是，如果弹出了警告框，则下面的内容都不执行了
       }
 
-      // 模块四：给 arr 数组追加对象，里面储存用户输入的数据
+      // 给 arr 数组追加对象，里面储存用户输入的数据
+      // arr.length - 1 是数组的最后一条数据的索引号
+      // arr[arr.length - 1] 是最后一条数据本身，新增数据要比原来数据的序号 + 1
       arr.push({
-        stuId: arr.length + 1,
+        stuId: arr.length ? arr[arr.length - 1].stuId + 1 : 1,
         uname: uname.value,
         age: age.value,
         salary: salary.value,
         gender: gender.value,
         city: city.value,
-        time: new Date().toLocaleString
+        time: new Date().toLocaleString() // 不要忘记小括号！
       })
 
       // 渲染
@@ -173,6 +175,29 @@
       // 把数组存入本地存储，覆盖原本的 “data”的值
       localStorage.setItem('data', JSON.stringify(arr))
 
+    })
+
+    // 模块四：删除业务，通过事件委托，委托给 tbody 来实现删除
+
+    tbody.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        // 拿到索引号
+        // console.log(e.target.dataset.id)
+
+        if (confirm('确定删除吗？')) {
+          // confirm 返回值 true / false，返回 true 则执行
+
+          // 删除索引号对应的数据
+          arr.splice(e.target.dataset.id, 1)
+
+          // 数组发生了变化，所以要重新渲染页面
+          render()
+
+          // 数组发生了变化，所以要把新的数据储存到本地
+          localStorage.setItem('data', JSON.stringify(arr))
+        }
+
+      }
     })
 
 
