@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 元字符
+
+    // 1. 边界符
+    console.log(/^哈/.test('哈')) // 哈开头，true
+
+    console.log(/^哈$/.test('哈')) // 哈开头，并且哈结尾 true，只有这一种情况为 true，其余全都是 false
+
+    console.log(/^哈$/.test('哈哈')) // false 因为有两个哈
+    // /^哈$/要求只能有一个哈
+
+    // 2. 量词
+    // （1）* >= 0
+    console.log(/^哈*$/.test('哈很哈')) // false 哈可以出现多次，但只能出现 哈，不能是别的字
+    console.log(/^哈*$/.test('')) // true * 可以是 0，也就是空字符串
+
+    // （2）+ >= 1
+    console.log(/^哈+$/.test('哈很哈')) // false
+    console.log(/^哈+$/.test('')) // false，因为加号是 >= 1，不包含 0，所以不能是空字符串
+
+    // （3）？ 0 次或 1 次
+    console.log(/^哈?$/.test('')) // true，哈重复 0 次，没有哈
+    console.log(/^哈?$/.test('哈')) // true，哈重复 1 次，没有哈
+    // 没有哈，或者有一个哈，也就是重复0次或1次为 true，其余都是 false
+
+    // （4）{n} 只能重复 n 次
+    console.log(/^哈{4}$/.test('哈哈哈哈')) // 有四个哈才是true，其余全部 false
+
+    // （5）{n,} >= n次，有四个以上的哈就是true，包含4个
+    console.log(/^哈{4,}$/.test('哈哈哈哈哈哈哈')) // true
+
+    // （6）{n,m} 个数在 n~m 之间
+    console.log(/^哈{4,6}$/.test('哈哈哈哈哈哈哈')) // false，因为超过了6个哈
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>
