@@ -42,6 +42,24 @@
     // （6）{n,m} 个数在 n~m 之间
     console.log(/^哈{4,6}$/.test('哈哈哈哈哈哈哈')) // false，因为超过了6个哈
 
+    // 3. 字符类
+
+    // （1）[]包含test的任何一个字母都行，但是当精确匹配时，只能test一个字母，也就是test''只能有一个字母才是 true，否则 false
+    console.log(/[abc]/.test('andy')) // true
+    console.log(/^[abc]$/.test('ab')) // false，有 ^$ 精确匹配时，只能选一个
+    console.log(/^[abc]{2}$/.test('ab')) // true，注意{2}要紧跟中括号一起写！
+
+    console.log(/^[a-z]$/.test('a')) // true, 在 a~z 之间选一个
+    console.log(/^[A-Z]$/.test('A')) // true, 在 大写A~Z 之间选一个
+    console.log(/^[0-9]$/.test('9')) // true
+    console.log(/^[a-zA-Z0-9]$/.test('9')) // true
+
+
+
+
+
+
+
 
 
 
