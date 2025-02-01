@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // i不区分大小写
+    console.log(/^java$/.test('java')) // true
+
+    console.log(/^java$/.test('Java')) // false
+    console.log(/^java$/i.test('Java')) // true
+
+    // replace 方法
+    const str = 'java是一门编程语言,但是java很难'
+
+    const result = str.replace(/java/ig, '前端') // 把 “java” 替换为 “前端”，i不区分大小写，g全局替换，因为如果不写g,只替换一处
+    //    /java|JAVA/g
+    console.log(result)
+
+  </script>
+</body>
+
+</html>
