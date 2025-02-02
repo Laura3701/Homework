@@ -10,7 +10,6 @@
 <body>
 
   <script>
-
     // 1. 声明一个数组
     const arr = ['red', 'blue', 'pink']
 
@@ -29,6 +28,40 @@
 
     // 2. join 方法
 
+    let newArr1 = [
+      {
+        user: "liming",
+        age: 19
+      },
+      {
+        user: "liming",
+        age: 20
+      },
+      {
+        user: "liming",
+        age: 20
+      },
+      {
+        user: "liming",
+        age: 32
+      },
+    ]
+
+    // let s1 =  newArr1.map(item => item.age)
+    let s1 = newArr1.map(function (item, index) {
+      // return {
+      //   user: item.user,
+      //   age: item.age + 1
+      // }
+      let tmp = {
+        user: item.user,
+        age: item.age + 1
+      }
+      // console.log(tmp);
+
+      return tmp
+    })
+    console.log("s1", s1);
   </script>
 </body>
 
