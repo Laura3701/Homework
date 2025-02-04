@@ -28,7 +28,8 @@
     </div>
     <script>
         // 1. 重构  
-        let data = [
+
+        let arr = [
             {
                 src: 'images/course01.png',
                 title: 'Think PHP 5.0 博客系统实战项目演练',
@@ -70,6 +71,18 @@
                 num: 590
             },
         ]
+
+        let data = arr.map(item => {
+            return {
+                src: item.src,
+                // title: "",
+                title: "hello _" + item.title,
+                num: item.num
+            }
+        })
+
+
+        // data.amp
         const ul = document.querySelector('.box-bd ul')
         // 1. 根据数据的个数，创建 对应的小li，每循环一次，创建新的 li
         for (let i = 0; i < data.length; i++) {
