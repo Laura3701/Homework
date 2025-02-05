@@ -77,17 +77,39 @@
     </div>
   </div>
   <script>
-    // 1. tab 栏切换，事件委托
+    // 模块一：tab 栏切换，事件委托
     const tab_nav = document.querySelector('.tab-nav')
 
     tab_nav.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') {
-        // 取消上一个 active，这里就不要document了！这个写法之前不知道！
+        // 1. 下划线，取消上一个 active，这里就不要document了！这个写法之前不知道！
         tab_nav.querySelector('.active').classList.remove('active')
         // 给正在点击的加上 active
         e.target.classList.add('active')
+
+        // 2. 切换对应的盒子，注意这个也写在点击事件的 if 里面
+        const pane = document.querySelectorAll('.tab-pane')
+        // 2.1先隐藏所有，for循环
+        for (let i = 0; i < pane.length; i++) {
+          // 注意这里是 pane[i]
+          pane[i].style.display = 'none'
+          // 2.2 再让与正在被点击的<a>对应的盒子显示出来
+          //<a>的 data-id的值正好是需要显示的盒子的下标号
+          pane[e.target.dataset.id].style.display = 'block'
+        }
       }
     })
+
+    // 模块二：点击登录跳转页面
+    // 提问：表单总是要先阻止默认行为吗？
+    // 为什么获取的是 form 而不是 box?
+
+    const form = document.querySelector('form')
+    form.addEventListener('submit', function (e) {
+      e.preventDefault()
+      
+    })
+
   </script>
 </body>
 
