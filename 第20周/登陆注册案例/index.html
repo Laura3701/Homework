@@ -1219,6 +1219,35 @@
   </div>
 
   <script>
+    // 模块一：登录后修改标签内容
+
+    // 1. 获取首页中需要修改内容的标签
+    const li1 = document.querySelector('.xtx_navs li:first-child')
+    const li2 = li1.nextElementSibling
+
+    // 2. 渲染函数，渲染li1
+    function render() {
+      // 从本地存储取值
+      const uname = localStorage.getItem('xtx-uname')
+      // 如果有数据，就改变用户名
+      if (uname) {
+        li1.innerHTML = `<a href="javascript:;"><i class="iconfont icon-user"> ${uname}</i></a>
+        `
+        li2.innerHTML = '<a href="javascript:;">退出登录</a>'
+      } else {
+        li1.innerHTML = '<a href="./login.html">请先登录</a>'
+        li2.innerHTML = '<a href="./register.html">免费注册</a>'
+      }
+    }
+
+    // render()函数要调用才能更新页面内容！
+    render()
+
+    // 模块二：点击退出登录，删除本地存储的数据，并重新渲染
+    li2.addEventListener('click', function () {
+      localStorage.removeItem('xtx-uname')
+      render()
+    })
 
 
   </script>

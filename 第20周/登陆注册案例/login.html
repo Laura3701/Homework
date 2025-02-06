@@ -105,9 +105,18 @@
     // 为什么获取的是 form 而不是 box?
 
     const form = document.querySelector('form')
+    const agree = document.querySelector('[name=agree]')
+    const username = document.querySelector('[name="username"]')
     form.addEventListener('submit', function (e) {
       e.preventDefault()
-      
+      if (!agree.checked) {
+        return alert('请勾选同意协议') // 这里需要return，因为如果没有勾选则结束函数，下面不再执行
+      }
+
+      // 储存用户名到本地
+      localStorage.setItem('xtx-uname', username.value)
+      // 跳转到首页
+      location.href = './index.html' // 同一文件夹下用 ./
     })
 
   </script>
