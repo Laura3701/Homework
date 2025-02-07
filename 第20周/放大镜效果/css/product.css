@@ -45,11 +45,12 @@
   height: 400px;
   position: relative;
 }
+
 .xtx-product-info .left .pictrue .middle .layer {
   display: none;
   width: 200px;
   height: 200px;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   left: 0;
   top: 0;
@@ -59,13 +60,15 @@
 .xtx-product-info .left .pictrue .large {
   width: 400px;
   height: 400px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   position: absolute;
   left: 412px;
   top: 0;
   z-index: 999;
   background-color: #fff;
   display: none;
+  /* 大盒子先设置一张默认的背景图，要写在size上面，因为现有背景图，才能缩放 */
+  background-image: url(../images/1.jpg);
   background-size: 800px 800px;
 }
 
@@ -92,7 +95,8 @@
   height: 100%;
 }
 
-.xtx-product-info .left .pictrue .small ul li.active, .xtx-product-info .left .pictrue .small ul li:hover {
+.xtx-product-info .left .pictrue .small ul li.active,
+.xtx-product-info .left .pictrue .small ul li:hover {
   border-color: #27BA9B;
 }
 
@@ -213,7 +217,8 @@
   cursor: pointer;
 }
 
-.xtx-product-info .right .attrs img.active, .xtx-product-info .right .attrs img:hover {
+.xtx-product-info .right .attrs img.active,
+.xtx-product-info .right .attrs img:hover {
   border-color: #27BA9B;
 }
 
@@ -225,7 +230,8 @@
   cursor: pointer;
 }
 
-.xtx-product-info .right .attrs .size.active, .xtx-product-info .right .attrs .size:hover {
+.xtx-product-info .right .attrs .size.active,
+.xtx-product-info .right .attrs .size:hover {
   border-color: #27BA9B;
 }
 

@@ -400,11 +400,121 @@
     </div>
 
     <script>
-      // 1. 先获取3个盒子
-
+      // 先获取3个盒子
       const small = document.querySelector('.small')
       const middle = document.querySelector('.middle')
       const large = document.querySelector('.large')
+
+      // 模块一：鼠标经过小盒子，小图片边框高亮，并且左侧中等的盒子显示对应的图片
+      // 事件委托
+      small.addEventListener('mouseover', function (e) {
+        if (e.target.tagName === 'IMG') {
+          // 1. 鼠标经过小图片，图片边框高亮
+          // 去掉以前的 active，并给当前元素添加
+          this.querySelector('.active').classList.remove('active')
+          // 给父盒子加active, parentNode是离自己最近的父级，也就是li。提问：为什么是给 li 加 active？
+          e.target.parentNode.classList.add('active')
+
+          // 2. 鼠标经过当前小图片，中图片的地址切换到对应的src
+          // 选择中等盒子里的img，写法是middle.querySelector('img')
+          middle.querySelector('img').src = e.target.src
+
+          // 3. 大盒子更换的是背景图片，不是src
+          // 提问：为什么这样写？
+          large.style.backgroundImage = `url(${e.target.src})`
+        }
+      })
+
+
+
+      // 模块二：鼠标经过中盒子，大盒子显示/隐藏。鼠标经过大盒子本身，大盒子也会显示/隐藏
+      // 注意：事件监听里的函数名后面不要小括号，否则立马调用！
+      middle.addEventListener('mouseenter', show)
+      middle.addEventListener('mouseleave', hide) // 这里是leave
+      let timerId = 0
+
+      // 显示大盒子的函数：
+      function show() {
+        // 鼠标一经过，先关闭之前的定时器，要写在show里面！
+        clearTimeout(timerId)
+        large.style.display = 'block'
+      }
+
+      // 隐藏大盒子的函数，鼠标离开后过2秒再隐藏
+      // 错误写法，本来是这样写的：
+      // setTimeout(function hide() {
+      //   large.style.display = 'none'
+      // }, 2000)
+
+      function hide() {
+        // 把新的定时器赋值给 timerId，注意这里是赋值不是声明！
+        timerId = setTimeout(function () {
+          large.style.display = 'none'
+        }, 200)
+      }
+
+
+
+      // 模块三：鼠标经过大盒子本身，大盒子也会显示/隐藏
+      large.addEventListener('mouseenter', show)
+      large.addEventListener('mouseleave', hide)
+
+
+
+      // 模块四：黑色遮罩的盒子跟着鼠标移动
+      // 原理：得到鼠标在中盒子内的坐标，把坐标给盒子，修改遮罩盒子的left top值
+      // mousemove 鼠标移动事件
+
+      // 1. 鼠标经过中等盒子，显示/隐藏黑色遮罩层
+      const layer = document.querySelector('.layer')
+      middle.addEventListener('mouseenter', function () {
+        layer.style.display = 'block'
+      })
+      middle.addEventListener('mouseleave', function () {
+        layer.style.display = 'none'
+      })
+
+      // 2. 黑色盒子跟着鼠标移动
+      // 鼠标在middle盒子内移动，事件的写法是 mousemove
+      middle.addEventListener('mousemove', function (e) {
+        // 鼠标在 middle盒子中的坐标 = 鼠标的页面坐标 - middle的页面坐标
+        // console.log(e.pageX) // 鼠标在页面中的X轴坐标
+        // console.log(middle.getBoundingClientRect().left) //middle盒子在页面中的坐标，左侧
+        // document.documentElement.scrollTop 页面滚动的距离
+        let x = e.pageX - middle.getBoundingClientRect().left
+        let y = e.pageY - middle.getBoundingClientRect().top - document.documentElement.scrollTop
+
+        // 限定遮罩盒子只能在 middle盒子内移动
+        // 提问：这个判断条件是什么效果？
+        // 这一段完全不懂！！！
+        if (x >= 0 && x <= 400 && y >= 0 && y <= 400) {
+          // 黑色盒子不是一直移动的
+          // 声明2个变量，黑色盒子移动的变量 move x, move y
+          // x小于100或者大于300，遮罩层mx和my不移动
+          // 在100~300之间，x需要减100，因为开始的100没有动
+          let mx = 0, my = 0
+          if (x <= 100) mx = 0
+          if (x >= 100 && x <= 300) mx = x - 100
+          if (x > 300) mx = 200
+
+          if (y <= 100) my = 0
+          if (y >= 100 && y <= 300) my = y - 100
+          if (y > 300) my = 200
+
+          layer.style.left = mx + 'px'
+          layer.style.top = my + 'px'
+
+          // 大盒子的背景图片跟随中等盒子移动，中盒子移动1像素，大盒子移动2像素
+          // 完全不能理解...
+          // 注意：backgroundPositionX / Y 大写！这个写法也不知道
+          large.style.backgroundPositionX = -2 * mx + 'px'
+          large.style.backgroundPositionY = -2 * my + 'px'
+        }
+      })
+
+
+
+
     </script>
   </div>
 </body>

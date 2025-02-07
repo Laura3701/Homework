@@ -45,4 +45,6 @@ btn.removeEventListener('click', fn)
 
 要阻止事件冒泡，可以使用事件对象的`stopPropagation()`方法。
 
+补充：mouseover的使用场景
+如果想要鼠标经过触发事件，并且要事件委托，就要用 mouseover，因为需要从子元素到父元素的冒泡
 

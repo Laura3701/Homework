@@ -6,7 +6,7 @@ map 也称为**映射**，指的是元素之间的**对应关系**
 
 map有**返回值**，forEach没有返回值
 
-~~~javascript90r45t8
+~~~javascript
 
   const arr = ['red', 'blue', 'pink']
 
