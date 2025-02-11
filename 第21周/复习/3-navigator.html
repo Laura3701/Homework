@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // navigator也是window的一个对象，记录了浏览器自身的相关信息
+
+    !(function () {
+      const userAgent = navigator.userAgent
+      // 验证是否为Android或iPhone
+      const android = userAgent.match(/(Android);?[\s\/]+([\d.]+)?/)
+      const iphone = userAgent.match(/(iPhone\sOS)\s([\d_]+)/)
+      // 如果是Android或iPhone，则跳转至移动站点
+      if (android || iphone) {
+        location.href = 'http://m.itcast.cn'
+      }
+    })()
+
+    console.log(navigator)
+    console.log(navigator.userAgent)
+    console.log(navigator.userAgent.match())
+
+    // 1. 写一个立即执行函数
+    // 2. 把 navigator 的 userAgent 属性，赋值给 userAgent
+    // 3. 使用 userAgent 的 match() 方法来区分并定义安卓或苹果系统
+    // 4. 如果正则表达式符合 安卓或苹果，则用 location.href 来跳转到相应位置
+
+  </script>
+</body>
+
+</html>

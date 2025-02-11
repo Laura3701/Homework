@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    fun() // fun is not a function, 因为赋值的部分没有被提升，fun在这里只是个变量
+    var fun = function () {
+      console.log('函数提升')
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let arr = [
+      {
+        user: "liming",
+        age: 19
+      },
+      {
+        user: "liming",
+        age: 20
+      },
+      {
+        user: "liming",
+        age: 20
+      },
+      {
+        user: "liming",
+        age: 32
+      },
+    ]
+
+    let newArr = arr.map(function (ele, index) {
+
+      let newArr = {
+        user: ele.user,
+        age: ele.age + 1
+      }
+      return newArr
+    })
+
+    console.log(newArr)
+
+    console.log(JSON.stringify(newArr))
+    // 提问：join()不能转化对象吗？
+
+    console.log(newArr.join(''))
+
+  </script>
+</body>
+
+</html>

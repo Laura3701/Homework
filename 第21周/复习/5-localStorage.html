@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 储存
+
+    // 储存简单数据类型：键值对
+    localStorage.setItem('weather', 'windy')
+
+    // 储存复杂数据类型，要先将复杂数据类型转化成 JSON 字符串，再储存到本地
+    const obj = {
+      uname: 'pink',
+      age: 18,
+      gender: '女'
+    }
+    localStorage.setItem('obj', JSON.stringify(obj))
+
+    // 2. 读取
+
+    // 简单数据类型直接用名字获取对应的值
+    localStorage.getItem('weather')
+
+    // 复杂数据类型用名字获取之后，格式是字符串，要重新转化为对象
+    localStorage.getItem('obj')
+    JSON.parse(localStorage.getItem('obj'))
+  </script>
+</body>
+
+</html>
