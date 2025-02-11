@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const uname = 'red'
+    const obj = {
+      uname: 'pink', // 逗号不要忘记！
+      age: 18
+    }
+    //1. 解构的语法：
+    // 数组中括号[]，对象大括号{}
+    // 注意：声明的变量名，要跟属性名一样！！！否则 undefined！
+    // const { uname, age } = { uname: 'pink', age: 18 }
+    // console.log(uname)
+    // console.log(age)
+
+    // 2. 如果变量名冲突，则旧名字：新名字
+    const { uname: username, age } = { uname: 'pink', age: 18 }
+    console.log(username)
+    console.log(age)
+
+    // 3. 数组对象的解构：
+
+    const pig = [
+      {
+        uname: '佩奇',
+        age: 6
+      }
+    ]
+
+    const [{ uname: mingzi, age: nianling }] = pig
+    console.log(mingzi, nianling)
+
+
+  </script>
+</body>
+
+</html>

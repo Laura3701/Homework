@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //1. 解构对象并打印值
+    // 将 name 解构为 uname
+    const pig = { name: '佩奇', age: 6 }
+
+    const { name: uname, age } = pig
+    console.log(uname, age)
+
+    // 2. 解构商品名和价格
+    const goods = [
+      {
+        goodsName: '小米',
+        price: 1999
+      }
+    ]
+
+    const [{ goodsName, price }] = goods
+    console.log(goodsName, price)
+  </script>
+
+</body>
+
+</html>
