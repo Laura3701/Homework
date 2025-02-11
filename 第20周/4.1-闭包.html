@@ -9,15 +9,35 @@
 
 <body>
   <script>
+    // 简单的写法：
+
+    // function outer() {
+    //   let a = 10
+    //   function fn() {
+    //     console.log(a)
+    //   }
+    //   // fn() // 为什么在这里调用？
+    //   // 因为fn是在 outer函数里面声明的，因此作用域在outer()之内
+    // 如果只调用里层，不调用外层，则控制台打印不生效
+    // }
+    // outer()
+
+    // 常见的闭包形式：
+
     function outer() {
-      let a = 10
-      function fn() {
+      let a = 1
+      function inner() {
         console.log(a)
       }
-      // fn() // 为什么在这里调用？
+      return inner // 里层函数的{}后面写 return
     }
-    fn()
     outer()
+
+    const re = outer() // 用一个变量接收外层函数
+    re() // 把变量写成函数调用的形式
+
+    // 实现 re()使用了函数内部的值
+
   </script>
 </body>
 

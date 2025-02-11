@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let i = 0 // 调用次数起始值为 0
+    function fn() {
+      i++
+      console.log(i)
+    }
+
+    // 缺点是：这里 i 是全局变量，容易被篡改
+    // 改成闭包可以实现数据私有
+
+    function count() {
+      let i = 0
+      function fn() {
+        i++
+        console.log(i)
+      }
+      return fn // fn 是 count()的返回值，一直被 fun()使用，因此闭包可能会导致内存泄漏
+    }
+    const fun = count() // 全局作用域，只有关闭页面，i才会被回收
+    fun()
+
+
+  </script>
+</body>
+
+</html>
