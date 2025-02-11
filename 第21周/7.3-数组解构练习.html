@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 数组解构为变量
+    // 也就是把数组元素赋值给变量
+    const pc = ['海尔', '联想', '小米', '方正']
+    const [hr, lx, mi, fz] = pc
+    console.log(hr, lx, mi, fz) // 注意 log 的是后声明的变量 hr, lx, mi, fz，而不是 pc
+
+    // 2. 将最大值最小值函数返回值解构 max,min 两个变量
+    function getValue() {
+      return [100, 60]
+    }
+    const [max, min] = getValue()
+    console.log(max, min)
+  </script>
+</body>
+
+</html>

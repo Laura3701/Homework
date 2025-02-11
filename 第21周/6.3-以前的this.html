@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // 以前的 this：
+
+    //（1）函数里的 this 指向 window
+
+    function fn() {
+      console.log(this) // this 指向 window，调用函数时在控制台打印 window
+    }
+    fn()
+    // 不明白为什么，fn()调用了this，为什么指向window？
+
+
+    //（2）如果是对象里的函数，也就是方法，则 this 指向对象
+
+    const obj = {
+      name: 'Andy',
+      sayHi: function () {
+        console.log(this) // this 指向 obj，因为 this 是通过obj.sayHi()调用，调用函数时在控制台打印 obj
+      }
+    }
+    obj.sayHi()
+
+  </script>
+</body>
+
+</html>

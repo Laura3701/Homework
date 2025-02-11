@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 箭头函数的 this 是上一层作用域的 this
+    const fn = () => {
+      console.log(this) // window
+    }
+    fn()
+
+    // 对象方法的箭头函数的 this
+    const obj = {
+      uname: 'pink',
+      // =>是function
+      sayHi: () => {
+        console.log(this) // window，因为上一层是 obj，而 obj 是window调用的，完整写法是 window.obj.sayHi()
+      }
+    }
+    obj.sayHi()
+    // 提问：不理解什么叫做 window 调用了 obj？
+    // console.log(window.obj) // 为什么 undefined?
+
+
+  </script>
+</body>
+
+</html>

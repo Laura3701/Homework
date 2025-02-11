@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 需要重新赋值的变量要用 let 声明
+    let a = 1
+    let b = 2; // 必须加分号！或者写成 ;[b, a] = [a, b]
+
+    [b, a] = [a, b]
+    console.log(a, b) // 2 1
+
+    // 什么时候加分号：
+    // 1. 立即执行函数之后；
+    // 2. 数组解构之前，如果有其他语句，要加分号
+
+  </script>
+</body>
+
+</html>

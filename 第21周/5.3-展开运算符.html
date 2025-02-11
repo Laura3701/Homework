@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // ...arr 是展开运算符，可以展开数组，也就是把数组里的值拿出来
+    // ...arr 写在函数里叫剩余参数，写在函数外叫展开运算符
+    const newArr = [1, 2, 5, 8, 9]
+    console.log(...newArr)
+
+    // 1. 展开运算符不会修改原数组
+
+    // 2. ...arr展开运算符的运用场景：
+    // （1）求数组最大值，因为数组没有求最大值的方法
+    console.log(Math.max(...newArr)) // ...数组名，可以求出数组里的最大值
+
+    // （2）合并数组
+    const arr2 = [3, 4, 5]
+    const arr = [...newArr, ...arr2]
+    console.log(arr)
+
+  </script>
+</body>
+
+</html>

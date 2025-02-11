@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 需求：不论用户输入几个数，都要求和
+
+    // 动态参数 arguments，用于统计实参并存在一个伪数组里面
+    // argument 是伪数组，有索引号、下标，但是没有常用的数组方法
+    function getSum() {
+      let sum = 0
+      for (let i = 0; i < arguments.length; i++) {
+        sum += arguments[i]
+      }
+      console.log(sum)
+    }
+    getSum(1, 2, 3)
+
+
+  </script>
+</body>
+
+</html>

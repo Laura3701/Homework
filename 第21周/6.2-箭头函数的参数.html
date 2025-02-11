@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 利用箭头函数和剩余参数求和
+    const getSum = (...arr) => {
+      let sum = 0
+      for (let i = 0; i < arr.length; i++) {
+        // 这里不写 i++i++
+        sum += arr[i]
+      }
+      return sum // 如果没有返回值，则 log 的结果是 undefined，除非这里直接 log
+    }
+    const re = getSum(1, 2, 3)
+    console.log(re)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // a, b, rest都是自己起的名字
+    function getSum(a, b, ...rest) {
+      console.log(rest) // a 是 1，b 是 2，...rest里面装着的是剩余的3
+    }
+    getSum(1, 2)
+    getSum(1, 2, 3)
+  </script>
+</body>
+
+</html>
