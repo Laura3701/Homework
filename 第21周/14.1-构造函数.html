@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 创建一个构造函数
+    function Pig(uname, age) {
+      this.name = uname // 把形参 uname赋值给了调用者的name属性，this 就是创建的对象，给这个对象添加了一个 name属性，这个属性也可以写同名的 uname
+      this.age = age
+    }
+    // new Pig('佩奇', 6) // 创建了一个对象
+    // console.log(new Pig('佩奇', 6))
+    // console.log(new Pig('乔治', 3))
+
+    // 相当于：
+    // const pepa = { uname: '佩奇', age: 6 }
+
+    const p = new Pig('佩奇', 6)
+    console.log(p)
+
+    
+  </script>
+</body>
+
+</html>
