@@ -13,7 +13,7 @@
     const fn = () => {
       console.log(this) // window
     }
-    fn()
+    window.fn()
 
     // 对象方法的箭头函数的 this
     const obj = {
@@ -25,7 +25,13 @@
     }
     obj.sayHi()
     // 提问：不理解什么叫做 window 调用了 obj？
-    // console.log(window.obj) // 为什么 undefined?
+    // console.log(window.obj) // 为什么 undefined? 因为 window 下面没有 obj 这个属性
+
+    // this 永远指向的是对象的意思是，由对象触发的
+
+    // this 在一个函数里，如果谁调用了这个函数，this 就指向谁（this就是由谁触发的）
+
+    //函数的调用者是对象！
 
 
   </script>
