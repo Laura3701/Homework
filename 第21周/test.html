@@ -9,16 +9,13 @@
 
 <body>
   <script>
-    function Pig() {
+    let arr = ["a", "b"]
 
-    }
+    arr.push(function () {
+      alert(this)
+    })
 
-    const peiqi = new Pig()
-    peiqi.name = '佩奇'
-    peiqi.sayHi = () => {
-      console.log('sayhi')
-    }
-    console.log(peiqi)
+    arr[2]() // a, b, function() {...}
   </script>
 </body>
 

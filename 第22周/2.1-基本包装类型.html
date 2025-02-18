@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 把基本数据类型（str）包装成 引用数据类型（对象）
+    // 简单数据类型也可以使用 length 等方法
+
+    // 包装的原理：
+    // 虽然只写了这样一句话：const str = 'pink'，但这句话的内部执行实际上是这样：
+    const str = new String('pink')
+
+    // String 是构造函数，是 function 后面的函数名
+    // new String() 实例化了一个对象（可以理解为创造了一个对象吗？）
+
+    // 把 str 通过 new 变为实例对象
+
+    // 因为str变成了对象，所以可以使用 str.length 的方法
+    // 这也就是为什么基本数据类型也可以使用引用数据类型的.length等方法
+
+  </script>
+</body>
+
+</html>

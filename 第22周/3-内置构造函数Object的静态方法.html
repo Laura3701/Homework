@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 先定义一个对象
+    const o = { uname: 'pink', age: 18 }
+
+    // 1. 获得所有属性名，取哪个对象，keys()小括号里就写哪个对象的名字
+    console.log(Object.keys(o))
+    // 返回的是数组的形式 ['uname', 'age']
+
+    // 2. 获取属性值
+    console.log(Object.values(o)) // ['pink', 18]
+
+    // 3. 拷贝对象，用于给对象添加属性
+    // 先声明一个空对象
+    // 被拷贝的放在第二个
+    // const oo = {}
+    // Object.assign(oo, o)
+    // console.log(oo) //{ uname: 'pink', age: 18 }
+
+    // 给 o 添加属性
+    Object.assign(o, { gender: '女' })
+    console.log(o) //{ uname: 'pink', age: 18, gender: '女' }
+
+
+  </script>
+</body>
+
+</html>
