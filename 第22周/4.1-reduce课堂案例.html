@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const arr = [{
+      name: '张三',
+      salary: 10000
+    }, {
+      name: '李四',
+      salary: 10000
+    }, {
+      name: '王五',
+      salary: 10000
+    },
+    ]
+
+    // 对象数组，初始值设为 0
+    // 不是对象相累加，而是对象里的属性相累加，所以是current.salary
+
+    // const total = arr.reduce((prev, current) => {
+    //   // return prev.salary + current.salary // 本来是这样写的
+    //   return prev + current.salary
+    // }, 0)
+    // console.log(total)
+
+    // 需求：每人涨薪 30%
+
+    const total = arr.reduce((prev, current) => prev + current.salary * 1.3, 0)
+
+    console.log(total)
+
+
+  </script>
+</body>
+
+</html>
