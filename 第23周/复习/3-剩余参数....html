@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 将函数中剩余的参数表示为一个数组
+
+    function getSum(a, b, ...rest) {
+      console.log(rest) // 在这里写 rest 才会把 3，4，5 显示为数组，如果写 ...rest，则会显示 3 4 5 三个数字，也就是变成了展开运算符
+    }
+    getSum(1, 2, 3, 4, 5)
+  </script>
+</body>
+
+</html>

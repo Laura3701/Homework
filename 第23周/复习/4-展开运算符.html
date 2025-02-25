@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // ...arr 写在函数里叫剩余参数，写在函数外叫展开运算符
+    // ...arr 是展开运算符，可以展开数组，也就是把数组里的值拿出来
+
+    const newArr = [1, 2, 5, 8, 9]
+    console.log(...newArr) // 1 2 5 8 9
+
+    // 用展开运算符展开数组，从而求出里面的最大值
+    console.log(Math.max(...newArr)) // 9
+
+    // 用展开运算符合并数组，就好像是把数组里的每个数字都展开了
+    // 写法是把...第一个数组名，...第二个数组名 放在数组括号[]里面，然后赋值给一个新的数组，就实现了数组合并
+    const arr = [3, 4, 5]
+    const arr1 = [...newArr, ...arr]
+    console.log(arr)
+
+
+  </script>
+</body>
+
+</html>
