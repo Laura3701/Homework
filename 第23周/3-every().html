@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // every 用于检查是否所有元素都能通过某个指定函数的测试，返回一个布尔值！
+
+    // 如果收到的是空数组，则在一切情况下都会返回 true
+    const arr = [10, 20, 30]
+
+    const flag = arr.every(function (item) {
+      return item >= 10
+    })
+    console.log(flag) // true
+
+    // some() 是只要有一个符合就可以
+
+  </script>
+</body>
+
+</html>

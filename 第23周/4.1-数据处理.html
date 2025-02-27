@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    // 把这个对象生成为 40cm*40cm/黑色
+    const spec = { size: '40cm*40cm', color: '黑色' }
+
+    // Object.values()获取所有属性值，返回的是数组
+    // 然后拼接数组是 join('') 转化为字符串
+
+    // 1. 获取属性值的语法是：Object.values(对象名)
+    console.log(Object.values(spec)) // ['40cm*40cm', '黑色']
+
+    // 2. 把数组的元素转化为字符串 join('/')，效果是数组元素写在一起了
+    console.log(Object.values(spec).join('/'))
+
+  </script>
+</body>
+
+</html>

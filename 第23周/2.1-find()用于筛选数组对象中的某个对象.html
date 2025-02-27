@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const arr = [
+      {
+        name: '小米',
+        price: 1999
+      },
+
+      {
+        name: '华为',
+        price: 3999
+      }
+    ]
+
+    // 需求：筛选小米这个对象
+    const mi = arr.find(function (item) {
+      // console.log(item) // item 是数组里的每个对象
+      return item.name === '小米'
+    })
+
+    console.log(mi) // {name: '小米', price: 1999}
+
+    // 通过某个属性值，把数组对象里的一整个对象筛选出来
+  </script>
+</body>
+
+</html>
