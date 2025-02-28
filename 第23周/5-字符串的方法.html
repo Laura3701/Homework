@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. length 获取字符串长度
+    const str1 = '我是谁'
+    console.log(str1.length) // 3
+
+    // 2. split('分隔符') 用于将字符串转化为数组
+    const str2 = 'pink,red'
+    const arr = str2.split(',')
+    console.log(arr) // ['pink', 'red']
+    // 注意：join()是把数组转化为字符串
+
+    // 3. substring(开始的索引号[，结束的索引号])，用于截取字符串，中括号代表结束索引号可选写不写都行
+    const str3 = '明天去哪里'
+    console.log(str3.substring(3, 4)) // 哪，左闭右开，所以没有 里 字
+
+    // 4. startWith(检测字符串[, 从哪个索引号开始查找])，用于检测是否以某个字符开头，返回布尔值，就是能不能找到的意思
+    // endsWith()同理
+    const str4 = 'To be or not to be'
+    console.log(str4.startsWith('To be')) // true
+    console.log(str4.startsWith('not to be', 9)) // true，空格也算一个字符
+
+    // 5. includes(检测字符串[, 从哪个索引号开始查找])，判断一个字符串有没有包含在另一个字符串里面，返回布尔值，区分大小写!
+    const str5 = 'To be or not to be'
+    console.log(str5.includes('To be')) // true
+    console.log(str5.includes('right')) // false
+
+  </script>
+</body>
+
+</html>
