@@ -148,7 +148,23 @@
       }
     ]
 
-    
+    // 1. 根据数据渲染页面，格式：数组名.map()，其中 item 参数代表数组里的每个对象，里面有四个对象，所以用map会遍历 4 条数据，生成四个 div，这四个 div 是在一个数组里，所以要用 join 转化为字符串，然后把返回的这 4 个字符串 写到 .list 里面
+    document.querySelector('.list').innerHTML = goodsList.map(item => {
+      return `
+      <div class="item">
+        <img src="https://yanxuan-item.nosdn.127.net/84a59ff9c58a77032564e61f716846d6.jpg" alt="">
+        <p class="name">称心如意手摇咖啡磨豆机咖啡豆研磨机 <span class="tag">【赠品】10优惠券</span></p>
+        <p class="spec">白色/10寸</p>
+        <p class="price">289.90</p>
+        <p class="count">x2</p>
+        <p class="sub-total">579.80</p>
+      </div>
+      `
+    }).join('')
+
+    // 2. 更换数据，可以先更换不需要处理的数据，比如图片、单价（保留2位小数）、商品名称、数量
+    // 用对象解构来更换数据
+    // item 是每一个对象，要获取每一个对象里的数据都要 item.name很麻烦，所以要解构，这样就不用 item.了
     
   </script>
 </body>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div></div>
+  <script>
+    // 需求：将字符串渲染到P标签内部
+    const gift = '50g的茶叶,清洗球'
+
+    // 1. 把字符串转化为数组
+    console.log(gift.split(',')) // ['50g的茶叶', '清洗球']，不是很明白分隔符的作用
+
+    // 2. split之后，map 遍历数组，有几个数组元素，就生成几个span，并join转化为字符串
+    const str = gift.split(',').map(function (item) {
+      console.log(item) // 50g的茶叶 清洗球 分两行显示。item 显示数组里的每个元素
+      return `<span>【赠品】${item}</span>`
+    }).join('')
+
+    console.log(str) // <span>【赠品】50g的茶叶</span><span>【赠品】清洗球</span> 没有 join 时，是数组的格式
+
+    // 3. join 拿到字符串以后，赋值给 div
+    document.querySelector('div').innerHTML = str
+  </script>
+</body>
+
+</html>
