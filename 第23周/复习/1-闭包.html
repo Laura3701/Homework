@@ -21,7 +21,7 @@
       return inner // 内层函数结束之后，在{}外 return
     }
 
-    const re = outer() // 直接调用 outer 不行，不懂为啥要赋值给一个变量，然后用那个变量的名字调用函数。。。
+    const re = outer() //  outer的返回值是函数，所以复制给 re 之后，re也变成了可以调用的函数
     re()
 
 
