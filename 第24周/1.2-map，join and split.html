@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const arr = [1, 2, 3]
+    // arr.map(function (item) {
+    //   console.log(item)
+    // }) // 分行显示 1 2 3
+
+    // arr.map(item => console.log(item)) // 分行显示 1 2 3
+    const re = arr.map(item => item)
+    console.log(re) // [1,2,3]
+
+    // 这说明 map 的写法是，arr.map(function(){...})前面需要有一个变量接受，然后log那个变量，才会显示为一个数组
+
+    console.log(re.join()) // 1,2,3
+    console.log(re.join('')) // 123
+
+    // 这说明join('')必须写引号才能去掉数组里本来的逗号！
+
+    const str = '5,6,7' // 需求：转化为数组
+
+    console.log(str.split(','))
+
+  </script>
+</body>
+
+</html>
