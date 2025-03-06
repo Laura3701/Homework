@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 构造函数
+    // Star明星有名字和年龄
+    // 把名字、年龄这些属性封装进去，还有sing 方法
+    // this 是创建的实例对象，也就是ldh zxy
+    function Star(uname, age) {
+      this.uname = uname
+      this.age = age
+      this.sing = function () {
+        console.log('唱歌')
+      }
+      console.log(this)
+      // Star {uname: '刘德华', age: 55, sing: ƒ}
+      // Star {uname: '张学友', age: 55, sing: ƒ}
+      // 为什么有时候出现这种情况？sing: ƒ
+    }
+
+    // 创建对象 new一个Star
+    // ldh是一个实例对象
+    const ldh = new Star('刘德华', 55) // Star是函数名，函数名+小括号是调用普通函数，这里构造函数要加 new
+    const zxy = new Star('张学友', 55)
+
+    // this 是实例对象，指的是 ldh 或者 zxy，是两个不同的对象，互相之间不相互影响
+  </script>
+</body>
+
+</html>
