@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
-    
+    function Star(name) {
+      this.name = name
+    }
+    Star.prototype.sing = function () {
+      console.log('唱歌')
+    }
+    const ldh = new Star('刘德华')
+    ldh.sing() // 控制台显示 唱歌
+    console.log(ldh) // 控制台显示 Star {name: '刘德华'} 以及一个 prototype object，但没有显示“唱歌”
+
+    // 提问：函数调用有问题
   </script>
 </body>
+
 </html>
