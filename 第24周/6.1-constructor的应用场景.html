@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 1. 先有一个构造函数
+    function Star() {
+      console.log(11)
+    }
+    // 2. 构造函数有一个原型对象，上面可以挂载一些方法
+    // 追加，在原本prototy对象的基础上一个个添加：
+    // Star.prototype.sing = function () {
+    //   console.log('唱歌')
+    // }
+
+    // Star.prototype.dance = function () {
+    //   console.log('跳舞')
+    // }
+    console.log(Star.prototype)
+
+    // 每次追加很麻烦，所以采用赋值的方法，直接赋值一个对象给prototype。因为是对象里面的方法，所以格式是 方法名：function(){}
+    Star.prototype = {
+      // 重新指回原型对象的构造函数，也就是创造这个 constructor 的构造函数
+      constructor: Star,
+      sing: function () {
+        console.log('唱歌')
+      },
+      dance: function () {
+        console.log('跳舞')
+      }
+    }
+
+    console.log(Star.prototype) // {sing: ƒ, dance: ƒ} 原型对象
+
+    // 对象原型
+    const star = new Star
+    console.log(star.__proto__) // {sing: ƒ, dance: ƒ} 对象原型
+
+    console.log(star.__proto__ === Star.prototype) // true
+
+    // 对象原型 __proto__ 指向原型对象 prototype
+    
+
+  </script>
+</body>
+
+</html>

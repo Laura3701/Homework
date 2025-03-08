@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // constructor --- 单词的意思是构造函数
+    // 是 构造函数 的 原型对象里的一个属性
+    function Star() {
+
+    }
+    const ldh = new Star()
+    console.log(Star.prototype.constructor === Star) // true
+
+    console.log(Star.prototype.constructor) // ƒ Star() {} constructor就是构造函数
+
+
+    // 构造函数Star里面有一个原型对象prototype
+    // 原型对象里面有个 constructor 属性，该属性指向原型对象的构造函数，就是代表这个“原型对象”是谁的，是哪个构造函数的
+    // constructor 和 函数名是全等的
+    // 让原型对象prototype找到 谁创造了这个原型
+  </script>
+</body>
+
+</html>
