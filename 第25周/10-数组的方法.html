@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // pop, push, shift, unshift, splice, slice
+
+    // 1. push and pop
+
+    // push 在末尾添加元素
+    // pop 从末尾取出元素
+
+    // 2. shift and unshift
+
+    // shift 开头添加
+    // unshift 开头取出
+
+    // 3. splice and slice
+
+    // splice 就地移除或者替换已存在的元素和/或添加新的元素
+    // arr.splice(起始位置(下标)，删几个元素)
+    const arr = [1, 2, 3, 4]
+    // arr.splice(0, 1) // 从下标为 0 的位置开始删，删 1 个
+    // console.log(arr) // [2,3,4]
+
+    // splice 还有第三个参数，就是需要插入的元素
+    arr.splice(4, 0, 5) // 从下标为 4 的位置，也就是最后一个开始，删除 0 个，插入 5。这里就算不需要删除，也要写上第二个参数 0
+    console.log(arr) // [1,2,3,4,5]
+
+
+
+    // slice 方法返回一个新的数组对象，这一对象是一个由 start 和 end 决定的原数组的浅拷贝（包括 start，不包括 end），其中 start 和 end 代表了数组元素的索引。原始数组不会被改变。
+
+    // slice的参数是数组的下标号，作用是截取两个下标号中间的那段，并且不改变原来的数组
+
+    console.log(arr.slice(0, 1)) // [1]
+
+    console.log(arr.slice(1)) // [2,3,4,5] // 如果只有一个参数，则从这个下标号开始往右全部截取
+
+    console.log(arr.slice(1, -1)) // [2,3,4] 复数的下标号是倒着数的意思
+
+    // 4. arr.at(下标号) 返回下标号对应的元素，下标号如果是复数则倒数
+    console.log(arr.at(1)) // 2
+    console.log(arr.at(-1)) // 5 
+
+    // 5. arr1.concact(arr2) 用于合并数组
+    const arr1 = [1, 2, 3]
+    const arr2 = [4, 5, 6]
+
+    const arr3 = arr1.concat(arr2) // 注意这个写法
+    console.log(arr3) // [1,2,3,4,5,6]
+
+  </script>
+</body>
+
+</html>

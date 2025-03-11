@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // && 一假则假，返回第一个假值
+    // || 一真则真，返回第一个真值
+
+    // 逻辑中断的原理：通过左边能得到整个式子的结果，因此没必要再判断右边
+
+    console.log(1 && 0) // 0 逻辑与一假则假，返回第一个假值
+    console.log(1 || 0) // 1 逻辑或一真则真，返回第一个真值，如果不存在真值，就返回该链的最后一个
+
+    console.log(Boolean(null)) // false
+    console.log(Boolean(NaN)) // false
+    console.log(Boolean(undefined)) // false
+
+    console.log(1 && null) // null 为假，逻辑与返回第一个假值
+    console.log(0 && null) // 数字 0 为假，逻辑与返回第一个假值
+
+    console.log(1 || null) // 逻辑或返回第一个真值
+
+    // 优先级：
+    // 非 在所有逻辑运算符里优先级最高~ 总是 在 && ||之前执行
+    // 先与后或
+
+    console.log(!(true && false || true)) // false
+
+  </script>
+</body>
+
+</html>
