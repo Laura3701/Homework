@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button class="button1">1</button>
+  <button class="button2">2</button>
+  <script>
+    // 普通函数
+    // function getName() {
+    //   console.log(this) // window
+    // }
+
+    // getName()
+
+    const button1 = document.querySelector('.button1')
+    button1.addEventListener('click', function () {
+      console.log(this)
+    })
+    // 点击 button1 之后控制台显示 <button class="button1"></button>
+
+    const button2 = document.querySelector('.button2')
+    button2.addEventListener('click', () => console.log(this))
+    // 点击 button2 之后控制台显示 Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+
+    // 箭头函数不会创建自己的 this，只会从自己的作用域链上一层沿用 this。
+  </script>
+</body>
+
+</html>

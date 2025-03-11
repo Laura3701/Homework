@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 闭包：让函数外部也可以访问/使用函数内部的变量
+    function outer() {
+      let i = 1
+
+      function inner() {
+        console.log(i)
+      }
+      return inner
+    }
+
+    let re = outer()
+    // console.log(re()) // 分行显示 1 和 undefined，不懂
+    re()
+
+    // 闭包书写流程：
+
+    //1. 外层函数 outer()
+    //2. 外层函数的变量 i = 1
+
+    //3. 里层函数 inner()
+    //4. 里层函数log i
+
+    // 5. 在外层函数中 return inner,也就是外层函数的返回值是 inner 这个函数，效果就是 log i
+
+    // 6. 调用外层函数，并赋值给 re，这时候 re 代表 外层函数的返回值，也就是 inner函数
+    // 7. 调用re，也就是调用 inner 函数，实现 log i
+
+    // 口诀：
+    // 外层函数 let i
+    // 内层函数 log i
+    // 要想真正 log 出来，return inner 必须在
+
+    // 函数结束接下来，两个调用分两排：
+    // 调外赋值 第一排
+    // 调用 re 第二排
+
+
+
+
+
+  </script>
+</body>
+
+</html>

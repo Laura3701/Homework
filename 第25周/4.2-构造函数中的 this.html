@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // function Obj() {
+    // console.log(this) //  空对象
+    // }
+    // let re = new Obj()
+    // console.log(re) // 空对象
+
+    function Obj(name, age) {
+      this.name = name
+      this.age = age
+      console.log(this) // Obj {name: 'pink', age: 18}，this就是这个对象
+    }
+    let re = new Obj('pink', 18)
+    console.log(re) // Obj {name: 'pink', age: 18}
+
+  </script>
+</body>
+
+</html>
