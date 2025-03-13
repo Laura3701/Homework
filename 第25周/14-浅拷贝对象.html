@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 浅拷贝：同一个对象，拷贝的只是引用对象的地址
+    let obj1 = {
+      name: 'pink'
+    }
+
+    let obj2 = obj1
+    obj2.name = '111'
+
+    console.log(obj1) // {name: '111'}
+
+    // 在第二个地址下修改了对象，实际上修改的是同一个对象
+  </script>
+</body>
+
+</html>

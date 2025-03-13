@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 构造函数用于创建对象
+
+    // 本来是这样写的，发现是个空对象，name 没有显示出来
+    // function Obj() {
+    //   name: 'pink'
+    // }
+    // const re = new Obj()
+    // console.log(re)
+
+    function Obj(uname) {
+      this.name = uname
+    }
+    const re = new Obj('pink') // new Obj(属性值赋值给了形参 uname)
+    console.log(re) // Obj {name: 'pink'}
+
+
+  </script>
+</body>
+
+</html>

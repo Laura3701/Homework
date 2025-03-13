@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // 计算属性（不知道为什么叫这个）
+
+    // 变量 fruit 就像 key 一样，变成了属性名
+    let fruit = 'apple'
+
+    const bag = {
+      [fruit]: 5
+    }
+
+    console.log(bag[fruit]) // 5 这里即使 fruit 没有[]，写成 bag.fruit 也是一样的结果，因为就是正常的输出属性值
+
+    // apple 被赋值给 fruit，所以 bag.apple 跟 bag[fruit] 是一样的效果
+    console.log(bag.apple) // 5 这个效果必须要在对象内把 fruit 写在 [] 里面才可以
+  </script>
+</body>
+
+</html>

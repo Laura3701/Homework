@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    // 前提条件：this 出现在函数中，或者对象的方法中（其实也是函数）
+
+    // 1. 写在对象里
+    // 方法名：function(){}
+    let obj1 = {
+      name: 'pink',
+      sayHi: function () {
+        console.log('Hi')
+      }
+    }
+    obj1.sayHi() //Hi
+
+
+    // 2. 在对象外追加
+    // 对象名.方法名 = function(){}
+    let obj2 = {
+      name: 'pink'
+    }
+
+    obj2.sayHi = function () {
+      console.log('Hi')
+    }
+    obj2.sayHi() // Hi
+
+    // 3. 对象里面方法的简写
+    // 方法名(){} 省略了 :function
+    let obj3 = {
+      name: 'pink',
+      sayHi() {
+        console.log('Hi')
+      }
+    }
+    obj3.sayHi() // Hi
+
+  </script>
+</body>
+
+</html>

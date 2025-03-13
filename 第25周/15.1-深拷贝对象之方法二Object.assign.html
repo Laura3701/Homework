@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let obj1 = {
+      name: 'pink',
+      age: 30
+    }
+
+    let obj2 = {}
+    Object.assign(obj2, obj1) // 两个参数分别是：目标对象，源对象
+
+    console.log(obj2) // {name: 'pink', age: 30}
+
+    obj2.age = 18
+    console.log(obj2) // {name: 'pink', age: 18}
+    console.log(obj1) // {name: 'pink', age: 30} obj1没有发生改变
+
+    // 提问：Object.assign()属于什么写法？构造函数？
+  </script>
+</body>
+
+</html>

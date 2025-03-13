@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 对象方法中的 this 指的是当前对象
+    let obj = {
+      name: 'pink',
+      sayHi() {
+        console.log(this.name) // // 这里不知道写 this or obj 有什么区别
+      }
+    }
+    obj.sayHi() // this 就是 obj {name: 'pink', sayHi: ƒ}
+
+    // 但这个对象如果赋值给另一个变量，在新的变量被重新赋值的情况下会报错
+
+    // let newUser = obj
+    // newUser = null
+    // newUser.sayHi() // Uncaught TypeError: Cannot read properties of null (reading 'sayHi')
+
+
+    // 箭头函数没有自己的 this
+
+  </script>
+</body>
+
+</html>
