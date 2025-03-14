@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const str = '这句话是什么开头的呢'
+
+    console.log(str.startsWith('这')) // true, 是以 “这” 字为开头
+    console.log(str.startsWith('呢')) // false, 不是以 “呢” 字为开头
+
+
+    console.log(str.startsWith('呢', 9)) // true, 从下标号为9时开始算，是以 呢 为开头
+
+
+
+  </script>
+</body>
+
+</html>

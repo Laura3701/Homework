@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>3秒后消失</p>
+  <script>
+    // setInterval 是每隔 XXX 秒执行一次
+    const p = document.querySelector('p')
+
+    let i = 3
+    let n = setInterval(function () {
+
+      i--
+      p.innerHTML = `${i}后消失`
+
+      if (i < 0) {
+        clearInterval(n) // 这里不能只写 return
+        p.innerHTML = '消失啦'
+      }
+    }, 1000)
+  </script>
+</body>
+
+</html>
