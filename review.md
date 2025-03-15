@@ -76,6 +76,4 @@ Object.defineProperties(obj, {
 });
 ```
 
-
-
-
+字符串方

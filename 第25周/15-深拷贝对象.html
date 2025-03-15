@@ -15,10 +15,17 @@
       name: 'pink',
       age: 30
     }
+    obj1.name
+ 
 
     let obj2 = {}
 
     for (let key in obj1) {
+      // obj1['name']
+      // key = 'name'
+      let v = obj1[key]
+      console.log(v);
+      
       obj2[key] = obj1[key]
     }
 

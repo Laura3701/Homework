@@ -13,15 +13,17 @@
     function outer() {
       let i = 1
 
-      function inner() {
-        console.log(i)
+      return () => {
+        return i
+        // console.log(i)
       }
-      return inner
     }
 
     let re = outer()
     // console.log(re()) // 分行显示 1 和 undefined，不懂
-    re()
+    let v = re()
+    console.log(v);
+    
 
     // 闭包书写流程：
 
@@ -44,7 +46,6 @@
     // 函数结束接下来，两个调用分两排：
     // 调外赋值 第一排
     // 调用 re 第二排
-
 
 
 
