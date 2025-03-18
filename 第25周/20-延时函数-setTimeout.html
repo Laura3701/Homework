@@ -18,9 +18,11 @@
 
     const p = document.querySelector('p')
 
-    setTimeout(function () {
+    let v = setTimeout(function () {
       p.style.display = 'none' // 这里不要全等！
     }, 3000)
+
+    clearTimeout(v) // 取消定时器
 
   </script>
 </body>

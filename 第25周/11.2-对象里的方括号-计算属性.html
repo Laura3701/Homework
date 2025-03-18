@@ -16,13 +16,19 @@
     let fruit = 'apple'
 
     const bag = {
-      [fruit]: 5
+      [fruit]: 5,
     }
+
+console.log(bag.fruit);
 
     console.log(bag[fruit]) // 5 这里即使 fruit 没有[]，写成 bag.fruit 也是一样的结果，因为就是正常的输出属性值
 
     // apple 被赋值给 fruit，所以 bag.apple 跟 bag[fruit] 是一样的效果
     console.log(bag.apple) // 5 这个效果必须要在对象内把 fruit 写在 [] 里面才可以
+
+
+    // []
+    // 变量
   </script>
 </body>
 

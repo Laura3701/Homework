@@ -1,28 +1,237 @@
-    // 1. 生成一个 0 - 10 之间的随机数
-    let random = Math.floor(Math.random() * 10)
+const HEIGHT = 100;
+const WIDTH = 200;
 
-    // 2. 弹窗提示用户输入数字（for 循环，因为如果错了还要回到弹窗）
-    // 3. 每次用户输入猜的数字，都跟随机数做对比
-    // 4. 大了则提示猜大了，or 小了，并且再次弹窗，最多弹窗3次
+// let arr = [1,2,3,4,5,6,7,8,9,10];
 
-    // 开关变量写在循环外面
-    // let flag = true
+// let v = arr.at(0)
 
-    // for (let i = 1; i <= 3; i++) {
+// console.log(v);
 
-    //   let num = +prompt('请输入一个0-10之间的数字')
+// concat
+// let arr1 = [1,2,3,4,5,6,7,8,9,10];
+// let arr2 = [11,12,13,14,15,16,17,18,19,20];
 
-    //   if (num > random) {
-    //     alert('猜大了')
-    //   } else if (num < random) {
-    //     alert('猜小了')
-    //   } else {
-    //     flag = false // 这里不要 let flag，再次声明不是赋值
-    //     alert('猜对啦！！')
-    //     break // 提问：这里可以不要 break 吗？
-    //   }
-    // }
+// let arr = arr1.concat(arr2);
+// console.log(arr);
 
-    // if (flag === true) {
-    //   alert('次数已用完')
-    // }
+// 合并数组
+// let arr3 = [...arr1, ...arr2];
+// console.log(arr3);
+
+
+// map 和 forEach 的区别
+
+// let arr = [1,2,3,4, ,6,7,8,,10];
+
+// let arr1 = arr.map((item,index) => {
+//     return item * 2;
+// })
+
+// console.log(arr1);
+
+// some , every
+/* 返回 */
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// let v = arr.some(item => item > 8)
+// console.log(v);
+
+// let v = arr.every(item => item > 0)
+// console.log(v); // boolean
+
+// find  findIndex findLast findLastIndex
+// let v = arr.find(item => item > 20);
+// let v = arr.findIndex(item => item > 4);
+// let v = arr.findIndex(item => item > 20);
+// console.log(v);
+
+// let arr1 = [1,2,3,4,5,6,7,8,9,10];
+// let v = arr1.findLastIndex(item => item > 5)
+// let v = arr1.findLast(item => item < 3)
+
+// console.log(v)
+
+
+// filter 返回一个数组
+
+// let arr = [1,2,3,4,5,6,7,8,9,10];
+// let arr1 = arr.filter(item => item > 5);
+// arr1.push(11);
+// console.log(arr1);
+
+// reduce
+
+// let arr = [1,2,3,4,5,6,7,8,9,10];
+// let v = arr.reduce((pre,cur) => {
+//     return pre + cur;
+// })
+// console.log(v);
+
+
+// flat
+// let arr = [
+//     [
+//         [1, 2, 3],
+//     ],
+//     [4, 5, 6],
+//     [7, 8, 9]
+// ]
+
+// let arr1 = arr.flat(infinity);
+// console.log(arr1);
+
+// reverse/fill/copyWithin
+
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// arr.reverse();
+// console.log(arr);
+
+// console.log(arr);
+// let arr = [1, 2, 3]
+// arr.fill('a', 1, 3);
+// console.log(arr);
+
+// let arr = [1]
+
+// arr.fill('a', 1, 2);
+
+// console.log(arr);
+
+// let arr = [1, 2, 4, 4]
+// arr.copyWithin(0, 3);
+// console.log(arr);
+
+// let obj = {
+//     a: 1,
+//     b: 2,
+//     c: 3,
+// }
+// let v = Object.entries(obj);
+// console.log(v);
+
+// delete obj.a;
+
+// console.log(obj);
+
+
+// 返回一个布尔值
+// let v = obj.hasOwnProperty('a');
+// console.log(v);
+
+// assign
+
+// let obj1 = {
+//     a: 1,
+//     b: 2,
+//     c: 3,
+// }
+
+// let obj2 = {
+//     a: 'a',
+//     e: 5,
+//     f: 6,
+// }
+
+// let v = Object.assign(obj1, obj2);
+// console.log(v);
+
+
+/*  */
+
+// const deepCopy = JSON.parse(JSON.stringify(obj));
+
+/* 字符串的方法 */
+
+
+// let obj1 = {
+//     a: 1,
+//     b: 2,
+//     c: 3,
+//     "231-123": '12312312'
+// }
+// let newObj = {}
+
+
+// // newObj.a = obj1.a;
+// // newObj.b = obj1.b;
+// // newObj.c = obj1.c;
+
+// for (let key in obj1) {
+//     // newObj[key] = obj1[key];
+//     console.log(obj1[key]);
+
+// }
+
+
+// 字符串的方法
+let str = 'abcde';
+// let v = str.split('1');
+// console.log(v);
+
+// let v = str.slice(1, 3);
+// console.log(v);
+// console.log(str);
+
+// let s = str.substring(1, 3);
+// console.log(s);
+// console.log(str);
+
+// let s = str.toUpperCase();
+// console.log(s);
+
+// let v = s.toLocaleLowerCase();
+// console.log(v);
+
+// let arr = [1, 2, 3, 4]
+
+// for (let i = 0; i < arr.length; i++) {
+
+//     switch (i) {
+//         case 0:
+//             console.log('我是第一个', i)
+//         // break
+
+//         case 1:
+//             console.log('我是第二个', i)
+//             break
+
+//         case 2:
+//             console.log('我是第三个', i)
+//             break
+
+//         case 3:
+//             console.log('我是第四个', i)
+//             break;
+//         default:
+//             console.log('我是默认')
+//             break;
+//     }
+
+// }
+
+
+
+
+
+// let obj = {
+//     a: 1,
+//     b: 2,
+//     c: 3,
+// }
+
+// let fruit = 'apple'
+
+// const bag = {
+//     [fruit]: 5,
+// }
+
+// console.log(bag.fruit);
+
+let v = setInterval(function () {
+    console.log('v')
+}, 1000)
+
+console.log(v);
+
+clearInterval(v)
+
