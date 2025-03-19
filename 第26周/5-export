@@ -1,0 +1,32 @@
+### Js的模块系统中的导入和导出
+
+#### 1. 命名导出
+
+（1）在声明变量或函数的时候直接导出：
+
+`export const PI = 3.14159`
+`export function 函数名（参数）{}`
+
+（2）先声明再统一导出
+`export {函数名， 变量名}`
+
+#### 2. 导入 命名导出
+improt { greet， PI} from "./module.js"
+<!-- console.log(greet(PI)) 为什么这样写？ -->
+
+#### 3. 默认导出
+一个模块中只能有一个默认导出
+export 后面加上 default
+
+`export dufault greet`
+
+#### 4. 导入默认导出
+import greet from "./greet.js"
+<!-- console.log(greet("小课")) 为什么这样写？ -->
+
+#### 5. 区别
+
+- 命名导出可以导出多个值，可以选择性导入，灵活性好
+- 指定了确切的名字，便于代码追踪和维护
+
+- 默认导出简化了单个值的导入和导出，可以让代码更简洁，适合功能单一的模块
