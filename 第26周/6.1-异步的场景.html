@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const p2 = new Promise(function haha(tmp1) {
+            console.log('This is a test')
+
+            setTimeout(function () {
+                tmp1('nice setTimeout okok')
+            }, 5000) // 间隔5秒之后，把字符串给到 tmp1
+
+        })
+
+        p2.then(function func(tmp) {
+            console.log(tmp)
+        })
+        // 这一步也不懂
+
+        console.log('test demo')
+    </script>
+</body>
+
+</html>
+
