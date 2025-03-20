@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // promise 将异步 变 同步
+    // 也就是从单独执行变成按照顺序队列执行
+
+    // 比如 setTimeout 是异步，用 new promise 包裹，就变成了同步，可以在执行队列中排队执行
+
+    function one() {
+      return '我是第一个'
+    }
+
+    function two() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('我是第二个')
+        }, 3000)
+      })
+    }
+
+    function three() {
+      return '我是第三个'
+    }
+
+    async function run() {    //async 代表该函数里有 promise 的请求
+      console.log(one())
+      console.log(await two()) // await 代表等第二个执行完再执行第三个
+      console.log(three())
+    }
+
+    run() // 要调用 run() 才能执行
+  </script>
+</body>
+
+</html>
