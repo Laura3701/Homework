@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <body>
+    <script>
+      // 同步：按照顺序执行
+      // 异步：各做各的，不等待别人执行完再做。比如setTimeout and fetch 都是异步函数，其他函数不需要等待他们执行
 
-<body>
-  <script>
-    // 同步：按照顺序执行
-    // 异步：各做各的，不等待别人执行完再做。比如setTimeout and fetch 都是异步函数，其他函数不需要等待他们执行
+      // promise 的意思是：交给我执行吧，我来完成，然后你把结果取回去
 
-    // promise 的意思是：交给我执行吧，我来完成，然后你把结果取回去
+      // promise 本质来说是一个类，是一个类就需要实例化；实例化之后，会生成一个对象
 
-    // promise 本质来说是一个类，是一个类就需要实例化；实例化之后，会生成一个对象
+      // 1. 先实例化对象
+      const num = 1;
 
-    // 1. 先实例化对象
-    const num = 1
+      const p1 = new Promise(function haha(tmp1, tmp2) {
+        if (num == 1) {
+          tmp1([1, 2, 3]);
+        } else {
+          tmp2('Error');
+        }
+      });
+      // 提问：tmp1,tmp2 这两个参数也是函数，是什么意思？
 
-    const p1 = new Promise(function haha(tmp1, tmp2) {
-      if (num == 1) {
-        tmp1([1, 2, 3])
-      } else {
-        tmp2('Error')
-      }
-    })
-    // 提问：tmp1,tmp2 这两个参数也是函数，是什么意思？
+      // 2. 实例化对象之后，调用 then 函数把结果取回来
 
-    // 2. 实例化对象之后，调用 then 函数把结果取回来
+      p1.then(function f123(params) {
+        console.log(params);
+      }).catch(function f123(params) {
+        console.log(params);
+      });
 
-    p1.then(function f123(params) {
-      console.log(params)
-    }).catch(function f123(params) {
-      console.log(params)
-    })
+      /* promise.all() race() allSettled() 三个方法 */
 
-    //[1,2,3]
-  </script>
-</body>
-
+      //[1,2,3]
+    </script>
+  </body>
 </html>
