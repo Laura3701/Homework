@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function one() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('我是第一个')
+        }, 2000)
+        setTimeout(() => {
+          resolve('我是第二个')
+        }, 1000) //   在第一个和第二个之间，执行的是第二个，因为 1秒 比 2秒 短
+      })
+    }
+
+    function two() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('我是第三个')  // 在第三个和第四个之间，执行的是第三个
+        }, 3000)
+        setTimeout(() => {
+          resolve('我是第四个')
+        }, 4000)
+      })
+    }
+
+    Promise.all([one(), two()]).then((res) => {
+      console.log('成功', res)
+    }).catch((err) => {
+      console.log('失败', err)
+    })
+
+    // (2) ['我是第二个', '我是第三个']   Promise.all
+
+
+    // Promise.all() 返回成功的
+    // Promise.race() 谁先结束谁返回
+    // Promise.allSettled() 全部返回，不管成功还是失败
+
+    // 提问：还是不理解 new Promise() 这个写法
+    // 结合上面的提问，首字母大写的 Promise 既可以 new，又可以 Promise.all()，这些写法之间都是什么逻辑关系？
+
+    // Promise.allSettled() 全部返回的时候，失败的那个显示的 fulfilled 是什么意思？
+    // all()既然只返回成功的，后面的 .catch((err)=>{})为什么海需要写？
+  </script>
+</body>
+
+</html>

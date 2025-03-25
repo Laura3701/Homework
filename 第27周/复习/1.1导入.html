@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script type="module">
+    import { PI } from "./1-导出.js" // 不理解 为什么一定要加 { }
+    import { greet } from "./1-导出.js"
+    import { obj } from "./1-导出.js"
+
+    console.log(PI)
+    console.log(greet()) // 为什么出现了一个undefined？
+    console.log(obj)
+  </script>
+</body>
+
+</html>
