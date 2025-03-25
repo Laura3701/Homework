@@ -227,11 +227,51 @@ let str = 'abcde';
 
 // console.log(bag.fruit);
 
-let v = setInterval(function () {
-    console.log('v')
-}, 1000)
+// let v = setInterval(function () {
+//     console.log('v')
+// }, 1000)
 
-console.log(v);
+// console.log(v);
 
-clearInterval(v)
+// clearInterval(v)
 
+
+function one() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('我是第1个');
+        }, 4000);
+        setTimeout(() => {
+            reject('我是第2个');
+        }, 1000);
+    });
+}
+
+function two() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('我是第3个');
+        }, 500);
+        setTimeout(() => {
+            reject('我是第4个');
+        }, 5000);
+    });
+}
+
+// all
+
+Promise.all([one(), two()]).then((res) => {
+    console.log('成功', res);
+}).catch((err) => {
+    console.log("失败", err);
+})
+
+
+
+
+
+// two().then(res => {
+//     console.log('成功', res);
+// }).catch(err => {
+//     console.log("失败", err);
+// })
