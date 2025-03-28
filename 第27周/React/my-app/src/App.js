@@ -76,31 +76,65 @@
 
 
 
-// 3. 复杂的条件渲染
+// // 3. 复杂的条件渲染
 
-// 定义文章类型
-const ariticleType = 1 // 0 1 3 分别代表无图、单图、三图
+// // 定义文章类型
+// const ariticleType = 1 // 0 1 3 分别代表无图、单图、三图
 
-// 定义核心函数（根据文章类型返回不同的JSX模板）
-function getArticleTem() {
-  if (ariticleType === 0) {
-    return <div>无图</div>
-  } else if (ariticleType === 1) {
-    return <div>单图</div>
-  } else {
-    return <div>三图</div>
-  }
-}
+// // 定义核心函数（根据文章类型返回不同的JSX模板）
+// function getArticleTem() {
+//   if (ariticleType === 0) {
+//     return <div>无图</div>
+//   } else if (ariticleType === 1) {
+//     return <div>单图</div>
+//   } else {
+//     return <div>三图</div>
+//   }
+// }
 
 
-// 通过调用函数，根据不同的 article赋值 渲染不同的模板
+// // 通过调用函数，根据不同的 article赋值 渲染不同的模板
+// function App() {
+//   return (
+//     <div className="App">
+//       {getArticleTem()}
+//     </div>
+//   )
+// }
+
+
+
+
+// 4. react中的事件绑定
+// 什么事件 on后面就写什么名字
 function App() {
+  // // 1. 基础绑定
+  // const handleClick = () => {
+  //   console.log('button被点击了')
+  // }
+
+  // // 2. 增加一个事件参数e，箭头函数的括号里要写e
+  // const handleClick = (e) => {
+  //   console.log('button被点击了', e)
+  // }
+
+  // // 3. 传递自定义参数
+  // const handleClick = (name) => {
+  //   console.log('button被点击了', name)
+  // }
+
+  // //4. e 和 自定义参数同时传
+  // //注意 箭头函数的括号里要写参数！！！！！！
+  const handleClick = (name, e) => {
+    console.log('button被点击了', name, e)
+  }
   return (
     <div className="App">
-      {getArticleTem()}
+      <button onClick={(e) => handleClick('jack', e)}>click me</button>
     </div>
   )
 }
+
 
 // 为什么不能导出两个？不是 defult 也不可以
 export default App
