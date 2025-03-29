@@ -107,34 +107,92 @@
 
 // 4. react中的事件绑定
 // 什么事件 on后面就写什么名字
+// function App() {
+// // 1. 基础绑定
+// const handleClick = () => {
+//   console.log('button被点击了')
+// }
+
+// // 2. 增加一个事件参数e，箭头函数的括号里要写e
+// const handleClick = (e) => {
+//   console.log('button被点击了', e)
+// }
+
+// // 3. 传递自定义参数
+// const handleClick = (name) => {
+//   console.log('button被点击了', name)
+// }
+
+// //4. e 和 自定义参数同时传
+// //注意 箭头函数的括号里要写参数！！！！！！
+//   const handleClick = (name, e) => {
+//     console.log('button被点击了', name, e)
+//   }
+//   return (
+//     <div className="App">
+//       <button onClick={(e) => handleClick('jack', e)}>click me</button>
+//     </div>
+//   )
+// }
+
+
+
+
+// 组件
+// 1. 定义一个组件
+// function Button() {
+//   // 业务逻辑
+//   return <button>click me</button>
+// }
+
+// // 箭头函数的写法
+// const Button = () => {
+//   // 业务逻辑
+//   return <button>click me</button>
+// }
+
+
+
+// function App() {
+//   return (
+//     <div className="App">
+//       {/* 渲染组件的两种方式 */}
+
+//       {/* 1. 自闭和 */}
+//       <Button />
+//       {/* 2. 成对标签，注意这里 Button 首字母要大写！*/}
+//       <Button></Button>
+//     </div>
+//   )
+// }
+
+
+
+
+
+// useState 实现一个计数器按钮
+// useState函数来自于 React内部，所以要先导入才能使用
+
+import { useState } from 'react'
 function App() {
-  // // 1. 基础绑定
-  // const handleClick = () => {
-  //   console.log('button被点击了')
-  // }
+  // 1. 调用useState添加一个状态变量
+  // 下面是数组的解构赋值的写法, 第一个count是状态变量，第二个setCount是修改状态变量的方法
+  const [count, setCount] = useState(0)
 
-  // // 2. 增加一个事件参数e，箭头函数的括号里要写e
-  // const handleClick = (e) => {
-  //   console.log('button被点击了', e)
-  // }
-
-  // // 3. 传递自定义参数
-  // const handleClick = (name) => {
-  //   console.log('button被点击了', name)
-  // }
-
-  // //4. e 和 自定义参数同时传
-  // //注意 箭头函数的括号里要写参数！！！！！！
-  const handleClick = (name, e) => {
-    console.log('button被点击了', name, e)
+  // 2. 点击事件回调
+  const handleClick = () => {
+    // 作用：
+    // 1. 用传入的新值修改 count
+    // 2. 重新使用新的 count 渲染 UI
+    setCount(count + 1) // 点击一次加1
   }
   return (
     <div className="App">
-      <button onClick={(e) => handleClick('jack', e)}>click me</button>
+      {/* 绑定事件的方式是 onClick={handleClick}*/}
+      <button onClick={handleClick}>{count}</button>
     </div>
   )
 }
-
 
 // 为什么不能导出两个？不是 defult 也不可以
 export default App
