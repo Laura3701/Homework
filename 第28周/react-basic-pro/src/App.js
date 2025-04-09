@@ -81,6 +81,14 @@ const App = () => {
   // 渲染评论列表
   // 1. 使用useState维护list
   const [commentList, setCommentList] = useState(defaultList)
+  const handleDel = (id) => {
+    console.log(id)
+
+    // 对 commentList做过滤处理,
+    // 思路：拿到当前项的id，以它为条件做过滤。当item里的id不等于传入的id时，才会显示
+    // filter 返回一个新数组，不更改老数组
+    setCommentList(commentList.filter(item => item.rpid !== id))
+  }
 
   return (
     <div className="app">
@@ -153,9 +161,11 @@ const App = () => {
                     <span className="reply-time">{item.ctime}</span>
                     {/* 评论数量 */}
                     <span className="reply-time">点赞数:{item.like}</span>
-                    <span className="delete-btn">
-                      删除
-                    </span>
+                    {/* 实现：只有自己的评论才显示删除，user.uid === item.uid，也就是当前用户的登录信息与评论的id号一致。用逻辑与来实现*/}
+                    {user.uid === item.user.uid &&
+                      <span className="delete-btn" onClick={() => handleDel(item.rpid)}>
+                        删除 </span>}
+
 
                   </div>
                 </div>
@@ -168,6 +178,8 @@ const App = () => {
     </div>
   )
 }
+
+
 
 // function App() {
 //   return <div>
