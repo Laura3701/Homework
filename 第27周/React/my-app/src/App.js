@@ -170,29 +170,39 @@
 
 
 
-// useState 实现一个计数器按钮
-// useState函数来自于 React内部，所以要先导入才能使用
+// // useState 实现一个计数器按钮
+// // useState函数来自于 React内部，所以要先导入才能使用
 
-import { useState } from 'react'
-function App() {
-  // 1. 调用useState添加一个状态变量
-  // 下面是数组的解构赋值的写法, 第一个count是状态变量，第二个setCount是修改状态变量的方法
-  const [count, setCount] = useState(0)
+// import { useState } from 'react'
+// function App() {
+//   // 1. 调用useState添加一个状态变量
+//   // 下面是数组的解构赋值的写法, 第一个count是状态变量，第二个setCount是修改状态变量的方法
+//   const [count, setCount] = useState(0)
 
-  // 2. 点击事件回调
-  const handleClick = () => {
-    // 作用：
-    // 1. 用传入的新值修改 count
-    // 2. 重新使用新的 count 渲染 UI
-    setCount(count + 1) // 点击一次加1
-  }
-  return (
-    <div className="App">
-      {/* 绑定事件的方式是 onClick={handleClick}*/}
-      <button onClick={handleClick}>{count}</button>
-    </div>
-  )
-}
+//   // 2. 点击事件回调
+//   const handleClick = () => {
+//     // 作用：
+//     // 1. 用传入的新值修改 count
+//     // 2. 重新使用新的 count 渲染 UI
+//     setCount(count + 1) // 点击一次加1
+//   }
+//   return (
+//     <div className="App">
+//       {/* 绑定事件的方式是 onClick={handleClick}*/}
+//       <button onClick={handleClick}>{count}</button>
+//     </div>
+//   )
+// }
+
+
+
+// function App() {
+//   Day1()
+// }
+
+// function Day1() {
+//   return <div>1</div>
+// }
 
 // 为什么不能导出两个？不是 defult 也不可以
 export default App

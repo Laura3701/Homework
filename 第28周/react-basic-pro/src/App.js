@@ -154,4 +154,19 @@ const App = () => {
   )
 }
 
+// function App() {
+//   return <div>
+//     <div>{Day1()}</div>
+//     <div>{Day2()}</div>
+//   </div>
+// }
+
+// function Day1() {
+//   return <div>1</div>
+// }
+
+// function Day2() {
+//   return <div>2</div>
+// }
+
 export default App
