@@ -84,22 +84,11 @@ const App = () => {
   const handleDel = (id) => {
     console.log(id)
 
-    // 删除功能
     // 对 commentList做过滤处理,
     // 思路：拿到当前项的id，以它为条件做过滤。当item里的id不等于传入的id时，才会显示
     // filter 返回一个新数组，不更改老数组
     setCommentList(commentList.filter(item => item.rpid !== id))
   }
-
-  //tab切换功能
-  // （1）点击谁就把谁的type记录下来
-  // （2）通过记录的type和每一项遍历的type做匹配，控制激活类名的显示
-  const handleTabChange = (type) => {
-    console.log(type)
-    setType(type)
-  }
-
-  const [type, setType] = useState('hot')
 
   return (
     <div className="app">
@@ -113,8 +102,8 @@ const App = () => {
           </li>
           <li className="nav-sort">
             {/* 高亮类名： active */}
-            {tabs.map(item => <span key={item.type} onClick={() => handleTabChange(item.type)} className='nav-item'>{item.text}</span>)}
-
+            <span className='nav-item'>最新</span>
+            <span className='nav-item'>最热</span>
           </li>
         </ul>
       </div>
