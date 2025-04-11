@@ -1,6 +1,7 @@
 import './App.scss'
 import avatar from './images/bozai.png'
-import { useState } from 'react'
+// import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 /**
  * 评论列表的渲染和操作
@@ -94,12 +95,17 @@ const App = () => {
   //tab切换功能
   // （1）点击谁就把谁的type记录下来
   // （2）通过记录的type和每一项遍历的type做匹配，控制激活类名的显示
+  const [type, setType] = useState('hot')
+
   const handleTabChange = (type) => {
-    console.log(type)
     setType(type)
+    // console.log(type)
+
   }
 
-  const [type, setType] = useState('hot')
+  useEffect(() => {
+    console.log('当前激活的 tab 是:', type)
+  }, [type])
 
   return (
     <div className="app">

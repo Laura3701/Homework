@@ -1,6 +1,7 @@
 import './App.scss'
 import avatar from './images/bozai.png'
-import { useState } from 'react'
+// import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 /**
  * 评论列表的渲染和操作
@@ -84,11 +85,26 @@ const App = () => {
   const handleDel = (id) => {
     console.log(id)
 
+    // 删除功能
     // 对 commentList做过滤处理,
     // 思路：拿到当前项的id，以它为条件做过滤。当item里的id不等于传入的id时，才会显示
     // filter 返回一个新数组，不更改老数组
     setCommentList(commentList.filter(item => item.rpid !== id))
   }
+
+  //tab切换功能
+  // （1）点击谁就把谁的type记录下来
+  // （2）通过记录的type和每一项遍历的type做匹配，控制激活类名的显示
+  const [type, setType] = useState('hot')
+
+  const handleTabChange = (type) => {
+    setType(type)
+    console.log(type)
+  }
+
+  // useEffect(() => {
+  //   console.log('当前激活的 tab 是:', type)
+  // }, [type])
 
   return (
     <div className="app">
@@ -101,9 +117,12 @@ const App = () => {
             <span className="total-reply">{10}</span>
           </li>
           <li className="nav-sort">
-            {/* 高亮类名： active */}
-            <span className='nav-item'>最新</span>
-            <span className='nav-item'>最热</span>
+            {/* 高亮类名： active 如果记录的类名type和遍历时每一项的item.type相等时，显示 active*/}
+            {tabs.map(item =>
+              <span key={item.type} onClick={() => handleTabChange(item.type)} className={`nav-item ${type === item.type && 'active'}`}>
+                {item.text}
+              </span>)}
+
           </li>
         </ul>
       </div>
