@@ -2,6 +2,7 @@ import './App.scss'
 import avatar from './images/bozai.png'
 // import { useState } from 'react'
 import { useState, useEffect } from 'react'
+import _ from 'lodash'
 
 /**
  * 评论列表的渲染和操作
@@ -81,7 +82,7 @@ const tabs = [
 const App = () => {
   // 渲染评论列表
   // 1. 使用useState维护list
-  const [commentList, setCommentList] = useState(defaultList)
+  const [commentList, setCommentList] = useState(_.orderBy(defaultList, 'like', 'desc'))
   const handleDel = (id) => {
     console.log(id)
 
@@ -100,6 +101,14 @@ const App = () => {
   const handleTabChange = (type) => {
     setType(type)
     console.log(type)
+    // 点击tab，列表重新排序,lodash
+    if (type === 'hot') {
+      // 根据点赞数排序，两个参数分别是数组和 根据谁进行排序like,第三个参数是排序方式desc倒序
+      setCommentList(_.orderBy(commentList, 'like', 'desc'))
+    } else {
+      // 根据创建时间排序
+      setCommentList(_.orderBy(commentList, 'ctime', 'desc'))
+    }
   }
 
   // useEffect(() => {
@@ -184,8 +193,6 @@ const App = () => {
                     {user.uid === item.user.uid &&
                       <span className="delete-btn" onClick={() => handleDel(item.rpid)}>
                         删除 </span>}
-
-
                   </div>
                 </div>
               </div>
